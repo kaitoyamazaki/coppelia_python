@@ -12,6 +12,8 @@ class Trace():
         self.motor_r = sim.getObject('/base/right_motor')
         self.motor_l = sim.getObject('/base/left_motor')
         self.robot = sim.getObject('/base')
+        self.base_vel_r = sim.getJointTargetVelocity(self.motor_r)
+        self.base_vel_l = sim.getJointTargetVelocity(self.motor_l)
         #self.middleSensor = sim.getObject('/base/middleSensor')
         #self.rightSensor = sim.getObject('/base/rightSensor')
         #self.leftSensor = sim.getObject('/base/leftSensor')
@@ -44,6 +46,51 @@ class Trace():
             pass
 
         return sensor_data
+    
+
+    def motor_controll(self, sensora_data):
+        sim = self.sim
+        sensor_pos = [2, 1, 0, -1, -2]
+        sum = 0
+        ave = 0
+        gain = 900
+
+        vel_r = self.base_vel_r
+        vel_l = self.base_vel_l
+
+        for i in range(len(sensora_data)):
+            if(sensora_data[i]):
+                sum += 1
+                ave += sensor_pos[i]
+            
+            else:
+                pass
+        
+
+        try:
+            now_pos = ave / sum
+
+        except ZeroDivisionError:
+            now_pos = 0
+            vel_r = self.base_vel_r
+            vel_l = self.base_vel_l
+        
+
+        out = now_pos * gain
+        rad_out = np.deg2rad(out)
+
+        vel_r = self.base_vel_r + rad_out
+        vel_l = self.base_vel_l - rad_out
+
+        print(f"{sensora_data}")
+        print(f"{out}, {rad_out}")
+        print(f"{vel_r}, {vel_l}")
+
+        sim.setJointTargetVelocity(self.motor_r, vel_r)
+        sim.setJointTargetVelocity(self.motor_l, vel_l)
+
+
+
         
 
 
@@ -53,11 +100,11 @@ class Trace():
 
         sim.startSimulation()
 
-        while (t := sim.getSimulationTime()) < 10:
+        while (t := sim.getSimulationTime()) < 100:
 
             now_sensor_data = self.linesensor()
+            self.motor_controll(now_sensor_data)
 
-            print(f"{now_sensor_data}")
 
             # typeエラーが出るのでその対策
             #try:
