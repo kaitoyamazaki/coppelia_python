@@ -23,4 +23,6 @@ windowsでの環境構築はこれで完了です.
 
 1. CoppeliaSimのinstall（[installはここより実行](https://www.coppeliarobotics.com/downloads)）
 2. ターミナルで```pip install coppeliasim-zmqremoteapi-client```を実行.
+4. CoppeliaSimを起動し, ``coppelia_python/tutorials/LineTraceTutorial.ttt``を開く.
+5. シミュレーションを開いたことを確認し, ターミナルで```python3 trace.py```を実行する.
 
