@@ -21,5 +21,5 @@ windowsでの環境構築はこれで完了です.
 ``ubuntu(Linux)``
 
 1. CoppeliaSimのinstall（[installはここより実行](https://www.coppeliarobotics.com/downloads)）
-2. ターミナルで```python3 -m pip install coppeliasim-zmqremoteapi-client```を実行.
+2. ターミナルで```pip install coppeliasim-zmqremoteapi-client```を実行.
 
