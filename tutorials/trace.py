@@ -53,7 +53,7 @@ class Trace():
         sensor_pos = [2, 1, 0, -1, -2]
         sum = 0
         ave = 0
-        gain = 900
+        gain = 400
 
         vel_r = self.base_vel_r
         vel_l = self.base_vel_l
