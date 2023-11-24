@@ -13,5 +13,13 @@
 1. CoppeliaSimのinstall（[installはここより実行](https://www.coppeliarobotics.com/downloads)）
 2. windows下でのpythonの環境構築 ([間児湯構築はここを参照してください](https://www.python.jp/python_vscode/windows/setup/index.html))
 3. pythonの環境構築後にpowershellで```python3 -m pip install coppeliasim-zmqremoteapi-client```を実行.
+4. CoppeliaSimを起動し, ``Lin
+
 
 windowsでの環境構築はこれで完了です.
+
+``ubuntu(Linux)``
+
+1. CoppeliaSimのinstall（[installはここより実行](https://www.coppeliarobotics.com/downloads)）
+2. ターミナルで```python3 -m pip install coppeliasim-zmqremoteapi-client```を実行.
+
