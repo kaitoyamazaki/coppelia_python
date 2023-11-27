@@ -50,7 +50,7 @@ class Trace():
 
     def motor_controll(self, sensora_data):
         sim = self.sim
-        sensor_pos = [2, 1, 0, -1, -2]
+        sensor_pos = [10, 5, 0, -5, -10]
         sum = 0
         ave = 0
         gain = 400
@@ -128,4 +128,9 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    
+    try:
+        main()
+    
+    except KeyboardInterrupt:
+        print((f"Ctrl-Cによるプログラム停止"))
