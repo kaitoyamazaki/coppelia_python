@@ -15,6 +15,9 @@ class Simulation:
         self.joint2 = sim.getObject("/base/joint/link1/joint")
         self.link2 = sim.getObject("/base/joint/link1/joint/link2")
 
+        #self.camera = sim.getObject("/Camera")
+        #sim.setObjectPosition(self.camera, [0, 0, 10])
+
         self.first_deg_joint1 = sim.getJointPosition(self.joint1)
         self.first_deg_joint2= sim.getJointPosition(self.joint2)
         self.l1 = 1
@@ -35,7 +38,7 @@ class Simulation:
         sim.setJointPosition(self.joint1, result[0][0])
         sim.setJointPosition(self.joint2, result[1][0])
 
-        while (t := sim.getSimulationTime()) < 20:
+        while (t := sim.getSimulationTime()) < 50:
             #pos = sim.getJointPosition(self.joint2)
             #print(f"Simulation time: {t: .2f} [s]")
             sim.setJointPosition(self.joint1, result[0][0])
