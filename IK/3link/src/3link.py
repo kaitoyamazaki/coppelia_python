@@ -32,11 +32,11 @@ class Threelink():
 
         i = 0.5
 
-        while (t := sim.getSimulationTime()) < 70:
+        while (t := sim.getSimulationTime()) < 7:
             #print(f"Simulation time: {t: .2f} [s]")
             self.move_arm(i)
             sim.step()
-            i = i + 0.00005
+            i = i + 0.0005
         
         sim.stopSimulation()
 
