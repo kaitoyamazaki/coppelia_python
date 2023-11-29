@@ -15,6 +15,8 @@ class Simulation:
         self.joint2 = sim.getObject("/base/joint/link1/joint")
         self.link2 = sim.getObject("/base/joint/link1/joint/link2")
 
+        self.p_t = sim.getObject("/p_target")
+
         #self.camera = sim.getObject("/Camera")
         #sim.setObjectPosition(self.camera, [0, 0, 10])
 
@@ -31,6 +33,8 @@ class Simulation:
         sim.startSimulation()
 
         target_x, target_y = self.input_target()
+
+        sim.setObjectPosition(self.p_t, [target_x, target_y, 0.05], sim.handle_world)
         dq = self.get_div_pos(target_x, target_y)
 
         result = self.IK(self.first_deg_joint1, self.first_deg_joint2, dq)
@@ -68,8 +72,8 @@ class Simulation:
 
     def input_target(self):
 
-        x = 1.2
-        y = -0.3
+        x = 1.0
+        y = 0.5
         #x, y = map(float, input("Enter x, y of the Endeffector : ").split(','))
 
         return x, y
