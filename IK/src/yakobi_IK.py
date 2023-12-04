@@ -46,9 +46,9 @@ class Simulation:
 
 
         while (t := sim.getSimulationTime()) < 50:
-            #now_pe_pos = self.get_pe_pos()
+            now_pe_pos = self.get_pe_pos()
 
-            #next_pe_pos = self.get_next_pe(self.dp)
+            next_pe_pos = self.get_next_pe(self.dp, direction)
             sim.step()
         
         sim.stopSimulation()
