@@ -16,7 +16,7 @@ class Simulation:
         self.p_e = sim.getObject("/base/joint/link1/joint/link2/p_end")
 
         self.target_pos_x = 0.7
-        self.target_pos_y = 1.2
+        self.target_pos_y = 1.3
         self.dp = 0.001
 
         self.p_target = sim.getObject("/p_target")
@@ -48,7 +48,7 @@ class Simulation:
         sim.setObjectPosition(self.p_target, [target_pos[0][0], target_pos[0][1], 0.05], sim.handle_world)
 
 
-        while (t := sim.getSimulationTime()) < 50:
+        while (t := sim.getSimulationTime()) < 100:
 
             # 現在の手先位置を取得
             now_pe_pos = self.get_pe_pos()
@@ -117,25 +117,16 @@ class Simulation:
         sim = self.sim
         direction_flg = np.empty((1,2))
 
-        # for分でまとめる
-        if (target_pos[0][0] > now_pos[0][0]):
-            direction_flg[0][0] = 1
+        for i in range(direction_flg.shape[1]):
 
-        elif(target_pos[0][0] < now_pos[0][0]):
-            direction_flg[0][0] = -1
-        
-        else:
-            direction_flg[0][0] = 0
+            if (target_pos[0][i] > now_pos[0][i]):
+                direction_flg[0][i] = 1
 
-        
-        if (target_pos[0][1] > now_pos[0][1]):
-            direction_flg[0][1] = 1
-
-        elif(target_pos[0][1] < now_pos[0][1]):
-            direction_flg[0][1] = -1
-
-        else:
-            direction_flg[0][1] = 0
+            elif(target_pos[0][i] < now_pos[0][i]):
+                direction_flg[0][i] = -1
+            
+            else:
+                direction_flg[0][i] = 0
 
 
         return direction_flg
