@@ -92,8 +92,11 @@ class Simulation:
         sim = self.sim
         first_pos = sim.getObjectPosition(self.p_e, sim.handle_world)
         numpy_first_pos = np.empty((1,2))
-        numpy_first_pos[0][0] = first_pos[0]
-        numpy_first_pos[0][1] = first_pos[1]
+        #numpy_first_pos[0][0] = first_pos[0]
+        #numpy_first_pos[0][1] = first_pos[1]
+
+        for i in range(numpy_first_pos.shape[1]):
+            numpy_first_pos[0][i] = first_pos[i]
 
         return numpy_first_pos
 
@@ -146,22 +149,18 @@ class Simulation:
         pe_pos = sim.getObjectPosition(self.p_e, sim.handle_world)
         pe_pos_xy = np.empty((1,2))
 
-        pe_pos_xy[0][0] = pe_pos[0]
-        pe_pos_xy[0][1] = pe_pos[1]
+        for i in range(pe_pos_xy.shape[1]):
+            pe_pos_xy[0][i] = pe_pos[i]
 
         return pe_pos_xy
 
     
     def get_next_pe(self, dp, direction, now_pos):
 
-        dx = direction[0][0] * dp
-        dy = direction[0][1] * dp
-
-        #print(f"dx, dy is ({dx}, {dy})")
-
         next_pos = np.empty((1,2))
-        next_pos[0][0] = now_pos[0][0] + dx
-        next_pos[0][1] = now_pos[0][1] + dy
+
+        for i in range(direction.shape[1]):
+            next_pos[0][i] = now_pos[0][i] + direction[0][i] * dp
 
         return next_pos
 
@@ -169,8 +168,8 @@ class Simulation:
     def get_dp(self, t_i1, t_i):
 
         dp = np.empty((1,2))
-        dp[0][0] = t_i1[0][0] - t_i[0][0]
-        dp[0][1] = t_i1[0][1] - t_i[0][1]
+        for i in range(t_i1.shape[1]):
+            dp[0][i] = t_i1[0][i] - t_i[0][i]
 
         return dp
     
