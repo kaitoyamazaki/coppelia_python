@@ -41,15 +41,14 @@ class Simulation:
         ##進行方向を決定する
         direction = self.decide_direction(target_pos)
 
-
         # 最終的な目標地点をシミュレーション空間に描画
-        sim.setObjectPosition(self.p_t, [target_pos[0], target_pos[1], 0.05], sim.handle_world)
+        sim.setObjectPosition(self.p_target, [target_pos[0][0], target_pos[0][1], 0.05], sim.handle_world)
 
 
         while (t := sim.getSimulationTime()) < 50:
-            now_pe_pos = self.get_pe_pos()
+            #now_pe_pos = self.get_pe_pos()
 
-            next_pe_pos = self.get_next_pe(self.dp)
+            #next_pe_pos = self.get_next_pe(self.dp)
             sim.step()
         
         sim.stopSimulation()
@@ -68,9 +67,34 @@ class Simulation:
 
 
     def decide_direction(self, target_pos):
-        sim = self.sim
 
-        first_pos = sim.getObjectPosition()
+        sim = self.sim
+        first_pos = sim.getObjectPosition(self.p_e, sim.handle_world)
+        direction_flg = np.empty((1,2))
+
+        if (target_pos[0][0] > first_pos[0]):
+            direction_flg[0][0] = 1
+
+        elif(target_pos[0][0] < first_pos[0]):
+            direction_flg[0][0] = -1
+        
+        else:
+            direction_flg[0][0] = 0
+
+        
+        if (target_pos[0][1] > first_pos[1]):
+            direction_flg[0][1] = 1
+
+        elif(target_pos[0][1] < first_pos[1]):
+            direction_flg[0][1] = -1
+
+        else:
+            direction_flg[0][1] = 0
+
+
+        return direction_flg
+
+        
     def get_pe_pos(self): ## エンドエフェクタp_eの座標を二次元で取得する関数
         
         sim = self.sim
