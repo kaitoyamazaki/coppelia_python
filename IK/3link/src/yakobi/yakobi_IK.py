@@ -1,7 +1,7 @@
 from coppeliasim_zmqremoteapi_client import RemoteAPIClient
 import numpy as np
 
-class Simulatio:
+class Simulation:
 
     def __init__(self):
 
@@ -36,7 +36,32 @@ class Simulatio:
         self.l4 = 0.2 
 
     def simulation(self):
-        pass
+        
+        sim = self.sim
+
+        sim.setStepping(True)
+        sim.startSimulation()
+
+        # 最終的な目標値の入力を行う
+        target_pos = self.input_target_pos()
+
+        #print(f"最初の角度を取りえず出力する : {self.first_deg_joint1}, {self.first_deg_joint2}, {self.first_deg_joint3}")
+    
+        while (t := sim.getSimulationTime()) < 100:
+
+            sim.step()
+        
+        sim.stopSimulation()
+
+    def input_target_pos():
+    
+        target_pos = np.empty((1,2))
+
+        target_pos[0][0] = self.target_pos_x
+        target_pos[0][1] = self.target_pos_y
+
+        return target_pos
+
 
 
 def main():

@@ -72,15 +72,6 @@ class Simulation:
             sim.setJointPosition(self.joint1, joint_pos_next[0][0])
             sim.setJointPosition(self.joint2, joint_pos_next[0][1])
             
-
-
-            # 標準出力を出す！！！
-            #print(f"direction is {direction}")
-            #print(f"next_pe is {next_pe_pos}")
-            #print(f"currentry_dp is {currentry_dp}")
-            #print(f"joint pos is {yakobi}")
-            #print(f"yakobi is {yakobi}")
-            #print(f"yakobi inv is {yakobi_inv}")
             sim.step()
         
         sim.stopSimulation()
