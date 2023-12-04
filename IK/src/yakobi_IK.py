@@ -15,7 +15,11 @@ class Simulation:
         self.joint2 = sim.getObject("/base/joint/link1/joint")
         self.link2 = sim.getObject("/base/joint/link1/joint/link2")
 
-        self.p_t = sim.getObject("/p_target")
+        self.target_pos_x = 0.7
+        self.target_pos_y = 1.2
+        self.dp = 0.001
+
+        self.p_e = sim.getObject("/p_target")
 
         #self.camera = sim.getObject("/Camera")
         #sim.setObjectPosition(self.camera, [0, 0, 10])
@@ -26,30 +30,51 @@ class Simulation:
         self.l2 = 0.5
 
     
-    def simulation(self):
+    def simulation(self): ## シミュレーションを実施している関数, 基本は全てこの関数で処理している
+
         sim = self.sim
 
         sim.setStepping(True)
         sim.startSimulation()
+        target_pos = self.input_target() ##最終的な目標値を入力する
 
-        target_x, target_y = self.input_target() ##最終的な目標値を入力する
 
-        sim.setObjectPosition(self.p_t, [target_x, target_y, 0.05], sim.handle_world)
-        dq = self.get_div_pos(target_x, target_y)
+        # 最終的な目標地点をシミュレーション空間に描画
+        sim.setObjectPosition(self.p_t, [target_pos[0], target_pos[1], 0.05], sim.handle_world)
 
-        result = self.IK(self.first_deg_joint1, self.first_deg_joint2, dq)
-
-        sim.setJointPosition(self.joint1, result[0][0])
-        sim.setJointPosition(self.joint2, result[1][0])
 
         while (t := sim.getSimulationTime()) < 50:
-            #pos = sim.getJointPosition(self.joint2)
-            #print(f"Simulation time: {t: .2f} [s]")
-            sim.setJointPosition(self.joint1, result[0][0])
-            sim.setJointPosition(self.joint2, result[1][0])
+            now_pe_pos = self.get_pe_pos()
+
+            next_pe_pos = self.get_next_pe(self.dp)
             sim.step()
         
         sim.stopSimulation()
+
+    
+    def input_target(self): #目標値を設定する関数, 最悪変数はグローバル化でも良いかも
+
+        target_pos = np.empty((1,2))
+
+        target_pos[0][0] = self.target_pos_x
+        target_pos[0][1] = self.target_pos_y
+
+        #x, y = map(float, input("Enter x, y of the Endeffector : ").split(','))
+
+        return target_pos
+
+
+    def get_pe_pos(self): ## エンドエフェクタp_eの座標を二次元で取得する関数
+        
+        sim = self.sim
+        pe_pos = sim.getObjectPosition(self.p_e, sim.handle_world)
+        pe_pos_xy = np.empty((1,2))
+
+        pe_pos_xy = pe_pos[0][0]
+        pe_pos_xy = pe_pos[0][1]
+
+        return pe_pos_xy
+
     
     def get_div_pos(self, x, y):
         l1 = self.l1
@@ -70,13 +95,16 @@ class Simulation:
         return dq
 
 
-    def input_target(self):
+    def input_target(self): #目標値を設定する関数, 最悪変数はグローバル化でも良いかも
 
-        x = 1.0
-        y = 0.5
+        target_pos = np.empty((1,2))
+
+        target_pos[0][0] = self.target_pos_x
+        target_pos[0][1] = self.target_pos_y
+
         #x, y = map(float, input("Enter x, y of the Endeffector : ").split(','))
 
-        return x, y
+        return target_pos
 
     def IK(self, j1, j2, dq):
         l1 = self.l1
