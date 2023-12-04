@@ -92,8 +92,6 @@ class Simulation:
         sim = self.sim
         first_pos = sim.getObjectPosition(self.p_e, sim.handle_world)
         numpy_first_pos = np.empty((1,2))
-        #numpy_first_pos[0][0] = first_pos[0]
-        #numpy_first_pos[0][1] = first_pos[1]
 
         for i in range(numpy_first_pos.shape[1]):
             numpy_first_pos[0][i] = first_pos[i]
