@@ -14,12 +14,13 @@ class Simulation:
         self.link1 = sim.getObject("/base/joint/link1")
         self.joint2 = sim.getObject("/base/joint/link1/joint")
         self.link2 = sim.getObject("/base/joint/link1/joint/link2")
+        self.p_e = sim.getObject("/base/joint/link1/joint/link2/p_end")
 
         self.target_pos_x = 0.7
         self.target_pos_y = 1.2
         self.dp = 0.001
 
-        self.p_e = sim.getObject("/p_target")
+        self.p_target = sim.getObject("/p_target")
 
         #self.camera = sim.getObject("/Camera")
         #sim.setObjectPosition(self.camera, [0, 0, 10])
@@ -37,6 +38,8 @@ class Simulation:
         sim.setStepping(True)
         sim.startSimulation()
         target_pos = self.input_target() ##最終的な目標値を入力する
+        ##進行方向を決定する
+        direction = self.decide_direction(target_pos)
 
 
         # 最終的な目標地点をシミュレーション空間に描画
@@ -64,6 +67,10 @@ class Simulation:
         return target_pos
 
 
+    def decide_direction(self, target_pos):
+        sim = self.sim
+
+        first_pos = sim.getObjectPosition()
     def get_pe_pos(self): ## エンドエフェクタp_eの座標を二次元で取得する関数
         
         sim = self.sim
