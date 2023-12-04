@@ -1,6 +1,5 @@
 from coppeliasim_zmqremoteapi_client import RemoteAPIClient
 import numpy as np
-import time
 
 class Simulation:
 
