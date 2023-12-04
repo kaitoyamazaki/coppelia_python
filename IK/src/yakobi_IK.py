@@ -22,8 +22,6 @@ class Simulation:
         self.p_target = sim.getObject("/p_target")
         self.first_pos = sim.getObjectPosition(self.p_e, sim.handle_world)
 
-        #self.camera = sim.getObject("/Camera")
-        #sim.setObjectPosition(self.camera, [0, 0, 10])
 
         self.first_deg_joint1 = sim.getJointPosition(self.joint1)
         self.first_deg_joint2= sim.getJointPosition(self.joint2)
