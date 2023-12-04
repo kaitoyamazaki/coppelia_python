@@ -63,11 +63,18 @@ class Simulation:
             # ヤコビ行列を適用するための位置に関する偏差を導出
             currentry_dp = self.get_dp(next_pe_pos, now_pe_pos)
 
-            
+            # ヤコビ行列を導出する
+            yakobi = self.get_yakobi()
+            yakobi_inv = self.get_yakobi_inv(yakobi)
 
+
+            # 標準出力を出す！！！
             #print(f"direction is {direction}")
             #print(f"next_pe is {next_pe_pos}")
             #print(f"currentry_dp is {currentry_dp}")
+            #print(f"joint pos is {yakobi}")
+            print(f"yakobi is {yakobi}")
+            print(f"yakobi inv is {yakobi_inv}")
             sim.step()
         
         sim.stopSimulation()
@@ -158,6 +165,41 @@ class Simulation:
         dp[0][1] = t_i1[0][1] - t_i[0][1]
 
         return dp
+    
+
+    # ジョイントの角度を求める機能
+    def get_joint_position(self):
+
+        sim = self.sim
+
+        joint_pos = np.empty((1,2))
+        joint_pos[0][0] = sim.getJointPosition(self.joint1)
+        joint_pos[0][1] = sim.getJointPosition(self.joint2)
+
+        return joint_pos
+
+
+    def get_yakobi(self):
+
+        l1 = self.l1
+        l2 = self.l2
+
+        joint = self.get_joint_position()
+
+        yakobi = np.empty((2, 2))
+        yakobi[0][0] = -l1 * np.sin(joint[0][0]) - l2 * np.sin(joint[0][0] + joint[0][1])
+        yakobi[0][1] = -l2 * np.sin(joint[0][0] + joint[0][1])
+        yakobi[1][0] = l1 * np.cos(joint[0][0]) + l2 * np.cos(joint[0][0] + joint[0][1])
+        yakobi[1][1] = l2 * np.cos(joint[0][0] + joint[0][1])
+
+        return yakobi
+
+    
+    def get_yakobi_inv(self, yakobi):
+
+        return np.linalg.inv(yakobi)
+
+
     
     #def get_div_pos(self, x, y):
         #l1 = self.l1
