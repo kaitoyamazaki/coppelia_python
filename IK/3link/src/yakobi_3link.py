@@ -76,8 +76,8 @@ class Yakobi3link():
     def get_dq(self):
         sim = self.sim
         pos_e = sim.getObjectPosition(self.p_e, sim.handle_world)
-        target_x = 2.5
-        target_z = 0.4
+        target_x = 0.1
+        target_z = 1.55
         target_theta = np.deg2rad(0)
         dq = np.empty((3,1))
 
