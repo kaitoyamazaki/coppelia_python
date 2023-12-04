@@ -65,7 +65,16 @@ class Simulation:
 
             # ヤコビ行列を導出する
             yakobi = self.get_yakobi()
+
+            # 逆ヤコビ行列を導出する
             yakobi_inv = self.get_yakobi_inv(yakobi)
+
+            # 逆ヤコビ行列をもとに, t+1病後の角度を求める
+            joint_pos_next = self.get_joint_pos_next(yakobi_inv, currentry_dp)
+
+            sim.setJointPosition(self.joint1, joint_pos_next[0][0])
+            sim.setJointPosition(self.joint2, joint_pos_next[0][1])
+            
 
 
             # 標準出力を出す！！！
@@ -73,8 +82,8 @@ class Simulation:
             #print(f"next_pe is {next_pe_pos}")
             #print(f"currentry_dp is {currentry_dp}")
             #print(f"joint pos is {yakobi}")
-            print(f"yakobi is {yakobi}")
-            print(f"yakobi inv is {yakobi_inv}")
+            #print(f"yakobi is {yakobi}")
+            #print(f"yakobi inv is {yakobi_inv}")
             sim.step()
         
         sim.stopSimulation()
@@ -198,79 +207,20 @@ class Simulation:
     def get_yakobi_inv(self, yakobi):
 
         return np.linalg.inv(yakobi)
-
-
     
-    #def get_div_pos(self, x, y):
-        #l1 = self.l1
-        #l2 = self.l2
+    def get_joint_pos_next(self, yakobi_inv, dp):
 
-        #first_x = l1 * np.cos(0) + l2 * np.cos(np.deg2rad(0+90))
-        #first_y = l1 * np.sin(0) + l2 * np.sin(np.deg2rad(0+90))
+        sim = self.sim
 
-        #dx = x - first_x
-        #dy = y - first_y
+        joint = self.get_joint_position()
+        now_joint = joint.T
+        
+        use_dp = dp.T
+        dtheta = np.dot(yakobi_inv, use_dp)
 
-        #dq = np.empty((2,1))
-        #dq[0][0] = dx
-        #dq[1][0] = dy
+        next_theta = now_joint + dtheta
 
-        #print(f"{dq}")
-
-        #return dq
-
-
-    #def input_target(self): #目標値を設定する関数, 最悪変数はグローバル化でも良いかも
-
-        #target_pos = np.empty((1,2))
-
-        #target_pos[0][0] = self.target_pos_x
-        #target_pos[0][1] = self.target_pos_y
-
-        ##x, y = map(float, input("Enter x, y of the Endeffector : ").split(','))
-
-        #return target_pos
-
-
-
-    # ここからは使わない予定の関数, 今後削除の予定
-
-    #def IK(self, j1, j2, dq):
-        #l1 = self.l1
-        #l2 = self.l2
-
-        #now_rad = self.get_now_joint()
-
-        #first_IK = self.calc_IK(l1, l2, j1, j2)
-
-        #result = np.dot(first_IK, dq)
-
-        #result = now_rad + result
-
-        #print(f"result is {np.rad2deg(result)}")
-
-        #return result
-
-
-
-    
-    #def get_now_joint(self):
-        #now_joint = np.empty((2,1))
-        #now_joint[0][0] = self.first_deg_joint1
-        #now_joint[1][0] = self.first_deg_joint2
-
-        #print(f"{now_joint}")
-
-        #return now_joint
-    
-    #def calc_IK(self, l1, l2, j1, j2):
-        #IK_queue = np.empty((2,2))
-        #IK_queue[0][0] = (l2 * np.cos(j1 + j2)) / (l1 * l2 * np.sin(j2))
-        #IK_queue[0][1] = (l2 * np.sin(j1 + j2)) / (l1 * l2 * np.sin(j2))
-        #IK_queue[1][0] = (-l1 * np.cos(j1) - l2 * np.cos(j1 + j2)) / (l1 * l2 * np.sin(j2))
-        #IK_queue[1][1] = (-l1 * np.sin(j1) - l2 * np.sin(j1 + j2)) / l1 * l2 * np.sin(j2)
-
-        #return IK_queue
+        return next_theta.T
 
     
 def main():
