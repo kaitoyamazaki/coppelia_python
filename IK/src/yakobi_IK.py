@@ -21,6 +21,7 @@ class Simulation:
         self.dp = 0.001
 
         self.p_target = sim.getObject("/p_target")
+        self.first_pos = sim.getObjectPosition(self.p_e, sim.handle_world)
 
         #self.camera = sim.getObject("/Camera")
         #sim.setObjectPosition(self.camera, [0, 0, 10])
@@ -37,9 +38,12 @@ class Simulation:
 
         sim.setStepping(True)
         sim.startSimulation()
+
+        # 初期位置の取得
+        first_pos = self.get_first_pos()
         target_pos = self.input_target() ##最終的な目標値を入力する
-        ##進行方向を決定する
-        direction = self.decide_direction(target_pos)
+        ##初期の進行方向を決定する
+        #direction = self.decide_direction(target_pos, first_pos)
 
         # 最終的な目標地点をシミュレーション空間に描画
         sim.setObjectPosition(self.p_target, [target_pos[0][0], target_pos[0][1], 0.05], sim.handle_world)
@@ -47,11 +51,26 @@ class Simulation:
 
         while (t := sim.getSimulationTime()) < 50:
             now_pe_pos = self.get_pe_pos()
+            direction = self.decide_direction(target_pos, now_pe_pos)
 
-            next_pe_pos = self.get_next_pe(self.dp, direction)
+            next_pe_pos = self.get_next_pe(self.dp, direction, now_pe_pos)
+
+            print(f"direction is {direction}")
+            #print(f"next_pe is {next_pe_pos}")
             sim.step()
         
         sim.stopSimulation()
+
+    def get_first_pos(self):
+
+        sim = self.sim
+        first_pos = sim.getObjectPosition(self.p_e, sim.handle_world)
+        numpy_first_pos = np.empty((1,2))
+        numpy_first_pos[0][0] = first_pos[0]
+        numpy_first_pos[0][1] = first_pos[1]
+
+        return numpy_first_pos
+
 
     
     def input_target(self): #目標値を設定する関数, 最悪変数はグローバル化でも良いかも
@@ -65,27 +84,27 @@ class Simulation:
 
         return target_pos
 
-
-    def decide_direction(self, target_pos):
+    # 進行方向の決定する関数
+    def decide_direction(self, target_pos, now_pos):
 
         sim = self.sim
-        first_pos = sim.getObjectPosition(self.p_e, sim.handle_world)
         direction_flg = np.empty((1,2))
 
-        if (target_pos[0][0] > first_pos[0]):
+        # for分でまとめる
+        if (target_pos[0][0] > now_pos[0][0]):
             direction_flg[0][0] = 1
 
-        elif(target_pos[0][0] < first_pos[0]):
+        elif(target_pos[0][0] < now_pos[0][0]):
             direction_flg[0][0] = -1
         
         else:
             direction_flg[0][0] = 0
 
         
-        if (target_pos[0][1] > first_pos[1]):
+        if (target_pos[0][1] > now_pos[0][1]):
             direction_flg[0][1] = 1
 
-        elif(target_pos[0][1] < first_pos[1]):
+        elif(target_pos[0][1] < now_pos[0][1]):
             direction_flg[0][1] = -1
 
         else:
@@ -101,10 +120,26 @@ class Simulation:
         pe_pos = sim.getObjectPosition(self.p_e, sim.handle_world)
         pe_pos_xy = np.empty((1,2))
 
-        pe_pos_xy = pe_pos[0][0]
-        pe_pos_xy = pe_pos[0][1]
+        pe_pos_xy[0][0] = pe_pos[0]
+        pe_pos_xy[0][1] = pe_pos[1]
 
         return pe_pos_xy
+
+    
+    def get_next_pe(self, dp, direction, now_pos):
+
+        dx = direction[0][0] * dp
+        dy = direction[0][1] * dp
+
+        print(f"dx, dy is ({dx}, {dy})")
+
+        next_pos = np.empty((1,2))
+        next_pos[0][0] = now_pos[0][0] + dx
+        next_pos[0][1] = now_pos[0][1] + dy
+
+        return next_pos
+
+
 
     
     def get_div_pos(self, x, y):
@@ -136,6 +171,10 @@ class Simulation:
         #x, y = map(float, input("Enter x, y of the Endeffector : ").split(','))
 
         return target_pos
+
+
+
+    # ここからは使わない予定の関数, 今後削除の予定
 
     def IK(self, j1, j2, dq):
         l1 = self.l1
