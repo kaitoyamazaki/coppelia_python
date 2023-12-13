@@ -61,7 +61,14 @@ class Simulation:
             # 次の時間周期でのpeの位置を導出する
             next_pe_pos = self.get_next_pe_pos(self.dp, direction, now_pe_pos)
 
+            # ヤコビ行列を用いた逆運動学をするために現在の偏差を導出
+
+            currently_dp = self.calc_dp(next_pe_pos, now_pe_pos)
+
+            #print(f"{now_pe_pos}")
+            #print(f"{direction}")
             #print(f"{next_pe_pos}")
+            #print(f"{currently_dp}")
 
 
             sim.step()
@@ -119,6 +126,14 @@ class Simulation:
             next_pos[0][i] = now_pos[0][i] + direction[i] * dp
         
         return next_pos
+    
+    def calc_dp(self, pe_t1, pe_t):
+        
+        dp = np.empty((1,3))
+        for i in range(pe_t1.shape[1]):
+            dp[0][i] = pe_t1[0][i] - pe_t[0][i]
+        
+        return dp
 
 def main():
     simulation = Simulation()
