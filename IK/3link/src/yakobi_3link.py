@@ -4,6 +4,8 @@ import numpy as np
 class Yakobi3link():
     
     def __init__(self):
+
+        # CoppeliaSimの設定
         self.client = RemoteAPIClient()
         client = self.client
         self.sim = client.require('sim')
@@ -36,7 +38,7 @@ class Yakobi3link():
     def simulation(self):
         sim = self.sim
 
-
+        
 
         first_yakobi, first_inv_yakobi = self.get_first_yakobi()
 
@@ -96,6 +98,7 @@ class Yakobi3link():
         pass
     
     def get_first_yakobi(self):
+
         yakobi = np.empty((3,3))
         l2 = self.l2
         l3 = self.l3
