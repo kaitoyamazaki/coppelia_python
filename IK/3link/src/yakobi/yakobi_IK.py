@@ -1,5 +1,6 @@
 from coppeliasim_zmqremoteapi_client import RemoteAPIClient
 import numpy as np
+import sympy as sp
 
 class Simulation:
 
@@ -22,7 +23,7 @@ class Simulation:
 
         self.target_pos_x = 1.3
         self.target_pos_z = 0.4
-        self.target_pos_theta = 90
+        self.target_pos_theta = 0
         self.dp = 0.001
 
         self.p_target = sim.getObject("/p_target")
@@ -62,8 +63,10 @@ class Simulation:
             next_pe_pos = self.get_next_pe_pos(self.dp, direction, now_pe_pos)
 
             # ヤコビ行列を用いた逆運動学をするために現在の偏差を導出
-
             currently_dp = self.calc_dp(next_pe_pos, now_pe_pos)
+
+            # ヤコビ行列を計算する
+            yakobi = self.calc_yakobi()
 
             #print(f"{now_pe_pos}")
             #print(f"{direction}")
@@ -134,6 +137,72 @@ class Simulation:
             dp[0][i] = pe_t1[0][i] - pe_t[0][i]
         
         return dp
+    
+    def calc_yakobi(self):
+
+        p_e = self.forward_kinematics()
+    
+    def get_joint_position(self):
+
+        sim = self.sim
+        theta = np.empty((1,3))
+
+        theta[0][0] = sim.getJointPosition(self.joint1) + np.deg2rad(90)
+        theta[0][1] = sim.getJointPosition(self.joint2)
+        theta[0][2] = sim.getJointPosition(self.joint3)
+
+        return theta
+
+    
+    def forward_kinematics(self):
+
+        sim = self.sim
+
+        theta = self.get_joint_position()
+        #values_of_robot = {
+            #l1: self.l2,
+            #l2: self.l3,
+            #l3: self.l4,
+            #theta1: theta[0][0],
+            #theta2: theta[0][1],
+            #theta3: theta[0][2]
+        #}
+
+        #print(f"{theta}")
+        l1, l2, l3, theta1, theta2, theta3 = sp.symbols("l1 l2 l3 theta1 theta2 theta3")
+        forward_pos = np.empty(3)
+        forward_pos[0] = l1 * sp.cos(theta1) + l2 * sp.cos(theta1 + theta2) + l3 * sp.cos(theta1 + theta2 +theta3)
+        forward_pos[1] = l1 * sp.sin(theta1) + l2 * sp.sin(theta1 + theta2) + l3 * sp.sin(theta1 + theta2 + theta3)
+        forward_pos[2] = theta1 + theta2 + theta3
+
+        print(f"{forward_pos}")
+        #test = sp.diff(x, theta1)
+
+        values_of_robot = {
+            l1: self.l2,
+            l2: self.l3,
+            l3: self.l4,
+            theta1: theta[0][0],
+            theta2: theta[0][1],
+            theta3: theta[0][2]
+        }
+
+        yakobi = np.empty((3,3))
+
+        #for i in range(yakobi.shape[1]):
+            #yakobi[i][0] = sp.diff(forward_pos[i], theta1)
+            #yakobi[i][1] = sp.diff(forward_pos[i], theta2)
+            #yakobi[i][2] = sp.diff(forward_pos[i], theta3)
+        
+        #print(f"{yakobi}")
+
+        #unko = test.subs(values_of_robot)
+        #print(f"{unko}")
+
+        #print(f"{test}")
+
+
+
 
 def main():
     simulation = Simulation()
