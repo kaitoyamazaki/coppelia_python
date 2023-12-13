@@ -61,7 +61,7 @@ class Simulation:
             # 次の時間周期でのpeの位置を導出する
             next_pe_pos = self.get_next_pe_pos(self.dp, direction, now_pe_pos)
 
-            print(f"{direction}")
+            #print(f"{next_pe_pos}")
 
 
             sim.step()
@@ -113,7 +113,7 @@ class Simulation:
 
     def get_next_pe_pos(self, dp, direction, now_pos):
 
-        next_pos = np.empty((1,2))
+        next_pos = np.empty((1,3))
 
         for i in range(len(direction)):
             next_pos[0][i] = now_pos[0][i] + direction[i] * dp
