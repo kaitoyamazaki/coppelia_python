@@ -23,8 +23,8 @@ class Simulation:
 
         self.target_pos_x = 1.3
         self.target_pos_z = 0.4
-        self.target_pos_theta = 0
-        self.dp = 0.001
+        self.target_pos_theta = -90
+        self.dp = 0.0001
 
         self.p_target = sim.getObject("/p_target")
         self.first_pos = sim.getObjectPosition(self.p_e, sim.handle_world)
@@ -71,12 +71,19 @@ class Simulation:
             # 逆ヤコビ行列を導出する
             yakobi_inv = self.calc_yakobi_inv(yakobi)
 
+            # 逆ヤコビ行列を元にt+1秒後のジョイント角度を計算する
+            joint_t1_pos = self.calc_joint_next_pos(yakobi_inv, currently_dp)
+
+            sim.setJointPosition(self.joint1, joint_t1_pos[0][0])
+            sim.setJointPosition(self.joint2, joint_t1_pos[0][1])
+            sim.setJointPosition(self.joint3, joint_t1_pos[0][2])
+
             #print(f"{now_pe_pos}")
             #print(f"{direction}")
             #print(f"{next_pe_pos}")
             #print(f"{currently_dp}")
             #print(f"{yakobi}")
-            print(f"{yakobi_inv}")
+            #print(f"{yakobi_inv}")
 
 
             sim.step()
@@ -200,6 +207,27 @@ class Simulation:
     def calc_yakobi_inv(self, yakobi):
 
         return np.linalg.inv(yakobi)
+    
+    def calc_joint_next_pos(self, inv, dp):
+
+        sim = self.sim
+        theta = self.get_joint_position()
+        now_theta = theta.T
+
+        use_dp = dp.T
+
+        #print(f"{use_dp}")
+
+        dtheta = np.dot(inv, use_dp)
+        #print(f"{dtheta}")
+
+        next_theta = now_theta + dtheta
+
+        #test = next_theta.T
+
+        #print(f"{np.rad2deg(test)}")
+
+        return next_theta.T
 
 
 def main():
