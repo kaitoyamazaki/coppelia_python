@@ -68,11 +68,15 @@ class Simulation:
             # ヤコビ行列を計算する
             yakobi = self.calc_yakobi()
 
+            # 逆ヤコビ行列を導出する
+            yakobi_inv = self.calc_yakobi_inv(yakobi)
+
             #print(f"{now_pe_pos}")
             #print(f"{direction}")
             #print(f"{next_pe_pos}")
             #print(f"{currently_dp}")
             #print(f"{yakobi}")
+            print(f"{yakobi_inv}")
 
 
             sim.step()
@@ -183,16 +187,19 @@ class Simulation:
 
         for i in range(len(forward_pos)):
             x_dot = sp.diff(forward_pos[i], theta1)
-            x_dot = x_dot.subs(values_of_robot)
+            x_dot = float(x_dot.subs(values_of_robot))
             y_dot = sp.diff(forward_pos[i], theta2)
-            y_dot = y_dot.subs(values_of_robot)
+            y_dot = float(y_dot.subs(values_of_robot))
             theta_dot = sp.diff(forward_pos[i], theta3)
-            theta_dot = theta_dot.subs(values_of_robot)
+            theta_dot = float(theta_dot.subs(values_of_robot))
             line = [x_dot, y_dot, theta_dot]
             yakobi = np.vstack((yakobi, line))
         
         return yakobi
 
+    def calc_yakobi_inv(self, yakobi):
+
+        return np.linalg.inv(yakobi)
 
 
 def main():
