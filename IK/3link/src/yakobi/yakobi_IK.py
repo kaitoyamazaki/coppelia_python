@@ -72,6 +72,7 @@ class Simulation:
             #print(f"{direction}")
             #print(f"{next_pe_pos}")
             #print(f"{currently_dp}")
+            #print(f"{yakobi}")
 
 
             sim.step()
@@ -141,6 +142,8 @@ class Simulation:
     def calc_yakobi(self):
 
         p_e = self.forward_kinematics()
+
+        return p_e
     
     def get_joint_position(self):
 
@@ -159,24 +162,13 @@ class Simulation:
         sim = self.sim
 
         theta = self.get_joint_position()
-        #values_of_robot = {
-            #l1: self.l2,
-            #l2: self.l3,
-            #l3: self.l4,
-            #theta1: theta[0][0],
-            #theta2: theta[0][1],
-            #theta3: theta[0][2]
-        #}
 
-        #print(f"{theta}")
         l1, l2, l3, theta1, theta2, theta3 = sp.symbols("l1 l2 l3 theta1 theta2 theta3")
-        forward_pos = np.empty(3)
-        forward_pos[0] = l1 * sp.cos(theta1) + l2 * sp.cos(theta1 + theta2) + l3 * sp.cos(theta1 + theta2 +theta3)
-        forward_pos[1] = l1 * sp.sin(theta1) + l2 * sp.sin(theta1 + theta2) + l3 * sp.sin(theta1 + theta2 + theta3)
-        forward_pos[2] = theta1 + theta2 + theta3
+        xe = l1 * sp.cos(theta1) + l2 * sp.cos(theta1 + theta2) + l3 * sp.cos(theta1 + theta2 +theta3)
+        ye = l1 * sp.sin(theta1) + l2 * sp.sin(theta1 + theta2) + l3 * sp.sin(theta1 + theta2 + theta3)
+        theta_e = theta1 + theta2 + theta3
 
-        print(f"{forward_pos}")
-        #test = sp.diff(x, theta1)
+        forward_pos = [xe, ye, theta_e]
 
         values_of_robot = {
             l1: self.l2,
@@ -187,20 +179,19 @@ class Simulation:
             theta3: theta[0][2]
         }
 
-        yakobi = np.empty((3,3))
+        yakobi = np.empty((0,3))
 
-        #for i in range(yakobi.shape[1]):
-            #yakobi[i][0] = sp.diff(forward_pos[i], theta1)
-            #yakobi[i][1] = sp.diff(forward_pos[i], theta2)
-            #yakobi[i][2] = sp.diff(forward_pos[i], theta3)
+        for i in range(len(forward_pos)):
+            x_dot = sp.diff(forward_pos[i], theta1)
+            x_dot = x_dot.subs(values_of_robot)
+            y_dot = sp.diff(forward_pos[i], theta2)
+            y_dot = y_dot.subs(values_of_robot)
+            theta_dot = sp.diff(forward_pos[i], theta3)
+            theta_dot = theta_dot.subs(values_of_robot)
+            line = [x_dot, y_dot, theta_dot]
+            yakobi = np.vstack((yakobi, line))
         
-        #print(f"{yakobi}")
-
-        #unko = test.subs(values_of_robot)
-        #print(f"{unko}")
-
-        #print(f"{test}")
-
+        return yakobi
 
 
 
