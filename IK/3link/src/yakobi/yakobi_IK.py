@@ -21,10 +21,10 @@ class Simulation:
         self.link4 = sim.getObject("/base/ForceSensor/link1/joint/link2/joint/link3/joint/link4")
         self.p_e = sim.getObject("/base/ForceSensor/link1/joint/link2/joint/link3/joint/link4/p_e")
 
-        self.target_pos_x = 1.3
-        self.target_pos_z = 0.4
-        self.target_pos_theta = -90
-        self.dp = 0.0001
+        self.target_pos_x = 0.8
+        self.target_pos_z = 0.8
+        self.target_pos_theta = 90
+        self.dp = 0.001
 
         self.p_target = sim.getObject("/p_target")
         self.first_pos = sim.getObjectPosition(self.p_e, sim.handle_world)
@@ -51,7 +51,7 @@ class Simulation:
         sim.setObjectPosition(self.p_target, [target_pos[0][0], 0.0, target_pos[0][1]], sim.handle_world)
         sim.setObjectOrientation(self.p_target, [0.0, np.deg2rad(target_pos[0][2]), 0.0], sim.handle_world)
     
-        while (t := sim.getSimulationTime()) < 10:
+        while (t := sim.getSimulationTime()) < 100:
 
             # 現在の手先の位置情報を取得
             now_pe_pos = self.get_pe_pos_xz()
@@ -222,6 +222,7 @@ class Simulation:
         #print(f"{dtheta}")
 
         next_theta = now_theta + dtheta
+        next_theta[0][0] = next_theta[0][0] - np.deg2rad(90)
 
         #test = next_theta.T
 
