@@ -27,10 +27,10 @@ class Simulation:
         self.l3 = 0.5
         self.l4 = 0.2
 
-        self.p_t_x = 0.8
+        self.p_t_x = 1.1
         self.p_t_z = 0.4
         self.p_t_theta = 0.0
-        self.dp = 0.0001
+        self.dp = 0.001
 
     
     def simulation(self):
@@ -46,38 +46,77 @@ class Simulation:
         sim.setObjectPosition(self.p_t, [pos_of_p_t[0][0], 0.0, pos_of_p_t[0][1]], sim.handle_world)
         sim.setObjectOrientation(self.p_t, [0.0, pos_of_p_t[0][2] + np.deg2rad(90), 0.0], sim.handle_world)
 
-        # ヤコビ行列
-        yakobi = self.calc_yakobi()
+        ## ヤコビ行列
+        #yakobi = self.calc_yakobi()
 
-        # 逆ヤコビアン
-        yakobi_inv =  self.calc_yakobi_inv(yakobi)
+        ## 逆ヤコビアン
+        #yakobi_inv =  self.calc_yakobi_inv(yakobi)
 
-        # 現在の手先位置・姿勢を導出
-        pe_pos = self.get_pe_pos_xz()
+        ## 現在の手先位置・姿勢を導出
+        #pe_pos = self.get_pe_pos_xz()
 
-        # 目標位置に対しての進行方向を決定する
-        direction = self.decide_direction(pe_pos, pos_of_p_t)
+        ## 目標位置に対しての進行方向を決定する
+        #direction = self.decide_direction(pe_pos, pos_of_p_t)
 
-        # 次時間軸での手先の位置を導出
-        pos_of_pe_t1 = self.calc_pos_pe_t1(self.dp, direction, pe_pos)
+        ## 次時間軸での手先の位置を導出
+        #pos_of_pe_t1 = self.calc_pos_pe_t1(self.dp, direction, pe_pos)
 
-        # 偏差を計算する
-        currently = self.calc_dp(pos_of_pe_t1, pe_pos)
+        ## 偏差を計算する
+        #currently_dp = self.calc_dp(pos_of_pe_t1, pe_pos)
 
-        # 偏差を利用して逆ヤコビアンを用いた計算を行う
-        theta_pos = self.calc_theta_t1(yakobi_inv, currently_dp) 
+        ## 偏差を利用して逆ヤコビアンを用いた計算を行う
+        #theta_pos = self.calc_theta_t1(yakobi_inv, currently_dp) 
+
+        #sim.setJointPosition(self.joint1, theta_pos[0][0])
+        #sim.setJointPosition(self.joint2, theta_pos[1][0])
+        #sim.setJointPosition(self.joint3, theta_pos[2][0])
 
         
 
-        print(f"yakobi : {yakobi}")
-        print(f"yakobi inv : {yakobi_inv}")
-        print(f"pos of pt : {pos_of_p_t}")
-        print(f"pos of pe : {pe_pos}")
-        print(f"direction : {direction}")
-        print(f"currently dp : {currently}")
+        #print(f"yakobi : {yakobi}")
+        #print(f"yakobi inv : {yakobi_inv}")
+        #print(f"pos of pt : {pos_of_p_t}")
+        #print(f"pos of pe : {pe_pos}")
+        #print(f"direction : {direction}")
+        #print(f"currently dp : {currently_dp}")
+        #print(f"theta_pos : {theta_pos.T}")
 
-        while (t := sim.getSimulationTime()) < 10:
+        while (t := sim.getSimulationTime()) < 100:
 
+            # ヤコビ行列
+            yakobi = self.calc_yakobi()
+
+            # 逆ヤコビアン
+            yakobi_inv =  self.calc_yakobi_inv(yakobi)
+
+            # 現在の手先位置・姿勢を導出
+            pe_pos = self.get_pe_pos_xz()
+
+            # 目標位置に対しての進行方向を決定する
+            direction = self.decide_direction(pe_pos, pos_of_p_t)
+
+            # 次時間軸での手先の位置を導出
+            pos_of_pe_t1 = self.calc_pos_pe_t1(self.dp, direction, pe_pos)
+
+            # 偏差を計算する
+            currently_dp = self.calc_dp(pos_of_pe_t1, pe_pos)
+
+            # 偏差を利用して逆ヤコビアンを用いた計算を行う
+            theta_pos = self.calc_theta_t1(yakobi_inv, currently_dp) 
+
+            sim.setJointPosition(self.joint1, theta_pos[0][0])
+            sim.setJointPosition(self.joint2, theta_pos[1][0])
+            sim.setJointPosition(self.joint3, theta_pos[2][0])
+
+            
+
+            print(f"yakobi : {yakobi}")
+            print(f"yakobi inv : {yakobi_inv}")
+            print(f"pos of pt : {pos_of_p_t}")
+            print(f"pos of pe : {pe_pos}")
+            print(f"direction : {direction}")
+            print(f"currently dp : {currently_dp}")
+            print(f"theta_pos : {theta_pos.T}")
             ## ヤコビ行
             #yakobi = self.calc_yakobi()
 
@@ -215,10 +254,30 @@ class Simulation:
     
 
     def calc_theta_t1(self, yakobi_inv, dp):
-        pass
+
+        theta = self.get_joint_position_use_yakobi()
+        theta_t1 = theta.T + np.dot(yakobi_inv, dp.T)
+
+        #print(f"theta_t1 : {theta_t1}")
+
+        return theta_t1
+    
+
+
+    def get_joint_position_use_yakobi(self):
+
+        sim = self.sim
+        theta = np.empty((1,3))
+
+        theta[0][0] = sim.getJointPosition(self.joint1)
+        theta[0][1] = sim.getJointPosition(self.joint2)
+        theta[0][2] = sim.getJointPosition(self.joint3)
+
+        return theta
         
 
 def main():
+
 
     try:
         simulation = Simulation()
