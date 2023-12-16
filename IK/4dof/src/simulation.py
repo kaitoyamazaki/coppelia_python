@@ -28,19 +28,59 @@ class Simulation():
         self.p_t = sim.getObject("/p_t")
 
         self.pt_x = 1.1
-        self.pt_y = 0.8
+        self.pt_y = 0.4
         self.pt_z = 0.4
         self.pt_theta = 0.0
+        self.target_xy_theta = np.arctan2(self.pt_y, self.pt_x)
+
     
     def simulation(self):
-        pass
+
+
+        sim = self.sim
+        sim.setStepping(True)
+        sim.startSimulation()
+
+        pos_of_pt = self.assign_pt()
+
+        sim.setObjectPosition(self.p_t, [pos_of_pt[0], pos_of_pt[1], pos_of_pt[2]], sim.handle_world)
+        sim.setObjectOrientation(self.p_t, [0.0, pos_of_pt[3], 0], sim.handle_world)
+
+        #sim.setJointPosition(self.joint1, j1_theta)
+
+        while (t := sim.getSimulationTime()) < 100:
+
+            IK_xy = IK_XY()
+            j1_theta = IK_xy.IK()
+
+            print(f"joint theta {j1_theta}")
+
+            sim.setJointPosition(self.joint1, j1_theta)
+            sim.step()
+        
+        sim.stopSimulation()
+
+    
+    def assign_pt(self):
+
+        pos_of_pt = np.empty(4)
+
+        pos_of_pt[0] = self.pt_x
+        pos_of_pt[1] = self.pt_y
+        pos_of_pt[2] = self.pt_z
+        pos_of_pt[3] = self.pt_theta
+
+        return pos_of_pt
 
 
 def main():
 
-    IK_xy = IK_XY()
-    IK_xy.IK()
-    IK_xz = IK_XZ() 
+    #IK_xy = IK_XY()
+    #j1_theta = IK_xy.IK()
+
+    simulation = Simulation()
+    simulation.simulation()
+    #IK_xz = IK_XZ() 
 
 
 
