@@ -1,3 +1,6 @@
+### 備考 ###
+# 合ってるけど、あまりよろしくない制御方法をしている
+
 from coppeliasim_zmqremoteapi_client import RemoteAPIClient
 import numpy as np
 import sympy as sp
@@ -54,7 +57,7 @@ class IK_XY():
         #print(f"direction : {direction}")
         #print(f"pos of pe_t1 : {pos_of_pe_t1}")
         #print(f"currently dp : {currently_dp}")
-        print(f"theta : {theta}")
+        #print(f"theta : {theta}")
 
         return theta
 

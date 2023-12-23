@@ -36,7 +36,6 @@ class Simulation():
     
     def simulation(self):
 
-
         sim = self.sim
         sim.setStepping(True)
         sim.startSimulation()
@@ -50,10 +49,10 @@ class Simulation():
 
         while (t := sim.getSimulationTime()) < 100:
 
-            IK_xy = IK_XY()
+            IK_xy = IK_XY(self.sim)
             j1_theta = IK_xy.IK()
 
-            print(f"joint theta {j1_theta}")
+            #yakobi = IK_xz.IK()
 
             sim.setJointPosition(self.joint1, j1_theta)
             sim.step()
@@ -74,9 +73,6 @@ class Simulation():
 
 
 def main():
-
-    #IK_xy = IK_XY()
-    #j1_theta = IK_xy.IK()
 
     simulation = Simulation()
     simulation.simulation()
