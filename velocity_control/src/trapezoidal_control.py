@@ -46,7 +46,7 @@ class TrapezoidalControl:
                 velocity1 = 0
                 velocity3 = 0
                 velocity2 = self.target_velocity
-                position2 = velocity2 * t
+                position2 = velocity2 * (t - 0.5)
             
             elif(t > 5.0):
                 velocity1 = 0
