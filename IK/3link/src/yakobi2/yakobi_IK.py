@@ -103,6 +103,8 @@ class Simulation:
 
             # 偏差を利用して逆ヤコビアンを用いた計算を行う
             theta_pos = self.calc_theta_t1(yakobi_inv, currently_dp) 
+            theta_pos_deg = np.rad2deg(theta_pos)
+
 
             sim.setJointPosition(self.joint1, theta_pos[0][0])
             sim.setJointPosition(self.joint2, theta_pos[1][0])
@@ -110,13 +112,15 @@ class Simulation:
 
             
 
-            print(f"yakobi : {yakobi}")
-            print(f"yakobi inv : {yakobi_inv}")
-            print(f"pos of pt : {pos_of_p_t}")
-            print(f"pos of pe : {pe_pos}")
-            print(f"direction : {direction}")
-            print(f"currently dp : {currently_dp}")
-            print(f"theta_pos : {theta_pos.T}")
+            #print(f"yakobi : {yakobi}")
+            #print(f"yakobi inv : {yakobi_inv}")
+            #print(f"pos of pt : {pos_of_p_t}")
+            #print(f"pos of pe : {pe_pos}")
+            #print(f"direction : {direction}")
+            #print(f"currently dp : {currently_dp}")
+            #print(f"theta_pos : {theta_pos.T}")
+            #print(f"now theta is {np.rad2deg(theta_pos).T}")
+            print(f"{-90 + theta_pos_deg[0][0]}, {theta_pos_deg[1][0]}, {theta_pos_deg[2][0]}")
             ## ヤコビ行
             #yakobi = self.calc_yakobi()
 
@@ -146,7 +150,7 @@ class Simulation:
         sim = self.sim
 
         theta = self.get_joint_position()
-        print(theta)
+        #print(theta)
 
         l1, l2, l3, j1, j2, j3 = sp.symbols("l1 l2 l3 j1 j2 j3")
         xe = l1 * sp.cos(j1) + l2 * sp.cos(j1 + j2) +l3 * sp.cos(j1 + j2 + j3)
