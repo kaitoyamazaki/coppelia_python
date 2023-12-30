@@ -103,9 +103,9 @@ class Simulation:
 
         print(f"{data}")
         pos = sim.getObjectPosition(self.cop, sim.handle_world)
-        y_dp = 0
-        z_dp = data[2] - pos[2]
-        theta_dp = -0.03
+        y_dp = data[2] - pos[1]
+        z_dp = 0
+        theta_dp = 0
         dp = np.empty((3,1))
         dp[0][0] = y_dp
         dp[1][0] = z_dp
