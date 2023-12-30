@@ -7,11 +7,11 @@ class TrapezoidalControl:
         
         self.dt = 0.1
         self.acceleration = 0.3375
-        self.distance = 0.135
+        self.distance = 0.130
         self.target_velocity = 0.03375
         self.t_f = 4.2
 
-        self.y0 = 0.1274
+        self.y0 = 0.11809
 
     def control(self):
 

@@ -26,7 +26,7 @@ class Simulation:
         self.l3 = 0.096
         self.l4 = 0.07318
 
-        self.filepath = "../data/trapezoidal_control_y2.csv"
+        self.filepath = "../data/trapezoidal_data_y3.csv"
         self.df = pd.read_csv(self.filepath, header=None)
         self.data = self.df.values
 
