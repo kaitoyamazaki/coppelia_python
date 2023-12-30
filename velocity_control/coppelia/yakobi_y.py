@@ -26,7 +26,7 @@ class Simulation:
         self.l3 = 0.096
         self.l4 = 0.07318
 
-        self.filepath = "../data/trapezoidal_data.csv"
+        self.filepath = "../data/trapezoidal_control_y.csv"
         self.df = pd.read_csv(self.filepath, header=None)
         self.data = self.df.values
 
@@ -54,10 +54,16 @@ class Simulation:
             theta[0][1] = theta3
             theta[0][2] = theta4
             theta = theta.T
+            theta_deg = np.rad2deg(theta)
+            #print(f"{theta_deg[0][0]}, {theta_deg[1][0]}, {theta_deg[2][0]}")
             dp = self.calc_dp(data[i])
 
-            new_theta = theta + np.dot(yakobi_inv, dp)
+            #print(f"{dp.T}")
 
+            new_theta = theta + np.dot(yakobi_inv, dp)
+            new_theta_deg = np.rad2deg(new_theta)
+
+            #sim.setJointPosition(self.j1, np.deg2rad(45))
             sim.setJointPosition(self.j2, new_theta[0][0])
             sim.setJointPosition(self.j3, new_theta[1][0])
             sim.setJointPosition(self.j4, new_theta[2][0])
@@ -66,8 +72,8 @@ class Simulation:
             #print(f"{theta2}, {theta3}, {theta4}")
             #print(f"{yakobi}")
             #print(f"{yakobi_inv}")
-            print(f"{dp}")
-            print(f"{new_theta}")
+            #print(f"{dp}")
+            print(f"{new_theta_deg[0][0]-90}, {new_theta_deg[1][0]}, {new_theta_deg[2][0]}")
 
 
             sim.step()
@@ -101,11 +107,11 @@ class Simulation:
 
         sim = self.sim
 
-        print(f"{data}")
+        #print(f"{data}")
         pos = sim.getObjectPosition(self.cop, sim.handle_world)
-        y_dp = 0
-        z_dp = data[2] - pos[2]
-        theta_dp = -0.03
+        y_dp = data[2] - pos[1]
+        z_dp = 0
+        theta_dp = 0.0
         dp = np.empty((3,1))
         dp[0][0] = y_dp
         dp[1][0] = z_dp
