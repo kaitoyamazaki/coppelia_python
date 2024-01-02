@@ -19,6 +19,10 @@ class TrapezoidalControl:
         self.y0 = 0.1365
         self.theta0 = -90
 
+        self.center_x = 0.00547
+        self.center_y = 0.04042
+        self.circle_r = 0.065
+
 
     def control(self):
 
@@ -59,7 +63,7 @@ class TrapezoidalControl:
         vy2 = 0
         vy3 = 0
 
-        #print(f"t, v, vx, vy, omega, x, y, theta")
+        print(f"t, omega, theta, x, y")
 
         for t in np.arange(0.0, self.t_f, 0.01):
 
@@ -69,8 +73,6 @@ class TrapezoidalControl:
 
                 omega1 = ddtheta * t
                 theta1 = omega1 * t / 2
-
-
             
             elif(t > 0.1 and t <= 5.0):
                 omega1 = 0
@@ -83,14 +85,17 @@ class TrapezoidalControl:
                 omega1 = 0
                 omega2 = 0
 
-                omega3 = -ddtheta * (t - 5.0)
+                omega3 = -ddtheta * (t - 5.0) + self.target_dtheta
                 theta3 = (self.target_dtheta + omega3) * (t - 5.0) / 2
 
             omega = omega1 + omega2 + omega3
             theta = theta1 + theta2 + theta3 - 90
 
+            x = self.circle_r * np.cos(theta) + self.center_x
+            y = self.circle_r * np.sin(theta) + self.center_y
 
-            print(f"{t}, {theta}")
+
+            print(f"{t}, {omega}, {theta}, {x}, {y}")
 
             
 
