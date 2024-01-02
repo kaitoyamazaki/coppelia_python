@@ -91,9 +91,8 @@ class TrapezoidalControl:
             omega = omega1 + omega2 + omega3
             theta = theta1 + theta2 + theta3 - 90
 
-            x = self.circle_r * np.cos(theta) + self.center_x
-            y = self.circle_r * np.sin(theta) + self.center_y
-
+            x = self.circle_r * np.cos(np.deg2rad(theta)) + self.center_x
+            y = self.circle_r * np.sin(np.deg2rad(theta)) + self.center_y
 
             print(f"{t}, {omega}, {theta}, {x}, {y}")
 
