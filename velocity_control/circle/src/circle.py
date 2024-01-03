@@ -1,4 +1,3 @@
-import math
 import numpy as np
 
 class TrapezoidalControl:
@@ -19,10 +18,15 @@ class TrapezoidalControl:
         self.y0 = 0.1365
         self.theta0 = -90
 
-        self.center_x = 0.00547
+        self.center_x = 0.00
         self.center_y = 0.04042
         self.circle_r = 0.065
 
+        self.base_x = 0.06638
+        self.base_y = 0.20149
+
+        self.base_x = 0.0
+        self.base_y = 0.0
 
     def control(self):
 
@@ -89,10 +93,10 @@ class TrapezoidalControl:
                 theta3 = (self.target_dtheta + omega3) * (t - 5.0) / 2
 
             omega = omega1 + omega2 + omega3
-            theta = theta1 + theta2 + theta3 - 90
+            theta = theta1 + theta2 + theta3 + self.theta0
 
-            x = self.circle_r * np.cos(np.deg2rad(theta)) + self.center_x
-            y = self.circle_r * np.sin(np.deg2rad(theta)) + self.center_y
+            x = self.circle_r * np.cos(np.deg2rad(theta)) - self.base_x
+            y = self.circle_r * np.sin(np.deg2rad(theta)) - self.base_y
 
             print(f"{t}, {omega}, {theta}, {x}, {y}")
 
