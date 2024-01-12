@@ -75,10 +75,10 @@ class Simulation:
             new_theta = theta + np.dot(yakobi_inv, dp)
             new_theta_deg = np.rad2deg(new_theta)
 
-            #sim.setJointPosition(self.j1, new_theta[0][0])
-            #sim.setJointPosition(self.j2, new_theta[1][0])
-            #sim.setJointPosition(self.j3, new_theta[2][0])
-            #sim.setJointPosition(self.j4, new_theta[3][0])
+            sim.setJointPosition(self.j1, new_theta[0][0] * -1)
+            sim.setJointPosition(self.j2, new_theta[1][0])
+            sim.setJointPosition(self.j3, new_theta[2][0])
+            sim.setJointPosition(self.j4, new_theta[3][0])
 
 
             #print(f"{theta2}, {theta3}, {theta4}")
