@@ -1,4 +1,4 @@
-joint_deg = [20 -30 -60];
+joint_deg = [90 -30 -90];
 joint = deg2rad(joint_deg);
 link = [0 0.4 0.2];
 
