@@ -13,6 +13,9 @@ class MakingPath:
 
         self.x0 = 0.0
         self.y0 = 0.373
+
+        self.direct_deg = -45
+        self.direct_rad = np.deg2rad(self.direct_deg)
     
     def control(self):
 
@@ -21,6 +24,7 @@ class MakingPath:
         acceleation = self.acceleation
         distance = self.distance
         dt = self.dt
+        rad = self.direct_rad
 
         x = self.x0
         y = self.y0
@@ -34,7 +38,7 @@ class MakingPath:
         velocity2 = 0
         velocity3 = 0
 
-        print(f"t, velocity, position")
+        #print(f"t, velocity, position")
 
         for t in np.arange(0.0, self.t_f+0.1, 0.1):
 
@@ -59,7 +63,11 @@ class MakingPath:
             velocity = velocity1 + velocity2 + velocity3
             position = position1 + position2 + position3
 
-            print(f"{t}, {velocity}, {position}")
+            x = self.x0 + velocity * np.cos(rad) * t
+            y = self.y0 + velocity * np.sin(rad) * t
+
+            #print(f"{t}, {velocity}, {position}")
+            print(f"{x}, {y}")
 
 
 def main():
