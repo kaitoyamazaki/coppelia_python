@@ -38,7 +38,7 @@ class MakingPath:
         velocity2 = 0
         velocity3 = 0
 
-        #print(f"t, velocity, position")
+        print(f"t, velocity, position, x, y")
 
         for t in np.arange(0.0, self.t_f+0.1, 0.1):
 
@@ -67,7 +67,7 @@ class MakingPath:
             y = self.y0 + velocity * np.sin(rad) * t
 
             #print(f"{t}, {velocity}, {position}")
-            print(f"{x}, {y}")
+            print(f"{t}, {velocity}, {position}, {x}, {y}")
 
 
 def main():
