@@ -12,7 +12,7 @@ class MakingPath:
         self.t_f = 5.1
 
         self.x0 = 0.0
-        self.y0 = 0.0
+        self.y0 = 0.373
     
     def control(self):
 
@@ -22,8 +22,8 @@ class MakingPath:
         distance = self.distance
         dt = self.dt
 
-        x = 0
-        y = 0
+        x = self.x0
+        y = self.y0
 
         position = 0
         position1 = 0
