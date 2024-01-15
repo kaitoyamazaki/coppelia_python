@@ -4,9 +4,9 @@ class TrapezoidalControl:
 
     def __init__(self):
         
-        self.dt = 0.1
+        self.dt = 0.05
         self.distance = 0.408
-        self.t_f = 5.2
+        self.t_f = 5.15
 
         self.ddx = 0.816
         self.target_dx = 0.0816
@@ -72,7 +72,7 @@ class TrapezoidalControl:
 
         print(f"t, omega, theta, x, y")
 
-        for t in np.arange(0.0, self.t_f, 0.1):
+        for t in np.arange(0.0, self.t_f, dt):
 
             if(t <= 0.1):
                 omega2 = 0
