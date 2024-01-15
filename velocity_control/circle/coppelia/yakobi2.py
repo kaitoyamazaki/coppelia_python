@@ -28,8 +28,8 @@ class Simulation:
         self.l3 = 0.096
         self.l4 = 0.07318
 
-        self.filepath = "../data/trapezoidal_control_theta_hand_position_of_world.csv"
-        self.df = pd.read_csv(self.filepath, header=None)
+        self.filepath = "../data/trapezoidal_control_of_hand_position2.csv"
+        self.df = pd.read_csv(self.filepath)
         self.data = self.df.values
 
         
@@ -75,7 +75,7 @@ class Simulation:
             new_theta = theta + np.dot(yakobi_inv, dp)
             new_theta_deg = np.rad2deg(new_theta)
 
-            sim.setJointPosition(self.j1, new_theta[0][0] * -1)
+            sim.setJointPosition(self.j1, new_theta[0][0])
             sim.setJointPosition(self.j2, new_theta[1][0])
             sim.setJointPosition(self.j3, new_theta[2][0])
             sim.setJointPosition(self.j4, new_theta[3][0])
@@ -102,20 +102,20 @@ class Simulation:
 
         yakobi = np.empty((4,4))
 
-        yakobi[0][0] = np.cos(j1) * (l2 * np.sin(j2) + l3 * np.sin(j2+j3) + l4 * np.sin(j2+j3+j4))
-        yakobi[0][1] = np.sin(j1) * (l2 * np.cos(j2) + l3 * np.cos(j2+j3) + l4 * np.cos(j2+j3+j4))
-        yakobi[0][2] = np.sin(j1) * (l3 * np.cos(j2+j3) + l4 * np.cos(j2+j3+j4))
-        yakobi[0][3] = l4 * np.sin(j1) * np.cos(j2+j3+j4)
+        yakobi[0][0] = -np.cos(j1) * (l2 * np.cos(j2) + l3 * np.cos(j2+j3) + l4 * np.cos(j2+j3+j4))
+        yakobi[0][1] = np.sin(j1) * (l2 * np.sin(j2) + l3 * np.sin(j2+j3) + np.sin(j2+j3+j4))
+        yakobi[0][2] = np.sin(j1) * (l3 * np.sin(j2+j3) + l4 * np.sin(j2+j3+j4))
+        yakobi[0][3] = l4 * np.sin(j1) * np.sin(j2+j3+j4)
 
-        yakobi[1][0] = np.sin(j1) * (l2 * np.sin(j2) + l3 * np.sin(j2+j3) + l4 * np.sin(j2+j3+j4))
-        yakobi[1][1] = - np.cos(j1) * (l2 * np.cos(j2) + l3 * np.cos(j2+j3) + l4 * np.cos(j2+j3+j4))
-        yakobi[1][2] = - np.cos(j1) * (l3 * np.cos(j2+j3) + l4 * np.cos(j2+j3+j4))
-        yakobi[1][3] = - l4 * np.cos(j1) * np.cos(j2+j3+j4)
+        yakobi[1][0] = -np.sin(j1) *(l2 * np.cos(j2) + l3 * np.cos(j2+j3) + l4 * np.cos(j2+j3+j4))
+        yakobi[1][1] = -np.cos(j1) * (l2 * np.sin(j2) + l3 * np.sin(j2+j3) + l4 * np.sin(j2+j3+j4))
+        yakobi[1][2] = -np.cos(j1) * (l3 * np.sin(j2+j3) + l4 * np.sin(j2+j3+j4))
+        yakobi[1][3] = -l4 * np.cos(j1) * np.sin(j2+j3+j4)
 
         yakobi[2][0] = 0
-        yakobi[2][1] = -l2 * np.sin(j2) + l3 * np.sin(j2+j3) + l4 * np.sin(j2+j3+j4)
-        yakobi[2][2] = -l3 * np.sin(j2+j3) + l4 * np.sin(j2+j3+j4)
-        yakobi[2][3] = -l4 * np.sin(j2+j3+j4)
+        yakobi[2][1] = l2 * np.cos(j2) + l3 * np.cos(j2+j3) + l4 * np.cos(j2+j3+j4)
+        yakobi[2][2] = l3 * np.cos(j2+j3) + l4 * np.cos(j2+j3+j4)
+        yakobi[2][3] = l4 * np.cos(j2+j3+j4)
         
         yakobi[3][0] = 0
         yakobi[3][1] = 1
@@ -133,7 +133,7 @@ class Simulation:
         pos = sim.getObjectPosition(self.coe, sim.handle_world)
         #print(f"{data[3]}, {data[4]}")
         x_dp = data[3] - pos[0]
-        y_dp = 0
+        y_dp = data[4] - pos[1] 
         z_dp = 0.0
         theta_dp = 0.0
         dp = np.empty((4,1))
