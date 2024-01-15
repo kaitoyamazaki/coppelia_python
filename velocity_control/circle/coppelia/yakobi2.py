@@ -28,7 +28,7 @@ class Simulation:
         self.l3 = 0.096
         self.l4 = 0.07318
 
-        self.filepath = "../data/trapezoidal_control_of_hand_position2.csv"
+        self.filepath = "../data/trapezoidal_control_of_hand_position3.csv"
         self.df = pd.read_csv(self.filepath)
         self.data = self.df.values
 
@@ -63,7 +63,7 @@ class Simulation:
             theta_deg = np.rad2deg(theta)
 
             #print(f"{theta}")
-            print(f"{theta_deg[0][0]}, {theta_deg[1][0]}, {theta_deg[2][0]}, {theta_deg[3][0]}")
+            #print(f"{theta_deg[0][0]}, {theta_deg[1][0]}, {theta_deg[2][0]}, {theta_deg[3][0]}")
 
             dp = self.calc_dp(data[i])
 
@@ -85,7 +85,7 @@ class Simulation:
             #print(f"{yakobi}")
             #print(f"{yakobi_inv}")
             #print(f"{dp}")
-            #print(f"{new_theta_deg[0][0]}, {new_theta_deg[1][0]-90}, {new_theta_deg[2][0]}, {new_theta_deg[3][0]}")
+            print(f"{new_theta_deg[0][0]}, {new_theta_deg[1][0]-90}, {new_theta_deg[2][0]}, {new_theta_deg[3][0]}")
 
 
             sim.step()
