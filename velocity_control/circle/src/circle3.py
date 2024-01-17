@@ -19,8 +19,8 @@ class TrapezoidalControl:
         self.theta0 = -90
 
         self.center_x = 0.167
-        self.center_y = 0.061
-        self.circle_r = 0.065
+        self.center_y = 0.051
+        self.circle_r = 0.055
 
         self.base_x = 0.06638
         self.base_y = 0.20149
