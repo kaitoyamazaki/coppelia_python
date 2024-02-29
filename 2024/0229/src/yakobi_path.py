@@ -28,11 +28,6 @@ class Simulation:
         self.l2 = 0.1104
         self.l3 = 0.096
         self.l4 = 0.07318
-
-        #self.filepath = "../data/trapezoidal_control_of_hand_position5.csv"
-        #self.df = pd.read_csv(self.filepath)
-        #self.data = self.df.values
-
         
     def simulation(self):
         
@@ -42,9 +37,8 @@ class Simulation:
         #sim.setStepping(True)
         sim.startSimulation()
 
-        while sim.getSimulationTime() < 35:
+        while sim.getSimulationTime() < 200:
 
-            sleep(0.01)
             theta1 = sim.getJointPosition(self.j1)
             theta2 = sim.getJointPosition(self.j2)
             theta3 = sim.getJointPosition(self.j3)
@@ -69,15 +63,20 @@ class Simulation:
             dtheta_T = dtheta.T
 
             new_theta = theta + np.dot(yakobi_inv, dp)
-            new_theta_deg = np.rad2deg(new_theta)
+
+            z_theta = self.calc_z_theta(theta6)
+            z_new_theta = theta6 + z_theta
+
+            #print(f"新しい new theta(予定) : {z_new_theta}")
 
             sim.setJointPosition(self.j1, new_theta[0][0])
             sim.setJointPosition(self.j2, new_theta[1][0])
             sim.setJointPosition(self.j3, new_theta[2][0])
             sim.setJointPosition(self.j4, new_theta[3][0])
+            sim.setJointPosition(self.j6, z_new_theta)
 
-
-            print(f"{new_theta_deg[0][0]}, {new_theta_deg[1][0]-90}, {new_theta_deg[2][0]}, {new_theta_deg[3][0]}")
+            # 今後必要となる角度を出力するprint
+            #print(f"{new_theta_deg[0][0]}, {new_theta_deg[1][0]-90}, {new_theta_deg[2][0]}, {new_theta_deg[3][0]}")
 
             #for i in range(len(data)): #for文らしいです
 
@@ -190,6 +189,9 @@ class Simulation:
         pos = sim.getObjectPosition(self.coe, sim.handle_world)
         target_pos = sim.getObjectPosition(self.tip, sim.handle_world)
 
+        pos_ang = sim.getObjectOrientation(self.coe, sim.handle_world)
+        target_ang = sim.getObjectOrientation(self.tip, sim.handle_world)
+
         x_dp = target_pos[0] - pos[0]
         y_dp = target_pos[1] - pos[1]
         z_dp = target_pos[2] - pos[2]
@@ -203,6 +205,17 @@ class Simulation:
 
         return dp
 
+
+    def calc_z_theta(self, theta):
+
+        sim = self.sim
+
+        pos_ang = sim.getObjectOrientation(self.coe, sim.handle_world)
+        target_ang = sim.getObjectOrientation(self.tip, sim.handle_world)
+
+        theta_dp = target_ang[2] - pos_ang[2]
+
+        return theta_dp
 
 def main():
 
