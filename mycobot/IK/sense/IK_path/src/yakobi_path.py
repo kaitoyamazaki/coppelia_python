@@ -42,7 +42,7 @@ class Simulation:
         #sim.setStepping(True)
         sim.startSimulation()
 
-        while sim.getSimulationTime() < 25:
+        while sim.getSimulationTime() < 35:
 
             sleep(0.01)
             theta1 = sim.getJointPosition(self.j1)
