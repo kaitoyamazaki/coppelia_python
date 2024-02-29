@@ -78,56 +78,6 @@ class Simulation:
             # 今後必要となる角度を出力するprint
             #print(f"{new_theta_deg[0][0]}, {new_theta_deg[1][0]-90}, {new_theta_deg[2][0]}, {new_theta_deg[3][0]}")
 
-            #for i in range(len(data)): #for文らしいです
-
-            #theta1 = sim.getJointPosition(self.j1)
-            #theta2 = sim.getJointPosition(self.j2)
-            #theta3 = sim.getJointPosition(self.j3)
-            #theta4 = sim.getJointPosition(self.j4)
-
-            #yakobi = self.calc_yakobi_row(theta1, theta2, theta3, theta4)
-
-            ##print(f"yakobi : {yakobi}")
-            #yakobi_inv = np.linalg.inv(yakobi)
-            ##print(f"yakobi_inv : {yakobi_inv}")
-
-            #theta = np.empty((1,4))
-            #theta[0][0] = theta1
-            #theta[0][1] = theta2
-            #theta[0][2] = theta3
-            #theta[0][3] = theta4
-            #theta = theta.T
-            #theta_deg = np.rad2deg(theta)
-
-            ##print(f"{theta}")
-            ##print(f"{theta_deg[0][0]}, {theta_deg[1][0]}, {theta_deg[2][0]}, {theta_deg[3][0]}")
-
-            #dp = self.calc_dp(data[i])
-
-            ##print(f"{dp.T}")
-
-            #dtheta = np.dot(yakobi_inv, dp)
-            #dtheta_T = dtheta.T
-            ##print(f"{dtheta_T[0][0]}, {dtheta_T[0][1]}, {dtheta_T[0][2]}, {dtheta_T[0][3]}")
-            #new_theta = theta + np.dot(yakobi_inv, dp)
-            #new_theta_deg = np.rad2deg(new_theta)
-
-            #sim.setJointPosition(self.j1, new_theta[0][0])
-            #sim.setJointPosition(self.j2, new_theta[1][0])
-            #sim.setJointPosition(self.j3, new_theta[2][0])
-            #sim.setJointPosition(self.j4, new_theta[3][0])
-
-
-            ##print(f"{theta2}, {theta3}, {theta4}")
-            ##print(f"{yakobi}")
-            ##print(f"{yakobi_inv}")
-            ##print(f"{dp}")
-            #print(f"{new_theta_deg[0][0]}, {new_theta_deg[1][0]-90}, {new_theta_deg[2][0]}, {new_theta_deg[3][0]}")
-
-
-            #sim.step()
-            #time.sleep(0.1) # for文の終わりらしいです
-        
         sim.stopSimulation()
     
     def calc_yakobi_row(self, j1, j2, j3, j4):
@@ -166,9 +116,7 @@ class Simulation:
 
         sim = self.sim
 
-        #print(f"{data}")
         pos = sim.getObjectPosition(self.coe, sim.handle_world)
-        #print(f"{data[3]}, {data[4]}")
         x_dp = data[3] - pos[0]
         y_dp = data[4] - pos[1] 
         z_dp = 0.0
@@ -188,9 +136,6 @@ class Simulation:
 
         pos = sim.getObjectPosition(self.coe, sim.handle_world)
         target_pos = sim.getObjectPosition(self.tip, sim.handle_world)
-
-        pos_ang = sim.getObjectOrientation(self.coe, sim.handle_world)
-        target_ang = sim.getObjectOrientation(self.tip, sim.handle_world)
 
         x_dp = target_pos[0] - pos[0]
         y_dp = target_pos[1] - pos[1]
