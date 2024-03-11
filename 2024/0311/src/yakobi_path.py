@@ -44,7 +44,7 @@ class Simulation:
         #sim.setStepping(True)
         sim.startSimulation()
 
-        while sim.getSimulationTime() < 20:
+        while sim.getSimulationTime() < 35:
 
             theta1 = sim.getJointPosition(self.j1)
             theta2 = sim.getJointPosition(self.j2)
@@ -181,7 +181,7 @@ class Simulation:
         ori = sim.getObjectOrientation(self.object_cog, sim.handle_world)
         se2_object = [pos[0] * 1000, pos[1] * 1000, np.rad2deg(ori[2])]
         #np.append(self.object_pose, se2_object)
-        print(f"{se2_object[0]}, {se2_object[1]}, {se2_object[2]}")
+        #print(f"{se2_object[0]}, {se2_object[1]}, {se2_object[2]}")
 
 def main():
 
