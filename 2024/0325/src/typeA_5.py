@@ -78,6 +78,7 @@ class Simulation:
             z_new_theta = theta6 + z_theta
 
             #print(f"新しい new theta(予定) : {z_new_theta}")
+            z_new_theta = np.deg2rad(45)
 
             sim.setJointPosition(self.j1, new_theta[0][0])
             sim.setJointPosition(self.j2, new_theta[1][0])
