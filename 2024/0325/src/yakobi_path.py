@@ -47,7 +47,7 @@ class Simulation:
         #sim.setStepping(True)
         sim.startSimulation()
 
-        while sim.getSimulationTime() < 60:
+        while sim.getSimulationTime() < 20:
 
             theta1 = sim.getJointPosition(self.j1)
             theta2 = sim.getJointPosition(self.j2)
@@ -92,7 +92,7 @@ class Simulation:
 
         reshape_object_pose = self.object_pose.reshape(-1, 3)
 
-        np.savetxt("../data/success/data_10.csv", reshape_object_pose, delimiter=",", fmt="%f")
+        #np.savetxt("../data/success/data_5.csv", reshape_object_pose, delimiter=",", fmt="%f")
 
 
     

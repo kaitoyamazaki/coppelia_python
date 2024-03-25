@@ -2,7 +2,7 @@
 
 addpath('../../..', '-end');
 
-theta_deg = 80;
+theta_deg = 85;
 theta = deg2rad(theta_deg);
 length = 0.001;
 
