@@ -85,7 +85,7 @@ class Simulation:
             sim.setJointPosition(self.j4, new_theta[3][0])
             sim.setJointPosition(self.j6, z_new_theta)
 
-            #self.get_object_pose()
+            self.get_object_pose()
             self.check_collision()
 
         sim.stopSimulation()
@@ -184,7 +184,7 @@ class Simulation:
         ori = sim.getObjectOrientation(self.object_cog, sim.handle_world)
         se2_object = [pos[0] * 1000, pos[1] * 1000, np.rad2deg(ori[2])]
         #np.append(self.object_pose, se2_object)
-        #print(f"{se2_object[0]}, {se2_object[1]}, {se2_object[2]}")
+        print(f"{se2_object[0]}, {se2_object[1]}, {se2_object[2]}")
     
     def check_collision(self):
         sim = self.sim
@@ -199,8 +199,6 @@ class Simulation:
         
         if res_right == 1:
             print(f"右が衝突")
-
-
 
 
 def main():
