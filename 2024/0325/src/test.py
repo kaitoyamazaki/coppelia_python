@@ -20,7 +20,14 @@ class Simulation:
         sim.startSimulation()
 
         while sim.getSimulationTime() < 50:
-            print(f"test")
+            obj1 = sim.getObjectPosition(self.obj1, sim.handle_world)
+            obj2 = sim.getObjectPosition(self.obj2, sim.handle_world)
+
+            obj1[0] = obj1[0] - 0.05
+            obj2[0] = obj2[0] + 0.05
+
+            print(f"obj1:{obj1}, obj2:{obj2}")
+
 
         sim.stopSimulation()
 
