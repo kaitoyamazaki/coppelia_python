@@ -76,7 +76,7 @@ class Simulation:
 
             z_theta = self.calc_z_theta(theta6)
             #print(f"z_theta : {np.rad2deg(z_theta)}")
-            #z_new_theta = theta6 + z_theta
+            z_new_theta = theta6 + z_theta
             z_new_theta = np.deg2rad(45)
 
             #print(f"新しい new theta(予定) : {np.rad2deg(z_new_theta)}")
@@ -94,7 +94,7 @@ class Simulation:
 
         reshape_object_pose = self.object_pose.reshape(-1, 3)
 
-        #np.savetxt("../data/error/data_45.csv", reshape_object_pose, delimiter=",", fmt="%f")
+        np.savetxt("../data/error/data_45.csv", reshape_object_pose, delimiter=",", fmt="%f")
 
 
     
