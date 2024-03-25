@@ -27,6 +27,9 @@ class Simulation:
         self.object = sim.getObject("/target_object")
         self.object_cog = sim.getObject("/target_object/cog")
 
+        self.right_hand = sim.getObject("/BaseRobot/right_hand")
+        self.left_hand = sim.getObject("/BaseRobot/left_hand")
+
         self.object_pose = np.empty([0,0])
 
 
@@ -44,7 +47,7 @@ class Simulation:
         #sim.setStepping(True)
         sim.startSimulation()
 
-        while sim.getSimulationTime() < 50:
+        while sim.getSimulationTime() < 40:
 
             theta1 = sim.getJointPosition(self.j1)
             theta2 = sim.getJointPosition(self.j2)
@@ -82,11 +85,11 @@ class Simulation:
             sim.setJointPosition(self.j4, new_theta[3][0])
             sim.setJointPosition(self.j6, z_new_theta)
 
-            self.get_object_pose()
-
-
+            #self.get_object_pose()
+            self.check_collision()
 
         sim.stopSimulation()
+
     
     # ヤコビ行列を計算する関数
     def calc_yakobi_row(self, j1, j2, j3, j4):
@@ -182,6 +185,23 @@ class Simulation:
         se2_object = [pos[0] * 1000, pos[1] * 1000, np.rad2deg(ori[2])]
         #np.append(self.object_pose, se2_object)
         #print(f"{se2_object[0]}, {se2_object[1]}, {se2_object[2]}")
+    
+    def check_collision(self):
+        sim = self.sim
+
+        res_right, handle_r = sim.checkCollision(self.object, self.right_hand)
+        res_left, handle_l = sim.checkCollision(self.object, self.left_hand)
+
+        #print(f"res_left : {res_left}")
+
+        if res_left == 1:
+            print(f"左が衝突")
+        
+        if res_right == 1:
+            print(f"右が衝突")
+
+
+
 
 def main():
 
