@@ -30,7 +30,7 @@ class Simulation:
         self.right_hand = sim.getObject("/BaseRobot/right_hand")
         self.left_hand = sim.getObject("/BaseRobot/left_hand")
 
-        self.object_pose = np.empty([0,0])
+        self.object_pose = np.empty(0)
 
 
         self.l1 = 0.13156
@@ -47,7 +47,7 @@ class Simulation:
         #sim.setStepping(True)
         sim.startSimulation()
 
-        while sim.getSimulationTime() < 40:
+        while sim.getSimulationTime() < 60:
 
             theta1 = sim.getJointPosition(self.j1)
             theta2 = sim.getJointPosition(self.j2)
@@ -89,6 +89,11 @@ class Simulation:
             self.check_collision()
 
         sim.stopSimulation()
+
+        reshape_object_pose = self.object_pose.reshape(-1, 3)
+
+        np.savetxt("../data/success/data_10.csv", reshape_object_pose, delimiter=",", fmt="%f")
+
 
     
     # ヤコビ行列を計算する関数
@@ -183,8 +188,9 @@ class Simulation:
         pos = sim.getObjectPosition(self.object_cog, sim.handle_world)
         ori = sim.getObjectOrientation(self.object_cog, sim.handle_world)
         se2_object = [pos[0] * 1000, pos[1] * 1000, np.rad2deg(ori[2])]
-        #np.append(self.object_pose, se2_object)
-        print(f"{se2_object[0]}, {se2_object[1]}, {se2_object[2]}")
+        self.object_pose = np.append(self.object_pose, se2_object)
+        #print(self.object_pose)
+        #print(f"{se2_object[0]}, {se2_object[1]}, {se2_object[2]}")
     
     def check_collision(self):
         sim = self.sim
