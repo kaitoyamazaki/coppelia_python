@@ -14,19 +14,25 @@ class Simulation:
         self.obj1 =  sim.getObject("/object1")
         self.obj2 = sim.getObject("/object2")
 
+        self.moving_value = 0.0005
+
+
+
     def simulation(self):
 
         sim = self.sim
         sim.startSimulation()
 
-        while sim.getSimulationTime() < 50:
+        while sim.getSimulationTime() < 100:
             obj1 = sim.getObjectPosition(self.obj1, sim.handle_world)
             obj2 = sim.getObjectPosition(self.obj2, sim.handle_world)
 
-            obj1[0] = obj1[0] - 0.05
-            obj2[0] = obj2[0] + 0.05
+            obj1[0] = obj1[0] - self.moving_value
+            obj2[0] = obj2[0] + self.moving_value
 
-            print(f"obj1:{obj1}, obj2:{obj2}")
+            sim.setObjectPosition(self.obj1, obj1, sim.handle_world)
+            sim.setObjectPosition(self.obj2, obj2, sim.handle_world)
+
 
 
         sim.stopSimulation()
