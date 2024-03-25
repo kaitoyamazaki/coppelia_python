@@ -33,9 +33,19 @@ class Simulation:
             sim.setObjectPosition(self.obj1, obj1, sim.handle_world)
             sim.setObjectPosition(self.obj2, obj2, sim.handle_world)
 
+            self.check_collision()
+
 
 
         sim.stopSimulation()
+    
+    def check_collision(self):
+        sim = self.sim
+
+        result, handles = sim.checkCollision(self.obj1, self.obj2)
+
+        if result == 1:
+            print(f"衝突しています")
 
 def main():
 
