@@ -16,8 +16,12 @@ class Setting:
 
         sim = self.sim
 
-        # ゴール地点を作成する関数, 必要に応じてコメント
-        self.create_goal()
+        # ゴール地点を作成する関数, 必要に応じて実行
+        #self.create_goal()
+
+        # typeBに必要な円軌道のためのdummyを作成する関数
+        self.create_circle_path()
+
     
     def create_goal(self):
 
@@ -36,9 +40,23 @@ class Setting:
 
         sim.setObjectColor(goal, 0, sim.colorcomponent_ambient_diffuse, [1.0, 0.0, 0.0])
 
+    def create_circle_path(self):
+        
+        sim = self.sim
+        goal = sim.getObject("/goal")
+        first_pos = sim.getObjectPosition(goal, sim.handle_world)
+        first_pos = [first_pos[0] + 0.1, first_pos[1], first_pos[2]]
+        z = first_pos[2]
+        num = 36
+        dtheta = 180 / 36
+        r = 0.1
 
+        for i in range(num):
+            x = r * np.cos(np.deg2rad(dtheta * i)) + first_pos[0]
+            y = r * np.sin(np.deg2rad(dtheta * i)) + first_pos[1]
 
-
+            print(f"[x, y] = [{x}, {y}]")
+        
 
 
 def main():
