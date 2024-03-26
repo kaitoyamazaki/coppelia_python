@@ -47,7 +47,7 @@ class Simulation:
         #sim.setStepping(True)
         sim.startSimulation()
 
-        while sim.getSimulationTime() < 60:
+        while sim.getSimulationTime() < 400:
 
             theta1 = sim.getJointPosition(self.j1)
             theta2 = sim.getJointPosition(self.j2)

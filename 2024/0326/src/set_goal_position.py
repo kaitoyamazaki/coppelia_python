@@ -54,8 +54,9 @@ class Setting:
         for i in range(num):
             x = r * np.cos(np.deg2rad(dtheta * i)) + first_pos[0]
             y = r * np.sin(np.deg2rad(dtheta * i)) + first_pos[1]
-
-            print(f"[x, y] = [{x}, {y}]")
+            point = [x, y, z]
+            test = sim.createDummy(self.dummy_size)
+            sim.setObjectPosition(test, point, sim.handle_world)
         
 
 
