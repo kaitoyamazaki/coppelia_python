@@ -50,14 +50,19 @@ class Setting:
         num = 36
         dtheta = 180 / 36
         r = 0.1
+        pose = []
 
         for i in range(num):
             x = r * np.cos(np.deg2rad(dtheta * i)) + first_pos[0]
             y = r * np.sin(np.deg2rad(dtheta * i)) + first_pos[1]
-            point = [x, y, z]
-            test = sim.createDummy(self.dummy_size)
-            sim.setObjectPosition(test, point, sim.handle_world)
+            point = [x, y, z, 0, 0, 0, 1]
+            pose.extend(point)
+            #test = sim.createDummy(self.dummy_size)
+            #sim.setObjectPosition(test, point, sim.handle_world)
         
+        #reshape_pose = pose.reshape(-1, 7)
+        #print(pose)
+        test_path = sim.createPath(pose, 0, 100, 1.0, 0, [0,0,1])
 
 
 def main():
