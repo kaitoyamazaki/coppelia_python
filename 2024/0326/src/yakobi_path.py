@@ -93,7 +93,7 @@ class Simulation:
         reshape_object_pose = self.object_pose.reshape(-1, 3)
 
         #np.savetxt("../data/success/typeB.csv", reshape_object_pose, delimiter=",", fmt="%f")
-        np.savetxt("../data/success/typeB/success_typeB10.csv", reshape_object_pose, delimiter=",", fmt="%f")
+        #np.savetxt("../data/success/success_typeB.csv", reshape_object_pose, delimiter=",", fmt="%f")
 
 
     
