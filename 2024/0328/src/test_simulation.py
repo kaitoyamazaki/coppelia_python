@@ -47,7 +47,7 @@ class Simulation:
         #sim.setStepping(True)
         sim.startSimulation()
 
-        while sim.getSimulationTime() < 40:
+        while sim.getSimulationTime() < 30:
 
             theta1 = sim.getJointPosition(self.j1)
             theta2 = sim.getJointPosition(self.j2)
@@ -87,6 +87,9 @@ class Simulation:
 
             self.get_object_pose()
             self.check_collision()
+            self.output_cog_pos()
+        
+        #sleep(5)
 
         sim.stopSimulation()
 
@@ -198,14 +201,22 @@ class Simulation:
 
         res_right, handle_r = sim.checkCollision(self.object, self.right_hand)
         res_left, handle_l = sim.checkCollision(self.object, self.left_hand)
+        time = sim.getSimulationTime()
 
         #print(f"res_left : {res_left}")
 
-        if res_left == 1:
-            print(f"左が衝突")
+        #if res_left == 1:
+            #print(f"{time} : 00")
         
-        if res_right == 1:
-            print(f"右が衝突")
+        #if res_right == 1:
+            #print(f"{time} : 1111")
+    
+    def output_cog_pos(self):
+
+        sim = self.sim
+        cog = sim.getObject("/target_object/cog")
+        ori = sim.getObjectOrientation(cog, sim.handle_world)
+        print(f"deg : {np.rad2deg(ori[2])}")
 
 
 def main():

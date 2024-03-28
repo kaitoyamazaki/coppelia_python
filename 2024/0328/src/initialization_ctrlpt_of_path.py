@@ -17,7 +17,10 @@ class Setting:
         sim = self.sim
 
         # 全ての角度を一定にするプログラムの作成
-        self.initialize()
+        #self.initialize()
+
+        # 距離を一定距離にするプログラム
+        self.ctrl_distance()
     
 
     def initialize(self):
@@ -36,6 +39,11 @@ class Setting:
             #print(f"theta : {theta}")
             ori = [0.0, 0.0, np.deg2rad(theta)]
             sim.setObjectOrientation(ctrlpt[i], ori, sim.handle_world)
+    
+    def ctrl_distance(self):
+        
+        sim = self.sim
+        
 
 
 
