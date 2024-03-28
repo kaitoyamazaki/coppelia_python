@@ -94,6 +94,7 @@ class Simulation:
 
         #np.savetxt("../data/success/typeB.csv", reshape_object_pose, delimiter=",", fmt="%f")
         #np.savetxt("../data/success/success_typeB.csv", reshape_object_pose, delimiter=",", fmt="%f")
+        np.savetxt("../data/error/typeB/success_typeB10.csv", reshape_object_pose, delimiter=",", fmt="%f")
 
 
     
