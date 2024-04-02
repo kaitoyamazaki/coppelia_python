@@ -45,11 +45,9 @@ class Path:
         
     def check_subtree(self, sim):
 
-        wrench = []
-
         for i in range(len(self.range_deg)):
             velocity = self.derive_velocity(sim, i)
-            #wrench = self.derive_wrench()
+            wrench = self.derive_wrench(sim, i, velocity)
 
             #self.check_wrench_point(wrench)
 
@@ -57,12 +55,43 @@ class Path:
     def derive_velocity(self, sim, i):
 
         p0 = sim.getObjectPosition(self.start, sim.handle_world)
-        
 
         point_name = f'/point{i}'
         point = sim.getObject(point_name)
         p1 = sim.getObjectPosition(point, sim.handle_world)
-        print(f'p1 : {p1}')
+
+        real_deviation_of_x = p1[0] - p0[0]
+        real_deviation_of_y = p1[1] - p0[1]
+        real_deviation = [real_deviation_of_x, real_deviation_of_y]
+        real_deviation_of_numpy = np.array(real_deviation)
+
+        rate = 1 / 0.03
+        deviation = rate * real_deviation_of_numpy
+        
+        return deviation
+
+    
+    def derive_wrench(self, sim, i, velocity):
+
+        CoP = sim.getObject('/BaseRobot/CoP')
+        CoG = sim.getObject('/target_object/cog')
+
+        pos_of_CoP = sim.getObjectPosition(CoP, sim.handle_world)
+        pos_of_CoG = sim.getObjectPosition(CoG, sim.handle_world)
+
+        distance_x = pos_of_CoP[0] - pos_of_CoG[0]
+        distance_y = pos_of_CoP[1] - pos_of_CoG[1]
+
+        distance = [distance_x, distance_y]
+        distance_numpy = np.array(distance)
+
+        moment = np.cross(distance_numpy, velocity)
+        moment = moment.tolist()
+
+        wrench = [velocity[0], velocity[1], moment]
+
+        return wrench
+
             
 
 def main():
