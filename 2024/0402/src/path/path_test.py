@@ -13,13 +13,12 @@ class Path:
 
         self.start = sim.getObject('/start')
         self.dummy_size = 0.005
-        self.distane = 0.03
+        self.distance = 0.03
         self.velocity = 0.001
-        self.range_deg = [-20, -10, 0, 10, 20]
+        self.range_deg = [-40, -20, 0, 20, 40]
     
-    def make_subtree(self):
+    def make_subtree(self, sim):
         
-        sim = self.sim
         pos = sim.getObjectPosition(self.start)
         ori = sim.getObjectOrientation(self.start)
 
@@ -37,20 +36,41 @@ class Path:
 
         for i in range(len(reshape_hoge)):
             point = sim.createDummy(self.dummy_size)
+            point_name = f'point{i}' 
+            sim.setObjectAlias(point, point_name)
             sim.setObjectPosition(point, reshape_hoge[i], sim.handle_world)
             sim.setObjectOrientation(point, [0.0, 0.0, 0.0], sim.handle_world)
 
             sim.setObjectColor(point, 0, sim.colorcomponent_ambient_diffuse, [1.0, 0.0, 0.0])
+        
+    def check_subtree(self, sim):
+
+        wrench = []
+
+        for i in range(len(self.range_deg)):
+            velocity = self.derive_velocity(sim, i)
+            #wrench = self.derive_wrench()
+
+            #self.check_wrench_point(wrench)
 
 
-    
+    def derive_velocity(self, sim, i):
 
+        p0 = sim.getObjectPosition(self.start, sim.handle_world)
+        
+
+        point_name = f'/point{i}'
+        point = sim.getObject(point_name)
+        p1 = sim.getObjectPosition(point, sim.handle_world)
+        print(f'p1 : {p1}')
+            
 
 def main():
     print(f'プログラム開始')
     path = Path()
     try:
-        path.make_subtree()
+        path.make_subtree(path.sim)
+        path.check_subtree(path.sim)
 
     except KeyboardInterrupt:
         pass
