@@ -11,7 +11,7 @@ class Path:
         self.sim = client.require('sim')
         sim = self.sim
 
-        self.start = sim.getObject('/start')
+        self.start = sim.getObject('/point2')
         self.dummy_size = 0.005
         self.distance = 0.03
         self.velocity = 0.001
@@ -114,7 +114,8 @@ class Path:
         sim.removeObjects(remove_objects)
 
         if(path_flg):
-            self.create_applicapble_path(sim, applicaple_point)
+            #self.create_applicapble_path(sim, applicaple_point)
+            pass
     
 
     def create_applicapble_path(self, sim, applicaple_point):
