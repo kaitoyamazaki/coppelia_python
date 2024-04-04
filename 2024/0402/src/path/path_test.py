@@ -15,7 +15,9 @@ class Path:
         self.dummy_size = 0.005
         self.distance = 0.03
         self.velocity = 0.001
-        self.range_deg = [-40, -20, 0, 20, 40]
+        deg1 = 20
+        deg2 = 40
+        self.range_deg = [-deg2, -deg1, 0, deg1, deg2]
     
     def make_subtree(self, sim):
         
@@ -49,7 +51,7 @@ class Path:
             velocity = self.derive_velocity(sim, i)
             wrench = self.derive_wrench(sim, i, velocity)
 
-            #self.check_wrench_point(wrench)
+            self.check_wrench_point(sim, i, wrench)
 
 
     def derive_velocity(self, sim, i):
@@ -91,6 +93,22 @@ class Path:
         wrench = [velocity[0], velocity[1], moment]
 
         return wrench
+    
+    
+    def check_wrench_point(self, sim, i, wrench):
+
+        point_name = f'/point{i}'
+
+        remove_objects = []
+        if (0.0275*wrench[0] - 0.0075*wrench[1] + wrench[2] <= 0) and (-0.0275*wrench[0] - 0.0125*wrench[1] - wrench[2] <= 0) and (0.02*wrench[0] <= 0):
+            print(point_name)
+        else:
+            remove_object = sim.getObject(point_name)
+            remove_objects.append(remove_object)
+        
+        sim.removeObjects(remove_objects)
+
+
 
             
 
