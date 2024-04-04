@@ -18,6 +18,7 @@ class Path:
         deg1 = 20
         deg2 = 40
         self.range_deg = [-deg2, -deg1, 0, deg1, deg2]
+        self.applicapble_point = []
     
     def make_subtree(self, sim):
         
@@ -52,6 +53,7 @@ class Path:
             wrench = self.derive_wrench(sim, i, velocity)
 
             self.check_wrench_point(sim, i, wrench)
+
 
 
     def derive_velocity(self, sim, i):
@@ -98,21 +100,35 @@ class Path:
     def check_wrench_point(self, sim, i, wrench):
 
         point_name = f'/point{i}'
-
-        applicable_points = []
+        path_flg = 1
 
         remove_objects = []
         if (0.0275*wrench[0] - 0.0075*wrench[1] + wrench[2] <= 0) and (-0.0275*wrench[0] - 0.0125*wrench[1] - wrench[2] <= 0) and (0.02*wrench[0] <= 0):
             applicaple_point = sim.getObject(point_name)
-            applicable_points.append(applicaple_point)
 
         else:
             remove_object = sim.getObject(point_name)
             remove_objects.append(remove_object)
+            path_flg = 0
         
-
-        print(applicable_points)
         sim.removeObjects(remove_objects)
+
+        if(path_flg):
+            self.create_applicapble_path(sim, applicaple_point)
+    
+
+    def create_applicapble_path(self, sim, applicaple_point):
+
+        pose = []
+        p0 = sim.getObjectPosition(self.start, sim.handle_world)
+        p0 = [p0[0], p0[1], p0[2], 0, 0, 0, 1]
+        pose.extend(p0)
+
+        p1 = sim.getObjectPosition(applicaple_point, sim.handle_world)
+        p1 = [p1[0], p1[1], p1[2], 0, 0, 0, 1]
+        pose.extend(p1)
+
+        test_path = sim.createPath(pose, 0, 100, 1.0, 0, [0,0,1])
 
 
 
