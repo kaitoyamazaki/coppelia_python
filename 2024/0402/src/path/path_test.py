@@ -99,13 +99,19 @@ class Path:
 
         point_name = f'/point{i}'
 
+        applicable_points = []
+
         remove_objects = []
         if (0.0275*wrench[0] - 0.0075*wrench[1] + wrench[2] <= 0) and (-0.0275*wrench[0] - 0.0125*wrench[1] - wrench[2] <= 0) and (0.02*wrench[0] <= 0):
-            print(point_name)
+            applicaple_point = sim.getObject(point_name)
+            applicable_points.append(applicaple_point)
+
         else:
             remove_object = sim.getObject(point_name)
             remove_objects.append(remove_object)
         
+
+        print(applicable_points)
         sim.removeObjects(remove_objects)
 
 
