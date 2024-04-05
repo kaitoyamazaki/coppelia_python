@@ -11,8 +11,8 @@ class Path:
         self.sim = client.require('sim')
         sim = self.sim
 
-        self.start = sim.getObject('/start')
-        self.dummy_size = 0.005
+        self.start = sim.getObject('/point1')
+        self.dummy_size = 0.0015
         self.distance = 0.03
         self.velocity = 0.001
         deg1 = 20
@@ -106,6 +106,9 @@ class Path:
         if (0.0275*wrench[0] - 0.0075*wrench[1] + wrench[2] <= 0) and (-0.0275*wrench[0] - 0.0125*wrench[1] - wrench[2] <= 0) and (0.02*wrench[0] <= 0):
             applicaple_point = sim.getObject(point_name)
 
+            #remove_object = sim.getObject(point_name)
+            #remove_objects.append(remove_object)
+
         else:
             remove_object = sim.getObject(point_name)
             remove_objects.append(remove_object)
@@ -132,8 +135,6 @@ class Path:
         test_path = sim.createPath(pose, 0, 100, 1.0, 0, [0,0,1])
 
 
-
-            
 
 def main():
     print(f'プログラム開始')

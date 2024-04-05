@@ -47,7 +47,7 @@ class Simulation:
         #sim.setStepping(True)
         sim.startSimulation()
 
-        while sim.getSimulationTime() < 30:
+        while sim.getSimulationTime() < 60:
 
             theta1 = sim.getJointPosition(self.j1)
             theta2 = sim.getJointPosition(self.j2)
@@ -85,9 +85,10 @@ class Simulation:
             sim.setJointPosition(self.j4, new_theta[3][0])
             sim.setJointPosition(self.j6, z_new_theta)
 
-            self.get_object_pose()
-            self.check_collision()
-            self.output_cog_pos()
+            #self.get_object_pose()
+            #self.check_collision()
+            #self.output_cog_pos()
+            self.check_contact_point_distance(sim)
         
         #sleep(5)
 
@@ -217,6 +218,37 @@ class Simulation:
         cog = sim.getObject("/target_object/cog")
         ori = sim.getObjectOrientation(cog, sim.handle_world)
         print(f"deg : {np.rad2deg(ori[2])}")
+    
+
+    def check_contact_point_distance(self, sim):
+
+        contact_point1 = sim.getObject('/target_object/contact_point1')
+        contact_point2 = sim.getObject('/target_object/contact_point2')
+        contact_point3 = sim.getObject('/target_object/contact_point3')
+
+        right_hand = sim.getObject('/BaseRobot/right_hand')
+        left_hand = sim.getObject('/BaseRobot/left_hand')
+
+        right_hand_pos = sim.getObjectPosition(right_hand, sim.handle_world)
+        left_hand_pos = sim.getObjectPosition(left_hand, sim.handle_world)
+
+        right_hand_pos_numpy = np.array(right_hand_pos)
+        left_hand_pos_numpy = np.array(left_hand_pos)
+
+        contact_point1_pos = sim.getObjectPosition(contact_point1, sim.handle_world)
+        contact_point2_pos = sim.getObjectPosition(contact_point2, sim.handle_world)
+        contact_point3_pos = sim.getObjectPosition(contact_point3, sim.handle_world)
+
+        contact_point1_pos_numpy = np.array(contact_point1_pos)
+        contact_point2_pos_numpy = np.array(contact_point2_pos)
+        contact_point3_pos_numpy = np.array(contact_point3_pos)
+
+        dist_of_contact_point1 = np.linalg.norm(contact_point1_pos_numpy - right_hand_pos_numpy) * 1000
+        dist_of_contact_point2 = np.linalg.norm(contact_point2_pos_numpy - right_hand_pos_numpy) * 1000
+        dist_of_contact_point3 = np.linalg.norm(contact_point3_pos_numpy - left_hand_pos_numpy) * 1000
+
+        print(f'{dist_of_contact_point1}, {dist_of_contact_point2}, {dist_of_contact_point3}')
+
 
 
 def main():
