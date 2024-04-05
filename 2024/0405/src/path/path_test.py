@@ -11,7 +11,7 @@ class Path:
         self.sim = client.require('sim')
         sim = self.sim
 
-        self.start = sim.getObject('/point1')
+        self.start = sim.getObject('/point2')
         self.dummy_size = 0.0015
         self.distance = 0.03
         self.velocity = 0.001
