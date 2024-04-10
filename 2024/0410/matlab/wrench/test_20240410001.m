@@ -1,5 +1,4 @@
 % 境界の上限をチェックするプログラム
-
 clear;
 
 addpath('.', '-end');
@@ -42,7 +41,30 @@ moment_point1 = m1(end, :);
 moment_point2 = m2(end, :);
 moment_point3 = m3(end, :);
 
-%plane1_coefficient = cross(moment_point1, moment_point2);
+plane1_coefficient = cross(moment_point1, moment_point2);
+
+expected_number_of_rows = 100000;
+
+points = zeros(expected_number_of_rows, 3);
+
+count = 1;
+
+for lamda = 0:0.05:1
+    for mu = 0:0.05:1
+        point = lamda * moment_point1 + mu * moment_point2;
+        if abs(plane1_coefficient(1) * point(1) + plane1_coefficient(2) * point(2) + plane1_coefficient(3) * point(3)) < 1e-10
+            points(count, :) = point;
+            count = count + 1;
+        end
+    end
+end
+
+points = points(1:count-1, :);
+remainder = rem(count, 5);
+
+points_x = reshape(points(1:count-remainder, 1), [], 5);
+points_y = reshape(points(1:count-remainder, 2), [], 5);
+points_z = reshape(points(1:count-remainder, 3), [], 5);
 
 x = [0, moment_point1(1)];
 y = [0, moment_point1(2)];
@@ -56,6 +78,10 @@ x3 = [0, moment_point3(1)];
 y3 = [0, moment_point3(2)];
 z3 = [0, moment_point3(3)];
 
+
+% ランダムな点をプロット
+
+
 % グラフ描画開始
 figure;
 
@@ -65,6 +91,10 @@ hold on;
 plot3(x, y, z, '-o');
 plot3(x2, y2, z2, '-o');
 plot3(x3, y3, z3, '-o');
+
+% 平面の作成
+
+mesh = mesh(points_x, points_y, points_z);
 grid on;
 
 % ラベルの描画
