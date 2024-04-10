@@ -1,4 +1,4 @@
-% 境界の上限をチェックするプログラム(平面3)
+% 全平面を考慮した力とモーメントの関係
 clear;
 
 addpath('.', '-end');
@@ -42,32 +42,20 @@ moment_point1 = m1(end, :);
 moment_point2 = m2(end, :);
 moment_point3 = m3(end, :);
 
+plane1_coefficient = cross(moment_point1, moment_point2);
+plane2_coefficient = cross(moment_point2, moment_point3);
 plane3_coefficient = cross(moment_point3, moment_point1);
 
-expected_number_of_rows = 100000;
+[points1_x, points1_y, points1_z] = create_plane(moment_point1, moment_point2, plane1_coefficient);
+[points2_x, points2_y, points2_z] = create_plane(moment_point2, moment_point3, plane2_coefficient);
+[points3_x, points3_y, points3_z] = create_plane(moment_point3, moment_point1, plane3_coefficient);
 
-points = zeros(expected_number_of_rows, 3);
+%points = points(1:count-1, :);
+%remainder = rem(count, 5);
 
-count = 1;
-
-for lamda = 0:0.05:1
-    for mu = 0:0.05:1
-        if (lamda + mu <= 1)
-            point = lamda * moment_point3 + mu * moment_point1;
-            if abs(plane3_coefficient(1) * point(1) + plane3_coefficient(2) * point(2) + plane3_coefficient(3) * point(3)) < 1e-10
-                points(count, :) = point;
-                count = count + 1;
-            end
-        end
-    end
-end
-
-points = points(1:count-1, :);
-remainder = rem(count, 5);
-
-points_x = reshape(points(1:count-remainder, 1), [], 5);
-points_y = reshape(points(1:count-remainder, 2), [], 5);
-points_z = reshape(points(1:count-remainder, 3), [], 5);
+%points_x = reshape(points(1:count-remainder, 1), [], 5);
+%points_y = reshape(points(1:count-remainder, 2), [], 5);
+%points_z = reshape(points(1:count-remainder, 3), [], 5);
 
 x = [0, moment_point1(1)];
 y = [0, moment_point1(2)];
@@ -85,8 +73,12 @@ z3 = [0, moment_point3(3)];
 % ランダムな点をプロット
 while true
     [test_x, test_y, test_z] = search_coordinate();
-    if plane3_coefficient(1) * test_x + plane3_coefficient(2) * test_y + plane3_coefficient(3) * test_z > 0
-        break
+    if plane1_coefficient(1) * test_x + plane1_coefficient(2) * test_y + plane1_coefficient(3) * test_z > 0
+        if plane2_coefficient(1) * test_x + plane2_coefficient(2) * test_y + plane2_coefficient(3) * test_z > 0
+            if plane3_coefficient(1) * test_x + plane3_coefficient(2) * test_y + plane3_coefficient(3) * test_z > 0
+                break
+            end
+        end
     end
 end
 
@@ -97,13 +89,15 @@ figure;
 hold on;
 
 % wrenchに関する直線を描画
-plot3(x, y, z, '-o');
-plot3(x2, y2, z2, '-o');
-plot3(x3, y3, z3, '-o');
+plot3(x, y, z, '-o', 'LineWidth', 5);
+plot3(x2, y2, z2, '-o', 'LineWidth', 5);
+plot3(x3, y3, z3, '-o', 'LineWidth', 5);
 
 % 平面の作成
 
-mesh = mesh(points_x, points_y, points_z);
+mesh1 = mesh(points1_x, points1_y, points1_z);
+mesh2 = mesh(points2_x, points2_y, points2_z);
+mesh3 = mesh(points3_x, points3_y, points3_z);
 plot3(test_x, test_y, test_z, 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'k');
 grid on;
 

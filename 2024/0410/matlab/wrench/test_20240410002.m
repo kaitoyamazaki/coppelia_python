@@ -1,4 +1,4 @@
-% 境界の上限をチェックするプログラム
+% 境界の上限をチェックするプログラム(平面2)
 clear;
 
 addpath('.', '-end');
@@ -53,10 +53,12 @@ count = 1;
 
 for lamda = 0:0.05:1
     for mu = 0:0.05:1
-        point = lamda * moment_point2 + mu * moment_point3;
-        if abs(plane2_coefficient(1) * point(1) + plane2_coefficient(2) * point(2) + plane2_coefficient(3) * point(3)) < 1e-10
-            points(count, :) = point;
-            count = count + 1;
+        if (lamda + mu <= 1)
+            point = lamda * moment_point2 + mu * moment_point3;
+            if abs(plane2_coefficient(1) * point(1) + plane2_coefficient(2) * point(2) + plane2_coefficient(3) * point(3)) < 1e-10
+                points(count, :) = point;
+                count = count + 1;
+            end
         end
     end
 end
