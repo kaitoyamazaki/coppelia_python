@@ -42,7 +42,8 @@ moment_point1 = m1(end, :);
 moment_point2 = m2(end, :);
 moment_point3 = m3(end, :);
 
-plane1_coefficient = cross(moment_point1, moment_point2);
+%plane1_coefficient = cross(moment_point1, moment_point2);
+plane2_coefficient = cross(moment_point2, moment_point3);
 
 expected_number_of_rows = 100000;
 
@@ -52,8 +53,8 @@ count = 1;
 
 for lamda = 0:0.05:1
     for mu = 0:0.05:1
-        point = lamda * moment_point1 + mu * moment_point2;
-        if abs(plane1_coefficient(1) * point(1) + plane1_coefficient(2) * point(2) + plane1_coefficient(3) * point(3)) < 1e-10
+        point = lamda * moment_point2 + mu * moment_point3;
+        if abs(plane2_coefficient(1) * point(1) + plane2_coefficient(2) * point(2) + plane2_coefficient(3) * point(3)) < 1e-10
             points(count, :) = point;
             count = count + 1;
         end
@@ -83,7 +84,7 @@ z3 = [0, moment_point3(3)];
 % ランダムな点をプロット
 while true
     [test_x, test_y, test_z] = search_coordinate();
-    if plane1_coefficient(1) * test_x + plane1_coefficient(2) * test_y + plane1_coefficient(3) * test_z > 0
+    if plane2_coefficient(1) * test_x + plane2_coefficient(2) * test_y + plane2_coefficient(3) * test_z > 0
         break
     end
 end
