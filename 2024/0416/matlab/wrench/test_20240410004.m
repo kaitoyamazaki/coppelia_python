@@ -69,6 +69,17 @@ x3 = [0, moment_point3(1)];
 y3 = [0, moment_point3(2)];
 z3 = [0, moment_point3(3)];
 
+x12 = [moment_point1(1), moment_point2(1)];
+y12 = [moment_point1(2), moment_point2(2)];
+z12 = [moment_point1(3), moment_point2(3)];
+
+x23 = [moment_point2(1), moment_point3(1)];
+y23 = [moment_point2(2), moment_point3(2)];
+z23 = [moment_point2(3), moment_point3(3)];
+
+x31 = [moment_point3(1), moment_point1(1)];
+y31 = [moment_point3(2), moment_point1(2)];
+z31 = [moment_point3(3), moment_point1(3)];
 
 % ランダムな点をプロット
 while true
@@ -89,16 +100,24 @@ figure;
 hold on;
 
 % wrenchに関する直線を描画
-plot3(x, y, z, '-o', 'LineWidth', 5);
-plot3(x2, y2, z2, '-o', 'LineWidth', 5);
-plot3(x3, y3, z3, '-o', 'LineWidth', 5);
+%plot3(x, y, z, '-o', 'LineWidth', 3, 'Color', 'k');
+%plot3(x2, y2, z2, '-o', 'LineWidth', 3, 'Color', 'k');
+%plot3(x3, y3, z3, '-o', 'LineWidth', 3, 'Color', 'k');
+
+plot3(x, y, z,'LineWidth', 3, 'Color', 'k');
+plot3(x2, y2, z2, 'LineWidth', 3, 'Color', 'k');
+plot3(x3, y3, z3, 'LineWidth', 3, 'Color', 'k');
+
+plot3(x12, y12, z12, 'LineWidth', 3, 'Color', 'k');
+plot3(x23, y23, z23, 'LineWidth', 3, 'Color', 'k');
+plot3(x31, y31, z31, 'LineWidth', 3, 'Color', 'k');
 
 % 平面の作成
 
-mesh1 = mesh(points1_x, points1_y, points1_z);
-mesh2 = mesh(points2_x, points2_y, points2_z);
-mesh3 = mesh(points3_x, points3_y, points3_z);
-plot3(test_x, test_y, test_z, 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'k');
+mesh1 = mesh(points1_x, points1_y, points1_z, 'LineStyle', "none",  'FaceColor', 'b', 'FaceAlpha', 0.25);
+mesh2 = mesh(points2_x, points2_y, points2_z, 'LineStyle', "none",  'FaceColor', 'b', 'FaceAlpha', 0.25);
+mesh3 = mesh(points3_x, points3_y, points3_z, 'LineStyle', "none",  'FaceColor', 'b', 'FaceAlpha', 0.25);
+%plot3(test_x, test_y, test_z, 'o', 'MarkerSize', 10, 'MarkerFaceColor', 'k');
 grid on;
 
 % ラベルの描画

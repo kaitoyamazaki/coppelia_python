@@ -89,6 +89,7 @@ class Simulation:
             #self.check_collision()
             #self.output_cog_pos()
             self.check_contact_point_distance(sim)
+            self.check_each_parameter(sim)
         
         #sleep(5)
 
@@ -248,6 +249,10 @@ class Simulation:
         dist_of_contact_point3 = np.linalg.norm(contact_point3_pos_numpy - left_hand_pos_numpy) * 1000
 
         print(f'{dist_of_contact_point1}, {dist_of_contact_point2}, {dist_of_contact_point3}')
+    
+    def check_each_parameter(self,sim):
+        pass
+
 
 
 

@@ -7,14 +7,13 @@ function [points_x, points_y, points_z] = create_plane(point1, point2, plane_coe
     points = zeros(expected_number_of_rows, 3);
     count = 1;
 
-    for lamda = 0:0.05:1
-        for mu = 0:0.05:1
-            if (lamda + mu <= 1)
-                point = lamda * point1 + mu * point2;
-                if abs(plane_coefficient(1) * point(1) + plane_coefficient(2) * point(2) + plane_coefficient(3) * point(3)) < 1e-10
-                    points(count, :) = point;
-                    count = count + 1;
-                end
+    for lamda = 0:0.01:1
+        for mu = 0:0.01:1
+            %if (lamda + mu <= 1)
+            point = lamda * point1 + mu * point2;
+            if abs(plane_coefficient(1) * point(1) + plane_coefficient(2) * point(2) + plane_coefficient(3) * point(3)) < 1e-10
+                points(count, :) = point;
+                count = count + 1;
             end
         end
     end
