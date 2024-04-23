@@ -31,6 +31,7 @@ class Simulation:
         self.left_hand = sim.getObject("/BaseRobot/left_hand")
 
         self.object_pose = np.empty(0)
+        self.previous_pos = np.array([0, 0, 0])
 
 
         self.l1 = 0.13156
@@ -90,6 +91,7 @@ class Simulation:
             #self.output_cog_pos()
             #self.check_contact_point_distance(sim)
             self.check_contact_point(sim)
+            self.check_cog_direction(sim)
         
         #sleep(5)
 
@@ -296,9 +298,16 @@ class Simulation:
         sim.setObjectPosition(contact_point1, [cpp1e[0][0], cpp1e[0][1], cpp1e[0][2]], reference)
         sim.setObjectPosition(contact_point2, [cpp2e[0][0], cpp2e[0][1], cpp2e[0][2]], reference)
         sim.setObjectPosition(contact_point3, [cpp3e[0][0], cpp3e[0][1], cpp3e[0][2]], reference2)
+    
+    def check_cog_direction(self, sim):
 
+        cog = sim.getObject('/target_object/cog')
+        cog_pos = sim.getObjectPosition(cog, sim.handle_world)
+        cog_pos = np.array(cog_pos)
+        diff_pos = cog_pos - self.previous_pos
+        self.previous_pos = cog_pos
 
-
+        print(f'diff_pos : {diff_pos}')
 
 
 def main():
