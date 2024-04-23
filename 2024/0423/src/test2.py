@@ -89,6 +89,7 @@ class Simulation:
             #self.check_collision()
             #self.output_cog_pos()
             #self.check_contact_point_distance(sim)
+            self.check_contact_point(sim)
         
         #sleep(5)
 
@@ -248,6 +249,55 @@ class Simulation:
         dist_of_contact_point3 = np.linalg.norm(contact_point3_pos_numpy - left_hand_pos_numpy) * 1000
 
         print(f'{dist_of_contact_point1}, {dist_of_contact_point2}, {dist_of_contact_point3}')
+    
+    def check_contact_point(self, sim):
+        
+        contact_point1 = sim.getObject('/contact_point1')
+        contact_point2 = sim.getObject('/contact_point2')
+        contact_point3 = sim.getObject('/contact_point3')
+
+        reference = sim.getObject('/BaseRobot/reference')
+        reference2 = sim.getObject('/BaseRobot/reference2')
+
+        #sim.setObjectPosition(contact_point1, [0.0025, 0, 0], reference)
+        #sim.setObjectPosition(contact_point2, [0.0025, 0, 0], reference)
+        #contact_point1_pos = sim.getObjectPosition(contact_point1, reference)
+        #contact_point2_pos = sim.getObjectPosition(contact_point2, reference)
+
+        contact_point1_pos = [0.0025, 0, 0]
+        contact_point2_pos = [0.0025, 0, 0]
+        contact_point3_pos = [0.0025, 0, 0]
+        # ベクトルの変換
+
+        contact_point1_pos = np.array(contact_point1_pos)
+        contact_point2_pos = np.array(contact_point2_pos)
+        contact_point3_pos = np.array(contact_point3_pos)
+
+        edit_contact_pos1 = contact_point1_pos.reshape(-1, 1)
+        edit_contact_pos2 = contact_point2_pos.reshape(-1, 1)
+        edit_contact_pos3 = contact_point3_pos.reshape(-1, 1)
+
+        deg1 = np.deg2rad(135)
+        deg2 = np.deg2rad(180)
+        deg3 = np.deg2rad(45)
+
+        rot1 = np.array([[np.cos(deg1), -np.sin(deg1), 0], [np.sin(deg1), np.cos(deg1), 0], [0, 0, 1]])
+        rot2 = np.array([[np.cos(deg2), -np.sin(deg2), 0], [np.sin(deg2), np.cos(deg2), 0], [0, 0, 1]])
+        rot3 = np.array([[np.cos(deg3), -np.sin(deg3), 0], [np.sin(deg3), np.cos(deg3), 0], [0, 0, 1]])
+
+        contact_point_pos1_edit = np.dot(rot1, edit_contact_pos1)
+        contact_point_pos2_edit = np.dot(rot2, edit_contact_pos2)
+        contact_point_pos3_edit = np.dot(rot3, edit_contact_pos3)
+
+        cpp1e = contact_point_pos1_edit.reshape(1, -1)
+        cpp2e = contact_point_pos2_edit.reshape(1, -1)
+        cpp3e = contact_point_pos3_edit.reshape(1, -1)
+
+        sim.setObjectPosition(contact_point1, [cpp1e[0][0], cpp1e[0][1], cpp1e[0][2]], reference)
+        sim.setObjectPosition(contact_point2, [cpp2e[0][0], cpp2e[0][1], cpp2e[0][2]], reference)
+        sim.setObjectPosition(contact_point3, [cpp3e[0][0], cpp3e[0][1], cpp3e[0][2]], reference2)
+
+
 
 
 
