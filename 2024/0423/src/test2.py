@@ -39,6 +39,8 @@ class Simulation:
         self.l3 = 0.096
         self.l4 = 0.07318
         
+        self.i = 0
+
     # シミュレーションに反映する関数
     def simulation(self):
         
@@ -91,7 +93,9 @@ class Simulation:
             #self.output_cog_pos()
             #self.check_contact_point_distance(sim)
             self.check_contact_point(sim)
-            self.check_cog_direction(sim)
+            self.check_cog_direction(sim, self.i)
+            
+            self.i = self.i + 1
         
         #sleep(5)
 
@@ -299,15 +303,18 @@ class Simulation:
         sim.setObjectPosition(contact_point2, [cpp2e[0][0], cpp2e[0][1], cpp2e[0][2]], reference)
         sim.setObjectPosition(contact_point3, [cpp3e[0][0], cpp3e[0][1], cpp3e[0][2]], reference2)
     
-    def check_cog_direction(self, sim):
+    def check_cog_direction(self, sim, t):
 
-        cog = sim.getObject('/target_object/cog')
-        cog_pos = sim.getObjectPosition(cog, sim.handle_world)
-        cog_pos = np.array(cog_pos)
-        diff_pos = cog_pos - self.previous_pos
-        self.previous_pos = cog_pos
+        if (t % 50 == 0):
+            cog = sim.getObject('/target_object/cog')
+            cog_pos = sim.getObjectPosition(cog, sim.handle_world)
+            cog_pos = np.array(cog_pos)
+            diff_pos = cog_pos - self.previous_pos
+            self.previous_pos = cog_pos
 
-        print(f'diff_pos : {diff_pos}')
+            print(f'diff_pos : {diff_pos}')
+        else:
+            pass
 
 
 def main():
