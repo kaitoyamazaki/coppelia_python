@@ -45,5 +45,14 @@ plane_coeff1 = cross(moment_point1, moment_point2);
 plane_coeff2 = cross(moment_point2, moment_point3);
 plane_coeff3 = cross(moment_point3, moment_point1);
 
-points = get_angles(plane_coeff1, plane_coeff2, plane_coeff3)
+points = get_angles(plane_coeff1, plane_coeff2, plane_coeff3);
 
+angles = calc_angles(points);
+
+maxValue = max(angles(:));
+
+minValue = min(angles(:));
+
+% 結果を表示
+disp(['The maximum value is: ', num2str(maxValue)]);
+disp(['The minimum value is: ', num2str(minValue)]);

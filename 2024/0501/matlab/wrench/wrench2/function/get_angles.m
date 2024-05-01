@@ -14,7 +14,6 @@ function [internal_points] = get_angles(coeff1, coeff2, coeff3);
                 if (coeff1(1)*x + coeff1(2)*y + coeff1(3)*z <= 0) && (coeff2(1)*x + coeff2(2)*y + coeff3(3)*z <= 0) && (coeff3(1)*x + coeff3(2)*y + coeff3(3)*z <=0)
                     point = [x, y, z];
                     internal_points = [internal_points; x, y, z];
-                    disp(point);
             end
         end
     end
