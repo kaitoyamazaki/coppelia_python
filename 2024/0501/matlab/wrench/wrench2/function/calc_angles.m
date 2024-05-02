@@ -7,8 +7,8 @@ function angles = calc_angles(points)
 
     for i = 1:rows
         angle = atan2(points(i, 2), points(i, 1));
-        angle = rad2deg(angle);
-        %disp(angle)
+        %angle = rad2deg(angle);
+        angle = rad2deg(angle) + 180;
         angles = [angles; angle];
     end
 end

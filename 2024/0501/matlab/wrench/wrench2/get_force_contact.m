@@ -54,5 +54,8 @@ maxValue = max(angles(:));
 minValue = min(angles(:));
 
 % 結果を表示
-disp(['The maximum value is: ', num2str(maxValue)]);
-disp(['The minimum value is: ', num2str(minValue)]);
+%disp(['The maximum value is: ', num2str(maxValue)]);
+%disp(['The minimum value is: ', num2str(minValue)]);
+
+disp(maxValue);
+disp(minValue);
