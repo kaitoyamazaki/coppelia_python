@@ -16,9 +16,9 @@ function [alpha, beta, gamma] = get_vector_coeff(m1, m2, m3, point)
     %disp(['eq3: ', char(eq3)]);
 
     solutions = solve([eq1, eq2, eq3], [a, b, c], 'ReturnConditions', true);
-    disp(solutions.a);
-    disp(solutions.b);
-    disp(solutions.c);
+    %disp(solutions.a);
+    %disp(solutions.b);
+    %disp(solutions.c);
     alpha = solutions.a;
     beta = solutions.b;
     gamma = solutions.c;
