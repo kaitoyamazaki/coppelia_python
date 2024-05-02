@@ -51,9 +51,12 @@ save('data/apply_point_typeA.mat', 'points')
 rows = size(points, 1);
 random_point = [];
 
+coeff_num = [];
+
 for i = 1:1:100
     num = randi([1, rows]);
     point = points(num, :);
     random_point = [random_point; point];
     [alpha, beta, gamma] = get_vector_coeff(moment_point1, moment_point2, moment_point3, point);
+    coeff_num = [coeff_num; alpha, beta, gamma];
 end
