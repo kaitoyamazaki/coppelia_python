@@ -46,7 +46,7 @@ plane_coeff2 = cross(moment_point2, moment_point3);
 plane_coeff3 = cross(moment_point3, moment_point1);
 
 points = get_apply_point(plane_coeff1, plane_coeff2, plane_coeff3);
-save('data/apply_point_typeA.mat', 'points')
+%save('data/apply_point_typeA.mat', 'points')
 
 rows = size(points, 1);
 random_point = [];

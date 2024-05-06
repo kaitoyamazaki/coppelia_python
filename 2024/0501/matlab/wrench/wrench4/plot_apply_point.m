@@ -4,7 +4,7 @@ clear;
 
 load('data/all_apply_points.mat');
 openfig(['data/typeA_wrench.fig']);
-view(45, 30);
+view(170, 30);
 
 hold on;
 

@@ -72,16 +72,16 @@ plot_edge(moment_point1, moment_point2, moment_point3);
 grid on;
 
 %ラベルの描画
-xlabel('X');
-ylabel('Y');
-zlabel('Z');
+xlabel('X  [m]');
+ylabel('Y  [m]');
+zlabel('Z  [Nm]');
 
 %グラフの範囲を設定
 xlim([-1, 1]);
 ylim([-1, 1]);
 zlim([-0.03, 0.03]);
 
-view(45, 45);
+view(170, 30);
 
 % 軸線を描画
 line([min(xlim) max(xlim)], [0 0], [0 0], 'Color', 'red', 'LineWidth', 3.0);
