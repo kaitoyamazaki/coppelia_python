@@ -16,10 +16,12 @@ l1 = [0.008; 0.003; 0.0];
 l2 = [0.006; 0.027; 0.0];
 l3 = [-0.006; 0.015; 0.0];
 
+% wrenchベクトルを格納する箇所
 m1 = [];
 m2 = [];
 m3 = [];
 
+% wrenchベクトルを計算
 for i = 0:1
     edit_f1 = i * f1;
     edit_f2 = i * f2;
@@ -49,6 +51,8 @@ moment_point3 = m3(end, :);
 [x1, y1, z1] = get_wrench_vec(moment_point1);
 [x2, y2, z2] = get_wrench_vec(moment_point2);
 [x3, y3, z3] = get_wrench_vec(moment_point3);
+
+[maxAngle, minAngle] = get_angle_range(moment_point1, moment_point2, moment_point3);
 
 
 % グラフ描画開始
@@ -81,7 +85,7 @@ xlim([-1, 1]);
 ylim([-1, 1]);
 zlim([-0.03, 0.03]);
 
-view(170, 30);
+view(60, -15);
 
 % 軸線を描画
 line([min(xlim) max(xlim)], [0 0], [0 0], 'Color', 'red', 'LineWidth', 3.0);
