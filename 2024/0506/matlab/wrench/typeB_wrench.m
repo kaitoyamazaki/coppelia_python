@@ -57,7 +57,7 @@ moment_point3 = m3(end, :);
 %save('data/applay_typeB_wrench_point.mat', 'internal_points');
 num_of_solve = 0;
 
-[random_points_in_wrench_typeB, coeff_num] = output_random_wrench_point_coeff_num(moment_point1, moment_point2, moment_point3, internal_points);
+[random_points_typeB, coeff_num] = output_random_wrench_point_coeff_num(moment_point1, moment_point2, moment_point3, internal_points);
 
 
 
