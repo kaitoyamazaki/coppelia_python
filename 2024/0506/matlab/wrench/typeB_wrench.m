@@ -52,7 +52,14 @@ moment_point3 = m3(end, :);
 [x2, y2, z2] = get_wrench_vec(moment_point2);
 [x3, y3, z3] = get_wrench_vec(moment_point3);
 
-[maxAngle, minAngle] = get_angle_range(moment_point1, moment_point2, moment_point3);
+[maxAngle, minAngle, internal_points] = get_angle_range(moment_point1, moment_point2, moment_point3);
+
+%save('data/applay_typeB_wrench_point.mat', 'internal_points');
+num_of_solve = 0;
+
+[random_points_in_wrench_typeB, coeff_num] = output_random_wrench_point_coeff_num(moment_point1, moment_point2, moment_point3, internal_points);
+
+
 
 
 % グラフ描画開始

@@ -1,6 +1,6 @@
 % 与えられたwrench空間での最大の角度と最小の角度を導出するプログラム
 
-function [Max, Min] = get_angle_range(p1, p2, p3)
+function [Max, Min, internal_points] = get_angle_range(p1, p2, p3)
     coeff1 = cross(p1, p2);
     coeff2 = cross(p2, p3);
     coeff3 = cross(p3, p1);
@@ -9,7 +9,7 @@ function [Max, Min] = get_angle_range(p1, p2, p3)
 
     x_range = linspace(-1, 1, 100);
     y_range = linspace(-1, 1, 100);
-    z_range = linspace(-0.0, 0.0, 100);
+    z_range = linspace(-0.03, 0.003, 100);
     %z_range = 0;
 
     for x = x_range
