@@ -6,6 +6,7 @@ function [internal_points] = get_angles(coeff1, coeff2, coeff3);
     x_range = linspace(-1, 1, 100);
     y_range = linspace(-1, 1, 100);
     z_range = linspace(-0.03, 0.03, 100);
+    %z_range = 0;
 
     for x = x_range
         for y = y_range
