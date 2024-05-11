@@ -6,7 +6,7 @@ apply_points = [];
 first_pos = [0.069, 0.150];
 goal_pos = [-0.009, 0.302];
 
-points = 5000;
+points = 2500;
 
 % xとyの乱数を生成 (-1, 1の範囲)
 
