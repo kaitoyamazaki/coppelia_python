@@ -5,9 +5,10 @@ clear;
 
 apply_points = [];
 first_pos = [0.069, 0.150];
-goal_pos = [-0.009, 0.302];
+goal_pos = [0.0, 0.35];
 
-points = 5000;
+
+points = 50000;
 points = points - 1;
 
 min_theta = 90;
