@@ -1,4 +1,5 @@
 % 部分拘束typeAにおけるプランニングのテスト
+% ランダムな点をプロット, スタート地点とゴール地点をプロット
 
 clear;
 
@@ -6,11 +7,11 @@ apply_points = [];
 first_pos = [0.069, 0.150];
 goal_pos = [-0.009, 0.302];
 
-points = 1000;
+points = 5000;
 points = points - 1;
 
 min_theta = 90;
-max_theta = 105.5;
+max_theta = 114.4;
 half_range = max_theta - min_theta;
 average_theta = (min_theta + max_theta) / 2;
 
