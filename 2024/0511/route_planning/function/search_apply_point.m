@@ -61,4 +61,5 @@ function [final_apply_point, apply_points] = search_apply_point(first_pos, goal_
         
 
     scatter(apply_points(:,1), apply_points(:,2), 'filled', 'k');
+    %final_apply_point = 0;
 end

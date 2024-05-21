@@ -6,11 +6,11 @@ clear;
 addpath('.', '-end');
 addpath('function', '-end');
 
-load('data/random_point.mat', 'random_point');
+load('data/random_point2.mat', 'random_point');
 
 apply_points = [];
 first_pos = [0.069, 0.150];
-goal_pos = [0.0, 0.35];
+goal_pos = [0.0, 0.350];
 
 
 min_theta = 90;
@@ -50,6 +50,11 @@ diff_x_goal = goal_pos(1) - first_pos(1);
 diff_y_goal = goal_pos(2) - first_pos(2);
 goal_pos_theta = atan2(diff_y_goal, diff_x_goal);
 goal_pos_theta = rad2deg(goal_pos_theta);
+
+%[return_point, all_points] = search_apply_point(first_pos, goal_pos, random_point, min_theta, max_theta, origin_point, goal_pos_theta);
+
+scatter(first_pos(1), first_pos(2), 100, 'filled', "g", 'MarkerEdgeColor', 'k', 'LineWidth', 2);
+scatter(goal_pos(1), goal_pos(2), 100, 'filled', "r", 'MarkerEdgeColor', 'k', 'LineWidth', 2);
 
 % ここから実施
 % 手始めに一つずつ実施する
