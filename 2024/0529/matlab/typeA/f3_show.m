@@ -1,5 +1,5 @@
 % 部分拘束typeAのwrench coneを描画する
-% 法線ベクトルf1を変化させた際のwrenchベクトルを表示する
+% 法線ベクトルf3を変化させた際のwrenchベクトルを表示する
 
 clear;
 
@@ -80,29 +80,38 @@ plot_edge(moment_point1, moment_point2, moment_point3);
 grid on;
 
 %ラベルの描画
-xlabel('Fx  [N]');
-ylabel('Fy  [N]');
-zlabel('ω  [Nm]');
+xlabel('fx  [N]', 'FontSize', 10.5, 'FontWeight', 'bold', 'Color', 'r');
+ylabel('fy  [N]', 'FontSize', 10.5, 'FontWeight', 'bold', 'Color', 'g');
+zlabel('ω  [Nm]', 'FontSize', 10.5, 'FontWeight', 'bold', 'Color', 'b');
 
 %グラフの範囲を設定
 xlim([-1, 1]);
 ylim([-1, 1]);
 zlim([-0.03, 0.03]);
 
+% f1のエッジを見るときに使う視野角
+%view(128, 21.6);
+
+% f2のエッジを見るときに使う視野角
+%view(-50, 10);
+
+% f3のエッジを見るときに使う視野角
 view(128, 21.6);
 
+% f3のエッジを見るときに使う視野角
+
 % 軸線を描画
-line([min(xlim) max(xlim)], [0 0], [0 0], 'Color', 'red', 'LineWidth', 3.0);
-line([0 0], [min(ylim), max(ylim)], [0 0], 'Color', 'green', 'LineWidth', 3.0);
-line([0 0], [0 0], [min(zlim) max(zlim)], 'Color', 'blue', 'LineWidth', 3.0);
+line([min(xlim) max(xlim)], [0 0], [0 0], 'Color', 'red', 'LineWidth', 1.0);
+line([0 0], [min(ylim), max(ylim)], [0 0], 'Color', 'green', 'LineWidth', 1.0);
+line([0 0], [0 0], [min(zlim) max(zlim)], 'Color', 'blue', 'LineWidth', 1.0);
 
 for i = 0:0.01:1.0
-    [p1, box] = show_quiver(i, f1, l1);
+    [p3, box] = show_quiver_f3(i, f3, l3);
     pause(0.1);
     if(i == 1)
         disp('');
     else
-        delete(p1);
+        delete(p3);
         delete(box);
     end
 end

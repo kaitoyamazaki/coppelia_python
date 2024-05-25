@@ -1,5 +1,5 @@
 % 部分拘束typeAのwrench coneを描画する
-% 法線ベクトルf1を変化させた際のwrenchベクトルを表示する
+% 法線ベクトルf2を変化させた際のwrenchベクトルを表示する
 
 clear;
 
@@ -89,20 +89,24 @@ xlim([-1, 1]);
 ylim([-1, 1]);
 zlim([-0.03, 0.03]);
 
-view(128, 21.6);
+% f1のエッジを見るときに使う視野角
+%view(128, 21.6);
+
+% f2のエッジを見るときに使う視野角
+view(-50, 10);
 
 % 軸線を描画
-line([min(xlim) max(xlim)], [0 0], [0 0], 'Color', 'red', 'LineWidth', 3.0);
-line([0 0], [min(ylim), max(ylim)], [0 0], 'Color', 'green', 'LineWidth', 3.0);
-line([0 0], [0 0], [min(zlim) max(zlim)], 'Color', 'blue', 'LineWidth', 3.0);
+line([min(xlim) max(xlim)], [0 0], [0 0], 'Color', 'red', 'LineWidth', 1.0);
+line([0 0], [min(ylim), max(ylim)], [0 0], 'Color', 'green', 'LineWidth', 1.0);
+line([0 0], [0 0], [min(zlim) max(zlim)], 'Color', 'blue', 'LineWidth', 1.0);
 
 for i = 0:0.01:1.0
-    [p1, box] = show_quiver(i, f1, l1);
+    [p2, box] = show_quiver_f2(i, f2, l2);
     pause(0.1);
     if(i == 1)
         disp('');
     else
-        delete(p1);
+        delete(p2);
         delete(box);
     end
 end
