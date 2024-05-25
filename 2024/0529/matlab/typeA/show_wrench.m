@@ -93,6 +93,7 @@ ylim([-1, 1]);
 zlim([-0.03, 0.03]);
 
 view(128, 21.6);
+%view(200, 55);
 
 % 軸線を描画
 line([min(xlim) max(xlim)], [0 0], [0 0], 'Color', 'red', 'LineWidth', 1.0);
