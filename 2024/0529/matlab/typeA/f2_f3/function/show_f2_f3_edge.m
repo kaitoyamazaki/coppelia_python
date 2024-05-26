@@ -1,7 +1,7 @@
 % f1, f2エッジから成るベクトルを描画する関数
 % 今回はそれぞれのベクトルに掛ける媒介変数を変化させる予定
 
-function [p1, p2, p3, p, box1, box2, box3, box4] = show_f2_f3_edge(i, l1, f1, l2, f2, l3, f3)
+function [p1, p2, p3, p, box1, box2, box3, box4, wrench1, wrench2, wrench3, wrench] = show_f2_f3_edge(i, l1, f1, l2, f2, l3, f3)
 
     A = [0 -1 0;
          1 0 1;
