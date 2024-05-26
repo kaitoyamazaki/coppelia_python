@@ -25,9 +25,19 @@ l1 = [0.0075; 0.03; 0.0];
 l2 = [0.005; 0.0275; 0.0];
 l3 = [-0.0125; 0.03; 0.0];
 
+wrench1 = [];
+wrench2 = [];
+wrench3 = [];
+wrench = [];
+
 for i = 0:0.01:1.0
-    [p1, p2, p3, p, b1, b2, b3, b4] = show_f3_f1_edge(i, l1, f1, l2, f2, l3, f3);
+    [p1, p2, p3, p, b1, b2, b3, b4, w1, w2, w3, w] = show_f3_f1_edge(i, l1, f1, l2, f2, l3, f3);
     pause(0.1);
+
+    wrench1 = [wrench1; w1];
+    wrench2 = [wrench2; w2];
+    wrench3 = [wrench3; w3];
+    wrench = [wrench; w];
 
     if(i == 1.0)
         disp('');

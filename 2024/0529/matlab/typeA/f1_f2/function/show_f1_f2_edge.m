@@ -1,7 +1,7 @@
 % f1, f2エッジから成るベクトルを描画する関数
 % 今回はそれぞれのベクトルに掛ける媒介変数を変化させる予定
 
-function [p1, p2, p, box1, box2, box3, box4, wrench1, wrench2, wrench] = show_f1_f2_edge(i, l1, f1, l2, f2, l3, f3)
+function [p1, p2, p, box1, box2, box3, box4, wrench1, wrench2, wrench3, wrench] = show_f1_f2_edge(i, l1, f1, l2, f2, l3, f3)
 
     A = [0 -1 0;
          1 0 1;
@@ -13,14 +13,17 @@ function [p1, p2, p, box1, box2, box3, box4, wrench1, wrench2, wrench] = show_f1
 
     all_f1 = [edit_f1; 0; 0];
     all_f2 = [0; edit_f2; 0];
+    all_f3 = [0; 0; edit_f3];
 
     ans_f1 = A * all_f1;
     ans_f2 = A * all_f2;
+    ans_f3 = A * all_f3;
 
     wrench1 = [ans_f1(1) ans_f1(2) ans_f1(3)];
     wrench2 = [ans_f2(1) ans_f2(2) ans_f2(3)];
+    wrench3 = [ans_f3(1) ans_f3(2) ans_f3(3)];
 
-    wrench = wrench1 + wrench2;
+    wrench = wrench1 + wrench2 + wrench3;
 
     p1 = plot3([0, wrench1(1)], [0, wrench1(2)], [0, wrench1(3)], 'Color', [1.0, 1.0, 0.0], 'LineWidth', 4.0);
     p2 = plot3([0, wrench2(1)], [0, wrench2(2)], [0, wrench2(3)], 'Color', [1.0, 0.65, 0.0], 'LineWidth', 4.0);
