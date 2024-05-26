@@ -12,7 +12,7 @@ addpath('function', '-end');
 addpath('../data', '-end');
 
 % グラフデータの取得と出力
-openfig('../data/wrench_typeA2.fig');
+openfig('../data/wrench_typeA4.fig');
 
 hold on;
 
@@ -27,19 +27,20 @@ l2 = [0.005; 0.0275; 0.0];
 l3 = [-0.0125; 0.03; 0.0];
 
 for i = 0:0.01:1.0
-    [p1, p2, p, b1, b2, b3] = show_f2_f3_edge(i, l1, f1, l2, f2, l3, f3);
+    [p1, p2, p3, p, b1, b2, b3, b4] = show_f2_f3_edge(i, l1, f1, l2, f2, l3, f3);
     pause(0.1);
 
-    if(i == 0.5)
+    if(i == 1.0)
         disp('');
     else
         delete(p1);
         delete(p2);
+        delete(p3);
         delete(p);
         delete(b1);
         delete(b2);
         delete(b3);
-        %delete(b4);
+        delete(b4);
     end
 end
 
