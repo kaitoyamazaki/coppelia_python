@@ -1,6 +1,6 @@
 % 法線ベクトルの値によってレンチベクトルが変化するものを作成
 
-function [p, text_box] = show_quiver(i, f, l)
+function [p, text_box, wrench] = show_quiver(i, f, l)
     % 関数を動かすために返り値を記述
     h = 0;
 
