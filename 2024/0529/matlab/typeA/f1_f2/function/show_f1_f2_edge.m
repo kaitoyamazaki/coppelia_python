@@ -1,14 +1,14 @@
 % f1, f2エッジから成るベクトルを描画する関数
 % 今回はそれぞれのベクトルに掛ける媒介変数を変化させる予定
 
-function [p1, p2, p, box1, box2, box3, box4] = show_f1_f2_edge(i, l1, f1, l2, f2, l3, f3)
+function [p1, p2, p, box1, box2, box3, box4, wrench1, wrench2, wrench] = show_f1_f2_edge(i, l1, f1, l2, f2, l3, f3)
 
     A = [0 -1 0;
          1 0 1;
          l1(1) l2(2) l3(1)];
 
     edit_f1 = i * f1;
-    edit_f2 = (1-i) / 2 * f2;
+    edit_f2 = (1-i) * f2;
     edit_f3 = 0;
 
     all_f1 = [edit_f1; 0; 0];
@@ -30,7 +30,7 @@ function [p1, p2, p, box1, box2, box3, box4] = show_f1_f2_edge(i, l1, f1, l2, f2
     box3 = annotation('textbox', [0.0, 0.8, 0.1, 0.1], 'String', sprintf('f3 = (%.1f, %.1f, %.1f)', 0, 0, 0), 'FitBoxToText', 'on', 'Color', [0.5, 0.0, 0.5], 'EdgeColor', 'none', 'FontSize', 12);
     box4 = annotation('textbox', [0.0, 0.75, 0.1, 0.1], 'String', sprintf('wrench = (%.4f, %.4f, %.4f)', wrench(1), wrench(2), wrench(3)), 'FitBoxToText', 'on', 'Color', [1.0, 0.33, 0.65], 'EdgeColor', 'none', 'FontSize', 12);
 
-    if(i == 0.5)
+    if(i == 1.0)
         disp('f1の値 ');
         disp(wrench1);
 
