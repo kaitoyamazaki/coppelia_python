@@ -100,8 +100,11 @@ line([min(xlim) max(xlim)], [0 0], [0 0], 'Color', 'red', 'LineWidth', 1.0);
 line([0 0], [min(ylim), max(ylim)], [0 0], 'Color', 'green', 'LineWidth', 1.0);
 line([0 0], [0 0], [min(zlim) max(zlim)], 'Color', 'blue', 'LineWidth', 1.0);
 
+wrench2 = [];
+
 for i = 0:0.01:1.0
-    [p2, box] = show_quiver_f2(i, f2, l2);
+    [p2, box, wrench] = show_quiver_f2(i, f2, l2);
+    wrench2 = [wrench2; wrench];
     pause(0.1);
     if(i == 1)
         disp('');
