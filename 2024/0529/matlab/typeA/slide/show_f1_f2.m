@@ -49,18 +49,17 @@ line([min(xlim) max(xlim)], [0 0], [0 0], 'Color', 'red', 'LineWidth', 1.0);
 line([0 0], [min(ylim), max(ylim)], [0 0], 'Color', 'green', 'LineWidth', 1.0);
 line([0 0], [0 0], [min(zlim) max(zlim)], 'Color', 'blue', 'LineWidth', 1.0);
 
-pause(10);
+%pause(10);
 
 for i = 0:0.01:1
 
-    j = 1 - i;
     A = [0 -1 0;
-        1 0 1;
-        l1(1) l2(2) l3(1)];
+         1 0 1;
+         l1(1) l2(2) l3(1)];
 
     edit_f1 = i * f1;
     edit_f2 = 0;
-    edit_f3 = j * f3;
+    edit_f3 = i * f3;
 
     all_f1 = [edit_f1; 0; 0];
     all_f2 = [0; edit_f2; 0];
@@ -78,13 +77,13 @@ for i = 0:0.01:1
 
     p1 = plot3([0, wrench1(1)], [0, wrench1(2)], [0, wrench1(3)], 'Color', [0.8, 0.8, 0.0], 'LineWidth', 4.0);
     p3 = plot3([0, wrench3(1)], [0, wrench3(2)], [0, wrench3(3)], 'Color', [0.5, 0.0, 0.5], 'LineWidth', 4.0);
-    p = plot3([0, wrench(1)], [0, wrench(2)], [0, wrench(3)], 'Color', [1.0, 0.33, 0.65], 'LineWidth', 4.0);
+    %p1 = plot3([0, -wrench(1)], [0, -wrench(2)], [0, -wrench(3)], 'Color', 'k', 'LineWidth', 4.0);
     box1 = annotation('textbox', [0.0, 0.9, 0.1, 0.1], 'String', sprintf('ベクトル 係数 : s = (%.2f)', i), 'FitBoxToText', 'on', 'Color', [0.0, 0.0, 0.0], 'EdgeColor', 'none', 'FontSize', 12);
-    box2 = annotation('textbox', [0.0, 0.85, 0.1, 0.1], 'String', sprintf('ベクトル 係数 : t = (%.2f)', 1-i), 'FitBoxToText', 'on', 'Color', [0.0, 0.0, 0.0], 'EdgeColor', 'none', 'FontSize', 12);
+    %box2 = annotation('textbox', [0.0, 0.9, 0.1, 0.1], 'String', sprintf('ベクトル 係数 : s = (%.2f)', i), 'FitBoxToText', 'on', 'Color', [0.0, 0.0, 0.0], 'EdgeColor', 'none', 'FontSize', 12);
 
-    box3 = annotation('textbox', [0.0, 0.8, 0.1, 0.1], 'String', sprintf('f = (%.4f, %.4f, %.4f)', wrench(1), wrench(2), wrench(3)), 'FitBoxToText', 'on', 'Color', 'k', 'EdgeColor', 'none', 'FontSize', 12);
+    box2 = annotation('textbox', [0.0, 0.85, 0.1, 0.1], 'String', sprintf('f = %.2f', wrench1(2)), 'FitBoxToText', 'on', 'Color', 'k', 'EdgeColor', 'none', 'FontSize', 12);
 
-    pause(0.025);
+    pause(0.1);
 
     if(i == 1)
         disp('');
@@ -92,9 +91,7 @@ for i = 0:0.01:1
         delete(box1);
         delete(p1);
         delete(p3);
-        delete(p);
         delete(box2);
-        delete(box3);
     end
 
 end
