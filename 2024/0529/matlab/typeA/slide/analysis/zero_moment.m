@@ -15,43 +15,44 @@ l3 = [-0.0125; 0.03; 0.0];
 
 % データの整理
 
-wrench_pos = calc_wrench_pos(l1, l2, l3);
+%wrench_pos = calc_wrench_pos(l1, l2, l3);
+%wrench_pos = calc_wrench_pos2(l1, l2, l3);
 
-%load('data/wrench_pos.mat');
+load('data/wrench_pos_new.mat');
 
-%figure;
+figure;
 
-%hold on;
+hold on;
 
-%grid on;
+grid on;
 
-%% グラフタイトル
-%title('normal force in Wrench Space');
+% グラフタイトル
+title('normal force in Wrench Space');
 
-%% グラフの視点
-%view(55, 30);
+% グラフの視点
+view(45, 50);
 
-%%ラベルの描画
-%xlabel('fx  [N]', 'FontSize', 10.5, 'FontWeight', 'bold', 'Color', 'r');
-%ylabel('fy  [N]', 'FontSize', 10.5, 'FontWeight', 'bold', 'Color', 'g');
-%zlabel('ω  [Nm]', 'FontSize', 10.5, 'FontWeight', 'bold', 'Color', 'b');
+%ラベルの描画
+xlabel('fx  [N]', 'FontSize', 10.5, 'FontWeight', 'bold', 'Color', 'r');
+ylabel('fy  [N]', 'FontSize', 10.5, 'FontWeight', 'bold', 'Color', 'g');
+zlabel('ω  [Nm]', 'FontSize', 10.5, 'FontWeight', 'bold', 'Color', 'b');
 
-%%グラフの範囲を設定
-%xlim([-1, 1]);
-%ylim([-1, 1]);
-%zlim([-0.03, 0.03]);
+%グラフの範囲を設定
+xlim([-1, 1]);
+ylim([-1, 1]);
+zlim([-0.03, 0.03]);
 
-%% 軸線を描画
-%line([min(xlim) max(xlim)], [0 0], [0 0], 'Color', 'red', 'LineWidth', 1.0);
-%line([0 0], [min(ylim), max(ylim)], [0 0], 'Color', 'green', 'LineWidth', 1.0);
-%line([0 0], [0 0], [min(zlim) max(zlim)], 'Color', 'blue', 'LineWidth', 1.0);
+% 軸線を描画
+line([min(xlim) max(xlim)], [0 0], [0 0], 'Color', 'red', 'LineWidth', 1.0);
+line([0 0], [min(ylim), max(ylim)], [0 0], 'Color', 'green', 'LineWidth', 1.0);
+line([0 0], [0 0], [min(zlim) max(zlim)], 'Color', 'blue', 'LineWidth', 1.0);
 
-%wrench = wrench_pos;
+wrench = wrench_pos;
 
-%x = wrench(:, 1);
-%y = wrench(:, 2);
-%z = wrench(:, 3);
+x = wrench(:, 1);
+y = wrench(:, 2);
+z = wrench(:, 3);
 
-%%scatter(wrench(:,1), wrench(:,2), wrench(:, 3), 'Color', 'b');
-%scatter3(x, y, z);
-%hold off;
+%scatter(wrench(:,1), wrench(:,2), wrench(:, 3), 'Color', 'b');
+scatter3(x, y, z, 'filled');
+hold off;
