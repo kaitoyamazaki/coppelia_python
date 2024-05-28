@@ -95,7 +95,8 @@ zlim([-0.03, 0.03]);
 %view(128, 21.6);
 %view(200, 55);
 %view(160, 30);
-view(220, -45);
+%view(220, -45);
+view(45, 50);
 
 % 軸線を描画
 line([min(xlim) max(xlim)], [0 0], [0 0], 'Color', 'red', 'LineWidth', 1.0);

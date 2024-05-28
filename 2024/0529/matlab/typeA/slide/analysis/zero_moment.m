@@ -49,10 +49,18 @@ line([0 0], [0 0], [min(zlim) max(zlim)], 'Color', 'blue', 'LineWidth', 1.0);
 
 wrench = wrench_pos;
 
-x = wrench(:, 1);
-y = wrench(:, 2);
-z = wrench(:, 3);
+%x = wrench(:, 1);
+%y = wrench(:, 2);
+%z = wrench(:, 3);
 
+remainder = rem(size(wrench_pos, 1), 5);
+
+wrench_x = reshape(wrench(1:size(wrench, 1) - remainder, 1), [], 5);
+wrench_y = reshape(wrench(1:size(wrench, 1) - remainder, 2), [], 5);
+wrench_z = reshape(wrench(1:size(wrench, 1) - remainder, 3), [], 5);
 %scatter(wrench(:,1), wrench(:,2), wrench(:, 3), 'Color', 'b');
-scatter3(x, y, z, 'filled');
+%scatter3(x, y, z, 'filled');
+
+mesh1 = mesh(wrench_x, wrench_y, wrench_z, 'FaceColor', 'b', 'LineStyle', 'none', 'FaceAlpha', 0.5);
+
 hold off;
