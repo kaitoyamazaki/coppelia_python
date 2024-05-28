@@ -11,7 +11,7 @@ addpath('../graph_data', '-end');
 % 法線ベクトルの定義
 
 f1 = 1;
-f2 = 0;
+f2 = 1;
 f3 = 1;
 
 % 法線ベクトルの位置ベクトルの定義
@@ -58,7 +58,7 @@ for i = 0:0.01:1
          l1(1) l2(2) l3(1)];
 
     edit_f1 = i * f1;
-    edit_f2 = 0;
+    edit_f2 = i * f2;
     edit_f3 = i * f3;
 
     all_f1 = [edit_f1; 0; 0];
@@ -76,6 +76,7 @@ for i = 0:0.01:1
     wrench = wrench1 + wrench2 + wrench3;
 
     p1 = plot3([0, wrench1(1)], [0, wrench1(2)], [0, wrench1(3)], 'Color', [0.8, 0.8, 0.0], 'LineWidth', 4.0);
+    p2 = plot3([0, wrench2(1)], [0, wrench2(2)], [0, wrench2(3)], 'Color', [1.0, 0.65, 0.0], 'LineWidth', 4.0);
     p3 = plot3([0, wrench3(1)], [0, wrench3(2)], [0, wrench3(3)], 'Color', [0.5, 0.0, 0.5], 'LineWidth', 4.0);
     %p1 = plot3([0, -wrench(1)], [0, -wrench(2)], [0, -wrench(3)], 'Color', 'k', 'LineWidth', 4.0);
     %box1 = annotation('textbox', [0.0, 0.9, 0.1, 0.1], 'String', sprintf('ベクトル 係数 : s = (%.2f)', i), 'FitBoxToText', 'on', 'Color', [0.0, 0.0, 0.0], 'EdgeColor', 'none', 'FontSize', 12);
@@ -88,9 +89,9 @@ for i = 0:0.01:1
     if(i == 1)
         disp('');
     else
-        %delete(box1);
         delete(p1);
         delete(p3);
+        %delete(box1);
         %delete(box2);
     end
 
