@@ -4,9 +4,9 @@
 clear;
 
 % 検索フォルダを追加
-addpath('function', '-end');
+addpath('../function', '-end');
 addpath('.', '-end');
-addpath('graph_data', '-end');
+addpath('../graph_data', '-end');
 
 % 法線ベクトルの定義
 
@@ -22,7 +22,7 @@ l3 = [-0.0125; 0.03; 0.0];
 
 % グラフ描画開始
 
-openfig('graph_data/edge_f1_f2.fig');
+openfig('../graph_data/edge_f1_f2.fig');
 
 hold on;
 

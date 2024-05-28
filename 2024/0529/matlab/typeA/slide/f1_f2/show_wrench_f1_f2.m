@@ -4,9 +4,9 @@
 clear;
 
 % 検索フォルダを追加
-addpath('function', '-end');
+addpath('../function', '-end');
 addpath('.', '-end');
-addpath('graph_data', '-end');
+addpath('../graph_data', '-end');
 
 % 法線ベクトルの定義
 
