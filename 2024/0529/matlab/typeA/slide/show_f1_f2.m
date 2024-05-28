@@ -78,20 +78,20 @@ for i = 0:0.01:1
     p1 = plot3([0, wrench1(1)], [0, wrench1(2)], [0, wrench1(3)], 'Color', [0.8, 0.8, 0.0], 'LineWidth', 4.0);
     p3 = plot3([0, wrench3(1)], [0, wrench3(2)], [0, wrench3(3)], 'Color', [0.5, 0.0, 0.5], 'LineWidth', 4.0);
     %p1 = plot3([0, -wrench(1)], [0, -wrench(2)], [0, -wrench(3)], 'Color', 'k', 'LineWidth', 4.0);
-    box1 = annotation('textbox', [0.0, 0.9, 0.1, 0.1], 'String', sprintf('ベクトル 係数 : s = (%.2f)', i), 'FitBoxToText', 'on', 'Color', [0.0, 0.0, 0.0], 'EdgeColor', 'none', 'FontSize', 12);
+    %box1 = annotation('textbox', [0.0, 0.9, 0.1, 0.1], 'String', sprintf('ベクトル 係数 : s = (%.2f)', i), 'FitBoxToText', 'on', 'Color', [0.0, 0.0, 0.0], 'EdgeColor', 'none', 'FontSize', 12);
     %box2 = annotation('textbox', [0.0, 0.9, 0.1, 0.1], 'String', sprintf('ベクトル 係数 : s = (%.2f)', i), 'FitBoxToText', 'on', 'Color', [0.0, 0.0, 0.0], 'EdgeColor', 'none', 'FontSize', 12);
 
-    box2 = annotation('textbox', [0.0, 0.85, 0.1, 0.1], 'String', sprintf('f = %.2f', wrench1(2)), 'FitBoxToText', 'on', 'Color', 'k', 'EdgeColor', 'none', 'FontSize', 12);
+    %box2 = annotation('textbox', [0.0, 0.85, 0.1, 0.1], 'String', sprintf('f = %.2f', wrench1(2)), 'FitBoxToText', 'on', 'Color', 'k', 'EdgeColor', 'none', 'FontSize', 12);
 
     pause(0.1);
 
     if(i == 1)
         disp('');
     else
-        delete(box1);
+        %delete(box1);
         delete(p1);
         delete(p3);
-        delete(box2);
+        %delete(box2);
     end
 
 end
