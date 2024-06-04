@@ -19,8 +19,8 @@ class Check:
         right_pos = sim.getObjectPosition(right_hand, object)
         left_pos = sim.getObjectPosition(left_hand, object)
 
-        right_pos = [round(pos, 3) for pos in right_pos]
-        left_pos = [round(pos, 3) for pos in left_pos]
+        right_pos = [round(pos, 5) for pos in right_pos]
+        left_pos = [round(pos, 5) for pos in left_pos]
 
         #types = [type(data) for data in right_pos]
 
