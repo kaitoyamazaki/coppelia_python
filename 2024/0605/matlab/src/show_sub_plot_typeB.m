@@ -1,14 +1,15 @@
 % subplotのテスト
 
 clear;
-%openfig('figure/wrench_typeA_20.fig');
-openfig('figure/wrench_typeA_25.fig');
-%openfig('figure/wrench_typeA_30.fig');
-%openfig('figure/wrench_typeA_35.fig');
-%openfig('figure/wrench_typeA_40.fig');
+
+% 部分拘束typeA
+%openfig('figure/wrench_typeB_20.fig');
+%openfig('figure/wrench_typeB_25.fig');
+%openfig('figure/wrench_typeB_30.fig');
+%openfig('figure/wrench_typeB_35.fig');
+openfig('figure/wrench_typeB_40.fig');
+
 ax = gca;
-
-
 
 % 新しい図を作成
 figure;
@@ -16,13 +17,17 @@ figure;
 % サブプロット1
 subplot(2, 2, 1);
 copyobj(ax.Children, gca);
-title('typeA in Wrench Space');
+%title('typeB in Wrench Space $(d = 20[mm])$', 'interpreter', 'latex');
+%title('typeB in Wrench Space $(d = 25[mm])$', 'interpreter', 'latex');
+%title('typeB in Wrench Space $(d = 30[mm])$', 'interpreter', 'latex');
+%title('typeB in Wrench Space $(d = 35[mm])$', 'interpreter', 'latex');
+title('typeB in Wrench Space $(d = 40[mm])$', 'interpreter', 'latex');
 
 xlabel('fx [N]', 'Color', 'r');
 ylabel('fy [N]', 'Color', 'g');
 zlabel('\omega [Nm]', 'Color', 'b');
 
-view(45, 50);
+view(30, 20);
 grid on;
 
 % サブプロット2
@@ -53,5 +58,5 @@ title('typeA in Wrench Space from different view');
 xlabel('fx [N]', 'Color', 'r');
 ylabel('fy [N]', 'Color', 'g');
 zlabel('\omega [Nm]', 'Color', 'b');
-view(170.0, 20.0); % カスタム視点
+view(-135, 5.0); % カスタム視点
 grid on;
