@@ -10,6 +10,14 @@ addpath('.', '-end');
 addpath('function', '-end');
 addpath('data', '-end');
 addpath('figure', '-end');
+addpath('data/finish_data1', '-end');
+addpath('data/finish_data2', '-end');
+addpath('data/finish_data3', '-end');
+addpath('data/finish_data4', '-end');
+addpath('data/finish_data5', '-end');
+
+% 秒数の設定
+simulation_seconds = 9.11;
 
 % .figファイルを読み込む
 % .figファイルはtypeAのレンチ空間
@@ -81,8 +89,8 @@ f2 = 1;
 f3 = 1;
 
 % 力データの読み込み
-force_r = readmatrix('data/force_r_typeA.csv');
-force_l = readmatrix('data/force_l_typeA.csv');
+force_r = readmatrix('data/finish_data5/force_r_typeA.csv');
+force_l = readmatrix('data/finish_data5/force_l_typeA.csv');
 
 % 力データの編集
 force_c1 = force_r(:, 2);
@@ -97,8 +105,10 @@ l3 = [-0.0125; 0.03; 0.0];
 all_wrench = [];
 
 trial_num = size(force_c1, 1);
+pause_time = simulation_seconds / trial_num;
+pause_time = 0.00125;
 
-pause(10);
+pause(15);
 
 for i = 1:trial_num
     f1 = force_c1(i, 1);
@@ -133,7 +143,7 @@ for i = 1:trial_num
 
     % 描画を更新
     drawnow;
-    pause(0.05);
+    pause(pause_time);
     delete(p1);
     delete(p2);
     delete(p3);
