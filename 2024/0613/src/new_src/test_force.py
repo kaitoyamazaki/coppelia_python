@@ -57,7 +57,7 @@ class Simulation:
         #sim.setStepping(True)
         sim.startSimulation()
 
-        while sim.getSimulationTime() < 100:
+        while sim.getSimulationTime() < 90:
 
             theta1 = sim.getJointPosition(self.j1)
             theta2 = sim.getJointPosition(self.j2)
@@ -114,17 +114,17 @@ class Simulation:
 
         #reshape_object_pose = self.object_pose.reshape(-1, 3)
 
-        reshape_right_force = self.right_hand_force.reshape(-1, 3)
-        reshape_left_force = self.left_hand_force.reshape(-1, 3)
+        reshape_right_force = self.right_hand_force.reshape(-1, 4)
+        reshape_left_force = self.left_hand_force.reshape(-1, 4)
 
-        reshape_right_pos = self.right_hand_pos.reshape(-1, 3)
-        reshape_left_pos = self.left_hand_pos.reshape(-1, 3)
+        reshape_right_pos = self.right_hand_pos.reshape(-1, 4)
+        reshape_left_pos = self.left_hand_pos.reshape(-1, 4)
 
-        reshape_cog_pos = self.cog_pos.reshape(-1, 3)
-        reshape_cop_pos = self.cop_pos.reshape(-1, 3)
+        reshape_cog_pos = self.cog_pos.reshape(-1, 4)
+        reshape_cop_pos = self.cop_pos.reshape(-1, 4)
 
-        reshape_cog_ori = self.cog_ori.reshape(-1, 1)
-        reshape_cop_ori = self.cop_ori.reshape(-1, 1)
+        reshape_cog_ori = self.cog_ori.reshape(-1, 2)
+        reshape_cop_ori = self.cop_ori.reshape(-1, 2)
 
         np.savetxt("data/test/force_r_typeA.csv", reshape_right_force, delimiter=",", fmt="%f")
         np.savetxt("data/test/force_l_typeA.csv", reshape_left_force, delimiter=",", fmt="%f")
@@ -280,11 +280,18 @@ class Simulation:
         res, force, torque = sim.readForceSensor(r_sensor)
         res2, force2, torque2 = sim.readForceSensor(l_sensor)
 
-        self.right_hand_force = np.append(self.right_hand_force, force)
-        self.left_hand_force = np.append(self.left_hand_force, force2)
+        time = sim.getSimulationTime()
+
+        force_r = [time, force[0], force[1], force[2]]
+        force_l = [time, force2[0], force2[1], force2[2]]
+
+        self.right_hand_force = np.append(self.right_hand_force, force_r)
+        self.left_hand_force = np.append(self.left_hand_force, force_l)
     
 
     def get_various_pos(self, sim):
+
+        time = sim.getSimulationTime()
 
         hand_r = sim.getObject('/BaseRobot/right_hand')
         hand_l = sim.getObject('/BaseRobot/left_hand')
@@ -295,11 +302,20 @@ class Simulation:
         hand_pos_r = sim.getObjectPosition(hand_r, sim.handle_world)
         hand_pos_l = sim.getObjectPosition(hand_l, sim.handle_world)
 
+        hand_pos_r = [time, hand_pos_r[0], hand_pos_r[1], hand_pos_r[2]]
+        hand_pos_l = [time, hand_pos_l[0], hand_pos_l[1], hand_pos_l[2]]
+
         cog_pos = sim.getObjectPosition(cog, sim.handle_world)
         cop_pos = sim.getObjectPosition(cop, sim.handle_world)
 
+        cog_pos = [time, cog_pos[0], cog_pos[1], cog_pos[2]]
+        cop_pos = [time, cop_pos[0], cop_pos[1], cop_pos[2]]
+
         cog_ori = sim.getObjectOrientation(cog, sim.handle_world)
         cop_ori = sim.getObjectOrientation(cop, sim.handle_world)
+
+        cog_ori = [time, cog_ori[2]]
+        cop_ori = [time, cop_ori[2]]
 
         self.right_hand_pos = np.append(self.right_hand_pos, hand_pos_r)
         self.left_hand_pos = np.append(self.left_hand_pos, hand_pos_l)
@@ -307,11 +323,8 @@ class Simulation:
         self.cog_pos = np.append(self.cog_pos, cog_pos)
         self.cop_pos = np.append(self.cop_pos, cop_pos)
 
-        self.cog_ori = np.append(self.cog_ori, cog_ori[2])
-        self.cop_ori = np.append(self.cop_ori, cop_ori[2])
-
-
-
+        self.cog_ori = np.append(self.cog_ori, cog_ori)
+        self.cop_ori = np.append(self.cop_ori, cop_ori)
 
 
 def main():

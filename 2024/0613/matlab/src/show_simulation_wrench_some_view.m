@@ -89,13 +89,13 @@ f2 = 1;
 f3 = 1;
 
 % 力データの読み込み
-force_r = readmatrix('data/finish_data5/force_r_typeA.csv');
-force_l = readmatrix('data/finish_data5/force_l_typeA.csv');
+force_r = readmatrix('data/finish_data1/force_r_typeA.csv');
+force_l = readmatrix('data/finish_data1/force_l_typeA.csv');
 
 % 力データの編集
-force_c1 = force_r(:, 2);
-force_c2 = force_r(:, 1);
-force_c3 = force_l(:, 2);
+force_c1 = force_r(:, 3);
+force_c2 = force_r(:, 2);
+force_c3 = force_l(:, 3);
 
 % 法線データの位置ベクトルを定義
 l1 = [0.0075; 0.03; 0.0];
