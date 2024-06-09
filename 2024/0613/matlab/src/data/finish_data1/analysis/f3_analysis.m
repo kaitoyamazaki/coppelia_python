@@ -8,18 +8,18 @@ addpath('..');
 
 % 力データの読み込み
 
-force_r = readmatrix('../force_r_typeA.csv');
+force_l = readmatrix('../force_l_typeA.csv');
 
 % 力データの編集
-time = force_r(:, 1);
-force_c1 = force_r(:, 3);
-force_c1 = -1 .* force_c1;
+time = force_l(:, 1);
+force_c3 = force_l(:, 3);
+force_c3 = -1 .* force_c3;
 
-force_pos = force_c1(force_c1 >= 0);
-force_neg = force_c1(force_c1 < 0);
+force_pos = force_c3(force_c3 >= 0);
+force_neg = force_c3(force_c3 < 0);
 
-time_pos = time(force_c1 >= 0);
-time_neg = time(force_c1 < 0);
+time_pos = time(force_c3 >= 0);
+time_neg = time(force_c3 < 0);
 
 figure;
 grid on;
