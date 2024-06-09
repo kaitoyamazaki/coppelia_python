@@ -1,6 +1,5 @@
 from coppeliasim_zmqremoteapi_client import RemoteAPIClient
 import numpy as np
-from time import sleep
 
 class Simulation:
 
@@ -37,6 +36,16 @@ class Simulation:
         self.right_hand_pos = np.empty(0)
         self.left_hand_pos = np.empty(0)
 
+        # 部分的な重心のハンドルを取得
+        self.cog1 = sim.getObject('/target_object/cog_1')
+        self.cog2 = sim.getObject('/target_object/cog_2')
+        self.cog3 = sim.getObject('/target_object/cog_3')
+        self.cog4 = sim.getObject('/target_object/cog_4')
+        self.cog5 = sim.getObject('/target_object/cog_5')
+        self.cog6 = sim.getObject('/target_object/cog_6')
+        self.cog7 = sim.getObject('/target_object/cog_7')
+        self.cog8 = sim.getObject('/target_object/cog_8')
+
         # 物体の重心, copの位置と姿勢を取得
         self.cog_pos = np.empty(0)
         self.cop_pos = np.empty(0)
@@ -46,7 +55,8 @@ class Simulation:
         # 別に設定した重心を格納する行列
         self.cog = np.empty(0)
         self.old_cog = np.empty(0)
-        self.friction = np.empty(0)
+        self.friction_dp = np.empty(0)
+        self.friction_flg = 1
 
         self.l1 = 0.13156
         self.l2 = 0.1104
@@ -106,35 +116,40 @@ class Simulation:
             sim.setJointPosition(self.j4, new_theta[3][0])
             sim.setJointPosition(self.j6, z_new_theta)
 
-            self.test_force_sensor(sim)
-            self.get_various_pos(sim)
+            #self.test_force_sensor(sim)
+            #self.get_various_pos(sim)
+            self.get_cog_information(sim)
         
         sim.stopSimulation()
 
+        reshape_friction_dp = self.friction_dp.reshape(-1, 17)
+
         # データを色々取得するための処理
-        reshape_right_force = self.right_hand_force.reshape(-1, 4)
-        reshape_left_force = self.left_hand_force.reshape(-1, 4)
+        #reshape_right_force = self.right_hand_force.reshape(-1, 4)
+        #reshape_left_force = self.left_hand_force.reshape(-1, 4)
 
-        reshape_right_pos = self.right_hand_pos.reshape(-1, 4)
-        reshape_left_pos = self.left_hand_pos.reshape(-1, 4)
+        #reshape_right_pos = self.right_hand_pos.reshape(-1, 4)
+        #reshape_left_pos = self.left_hand_pos.reshape(-1, 4)
 
-        reshape_cog_pos = self.cog_pos.reshape(-1, 4)
-        reshape_cop_pos = self.cop_pos.reshape(-1, 4)
+        #reshape_cog_pos = self.cog_pos.reshape(-1, 4)
+        #reshape_cop_pos = self.cop_pos.reshape(-1, 4)
 
-        reshape_cog_ori = self.cog_ori.reshape(-1, 2)
-        reshape_cop_ori = self.cop_ori.reshape(-1, 2)
+        #reshape_cog_ori = self.cog_ori.reshape(-1, 2)
+        #reshape_cop_ori = self.cop_ori.reshape(-1, 2)
 
-        np.savetxt("data/test/force_r_typeA.csv", reshape_right_force, delimiter=",", fmt="%f")
-        np.savetxt("data/test/force_l_typeA.csv", reshape_left_force, delimiter=",", fmt="%f")
+        #np.savetxt("data/test/force_r_typeA.csv", reshape_right_force, delimiter=",", fmt="%f")
+        #np.savetxt("data/test/force_l_typeA.csv", reshape_left_force, delimiter=",", fmt="%f")
 
-        np.savetxt("data/test/right_pos_typeA.csv", reshape_right_pos, delimiter=",", fmt="%f")
-        np.savetxt("data/test/left_pos_typeA.csv", reshape_left_pos, delimiter=",", fmt="%f")
+        #np.savetxt("data/test/right_pos_typeA.csv", reshape_right_pos, delimiter=",", fmt="%f")
+        #np.savetxt("data/test/left_pos_typeA.csv", reshape_left_pos, delimiter=",", fmt="%f")
 
-        np.savetxt("data/test/cog_pos_typeA.csv", reshape_cog_pos, delimiter=",", fmt="%f")
-        np.savetxt("data/test/cop_pos_typeA.csv", reshape_cop_pos, delimiter=",", fmt="%f")
+        #np.savetxt("data/test/cog_pos_typeA.csv", reshape_cog_pos, delimiter=",", fmt="%f")
+        #np.savetxt("data/test/cop_pos_typeA.csv", reshape_cop_pos, delimiter=",", fmt="%f")
 
-        np.savetxt("data/test/cog_ori_typeA.csv", reshape_cog_ori, delimiter=",", fmt="%f")
-        np.savetxt("data/test/cop_ori_typeA.csv", reshape_cop_ori, delimiter=",", fmt="%f")
+        #np.savetxt("data/test/cog_ori_typeA.csv", reshape_cog_ori, delimiter=",", fmt="%f")
+        #np.savetxt("data/test/cop_ori_typeA.csv", reshape_cop_ori, delimiter=",", fmt="%f")
+
+        np.savetxt("data/test/partially_friction_points.csv", reshape_friction_dp, delimiter=",", fmt="%f")
     
     # ヤコビ行列を計算する関数
     def calc_yakobi_row(self, j1, j2, j3, j4):
@@ -275,6 +290,39 @@ class Simulation:
 
         self.cog_ori = np.append(self.cog_ori, cog_ori)
         self.cop_ori = np.append(self.cop_ori, cop_ori)
+    
+    def get_cog_information(self, sim):
+
+        time = sim.getSimulationTime()
+        cog1_pos = sim.getObjectPosition(self.cog1, sim.handle_world)
+        cog2_pos = sim.getObjectPosition(self.cog2, sim.handle_world)
+        cog3_pos = sim.getObjectPosition(self.cog3, sim.handle_world)
+        cog4_pos = sim.getObjectPosition(self.cog4, sim.handle_world)
+        cog5_pos = sim.getObjectPosition(self.cog5, sim.handle_world)
+        cog6_pos = sim.getObjectPosition(self.cog6, sim.handle_world)
+        cog7_pos = sim.getObjectPosition(self.cog7, sim.handle_world)
+        cog8_pos = sim.getObjectPosition(self.cog8, sim.handle_world)
+
+        cog_pos = [cog1_pos[0], cog1_pos[1], cog2_pos[0], cog2_pos[1], cog3_pos[0], cog3_pos[1], cog4_pos[0], cog4_pos[1], cog5_pos[0], cog5_pos[1], cog6_pos[0], cog6_pos[1], cog7_pos[0], cog7_pos[1], cog8_pos[0], cog8_pos[1]]
+        
+        if(self.friction_flg == 1):
+            self.friction_flg = 0
+            self.old_cog = cog_pos
+        
+        cog_pos = np.array(cog_pos)
+        self.old_cog = np.array(self.old_cog)
+        
+        dp = cog_pos - self.old_cog
+
+        dp = np.insert(dp, 0, time)
+
+        #print(f'dp : {dp}')
+        self.friction_dp = np.append(self.friction_dp, dp)
+        #print(f'{self.friction_dp.shape}')
+
+        self.old_cog = cog_pos
+
+
 
 
 def main():

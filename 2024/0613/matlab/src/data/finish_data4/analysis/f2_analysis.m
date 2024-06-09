@@ -21,6 +21,24 @@ force_neg = force_c2(force_c2 < 0);
 time_pos = time(force_c2 >= 0);
 time_neg = time(force_c2 < 0);
 
+% 値を導出
+
+% 平均値
+mean_value_f1 = mean(force_c2);
+
+% 中央値
+median_value_f1 = median(force_c2);
+
+% 分散
+variance_value_f1 = var(force_c2);
+
+% 標準値
+std_deviation_f1 = std(force_c2);
+
+% 移動平均
+window_size = 3;
+moving_ave_f1 = movmean(force_c2, window_size);
+
 figure;
 grid on;
 hold on;
