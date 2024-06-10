@@ -23,8 +23,8 @@ f3 = 1;
 
 
 % 力データの読み込み
-force_r = readmatrix('data/force_r_typeA.csv');
-force_l = readmatrix('data/force_l_typeA.csv');
+force_r = readmatrix('data/finish_data1/force_r_typeA.csv');
+force_l = readmatrix('data/finish_data1/force_l_typeA.csv');
 
 % 力データの編集
 force_c1 = force_r(:, 2);

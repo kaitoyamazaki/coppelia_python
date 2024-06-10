@@ -8,17 +8,17 @@ addpath('.', '-end');
 addpath('function', '-end');
 addpath('data', '-end');
 
-filepath_force_r = 'data/force_r_typeA.csv';
-filepath_force_l = 'data/force_l_typeA.csv';
+filepath_force_r = 'data/finish_data1/force_r_typeA.csv';
+filepath_force_l = 'data/finish_data1/force_l_typeA.csv';
 
-filepath_hand_pos_r = 'data/right_pos_typeA.csv';
-filepath_hand_pos_l = 'data/left_pos_typeA.csv';
+filepath_hand_pos_r = 'data/finish_data1/right_pos_typeA.csv';
+filepath_hand_pos_l = 'data/finish_data1/left_pos_typeA.csv';
 
-filepath_cop_pos = 'data/cop_pos_typeA.csv';
-filepath_cog_pos = 'data/cog_pos_typeA.csv';
+filepath_cop_pos = 'data/finish_data1/cop_pos_typeA.csv';
+filepath_cog_pos = 'data/finish_data1/cog_pos_typeA.csv';
 
-filepath_cop_ori = 'data/cop_ori_typeA.csv';
-filepath_cog_ori = 'data/cog_ori_typeA.csv';
+filepath_cop_ori = 'data/finish_data1/cop_ori_typeA.csv';
+filepath_cog_ori = 'data/finish_data1/cog_ori_typeA.csv';
 
 force_r = readmatrix(filepath_force_r);
 force_l = readmatrix(filepath_force_l);

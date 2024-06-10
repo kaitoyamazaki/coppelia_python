@@ -89,8 +89,11 @@ f2 = 1;
 f3 = 1;
 
 % 力データの読み込み
-force_r = readmatrix('data/finish_data1/force_r_typeA.csv');
-force_l = readmatrix('data/finish_data1/force_l_typeA.csv');
+%force_r = readmatrix('data/finish_data1/force_r_typeA.csv');
+%force_l = readmatrix('data/finish_data1/force_l_typeA.csv');
+
+force_r = readmatrix('data/movie_data/force_r_typeA.csv');
+force_l = readmatrix('data/movie_data/force_l_typeA.csv');
 
 % 力データの編集
 force_c1 = force_r(:, 3);
@@ -107,6 +110,7 @@ all_wrench = [];
 trial_num = size(force_c1, 1);
 pause_time = simulation_seconds / trial_num;
 pause_time = 0.00125;
+pause_time = pause_time / 18;
 
 pause(15);
 
