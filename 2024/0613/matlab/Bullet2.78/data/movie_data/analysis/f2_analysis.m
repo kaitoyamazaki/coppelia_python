@@ -51,3 +51,10 @@ ylim([-1, 1]);
 
 scatter(time_pos, force_pos, 'filled', 'b');
 scatter(time_neg, force_neg, 'filled', 'r');
+
+average_value_txt = sprintf('平均値: %f', mean_value_f1);
+median_value_txt = sprintf('中央値: %f', median_value_f1);
+standard_deviation_txt = sprintf('標準偏差: %f', std_deviation_f1);
+disp(average_value_txt);
+disp(median_value_txt);
+disp(standard_deviation_txt);
