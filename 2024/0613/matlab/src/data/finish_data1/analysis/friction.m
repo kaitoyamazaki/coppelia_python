@@ -11,7 +11,7 @@ addpath('res', '-end');
 
 % ファイルの読み込み
 Friction_direction = readmatrix('../partially_friction_points.csv');
-position_vector = [0.0, -0.0125, 0.0350, 0.0, 0.035, 0.0, 0.015, -0.0125, -0.0350, 0.0, -0.035, 0.0125, 0.0350, 0.0, 0.015, 0.0, -0.015];
+position_vector = [0.0, -0.0125, 0.0350, 0.0, 0.035, 0.0125, 0.0350, -0.0125, -0.0350, 0.0, -0.035, 0.0125, -0.0350, 0.0, 0.015, 0.0, -0.015];
 mass = [0.00159, 0.001069, 0.00159, 0.00159, 0.001069, 0.00159, 0.00318, 0.00318];
 mu = 0.80;
 
@@ -70,4 +70,4 @@ for i = 2:rows
 end
 
 friction_moment = nece_data;
-%save('res/friction_moment.mat', 'friction_moment');
+save('res/friction_moment.mat', 'friction_moment');

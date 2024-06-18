@@ -19,7 +19,8 @@ grid on;
 x = Friction_moment(:, 1);
 y = Friction_moment(:, 2);
 
-ylim([-0.005, 0.005]);
+ylim([-0.00025, 0.00025]);
+%ylim([-0.005, 0.005]);
 
 plot(x, y);
 
