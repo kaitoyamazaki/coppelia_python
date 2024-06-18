@@ -70,7 +70,7 @@ class Simulation:
     def calc_j6(self, sim, theta):
 
         theta = np.rad2deg(theta)
-        theta = theta + 0.05
+        theta = theta + 0.5
         #print(f'theta : {theta}')
         theta = np.deg2rad(theta)
 

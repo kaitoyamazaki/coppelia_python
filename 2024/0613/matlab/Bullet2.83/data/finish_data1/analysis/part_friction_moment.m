@@ -34,6 +34,7 @@ title('重心1によるモーメント');
 xlabel('time [s]');
 ylabel('\omega [Nm]');
 ylim([-0.00025, 0.00025]);
+ylim([-0.005, 0.005]);
 hold on;
 grid on;
 
@@ -44,6 +45,7 @@ title('重心2によるモーメント');
 xlabel('time [s]');
 ylabel('\omega [Nm]');
 ylim([-0.00025, 0.00025]);
+ylim([-0.005, 0.005]);
 hold on;
 grid on;
 
@@ -55,6 +57,7 @@ title('重心3によるモーメント');
 xlabel('time [s]');
 ylabel('\omega [Nm]');
 ylim([-0.00025, 0.00025]);
+ylim([-0.005, 0.005]);
 hold on;
 grid on;
 
@@ -65,6 +68,7 @@ title('重心4によるモーメント');
 xlabel('time [s]');
 ylabel('\omega [Nm]');
 ylim([-0.00025, 0.00025]);
+ylim([-0.005, 0.005]);
 hold on;
 grid on;
 
@@ -79,6 +83,7 @@ title('重心5によるモーメント');
 xlabel('time [s]');
 ylabel('\omega [Nm]');
 ylim([-0.00025, 0.00025]);
+ylim([-0.005, 0.005]);
 hold on;
 grid on;
 
@@ -89,6 +94,7 @@ title('重心6によるモーメント');
 xlabel('time [s]');
 ylabel('\omega [Nm]');
 ylim([-0.00025, 0.00025]);
+ylim([-0.005, 0.005]);
 hold on;
 grid on;
 
@@ -100,6 +106,7 @@ title('重心7によるモーメント');
 xlabel('time [s]');
 ylabel('\omega [Nm]');
 ylim([-0.00025, 0.00025]);
+ylim([-0.005, 0.005]);
 hold on;
 grid on;
 
@@ -110,5 +117,6 @@ title('重心8によるモーメント');
 xlabel('time [s]');
 ylabel('\omega [Nm]');
 ylim([-0.00025, 0.00025]);
+ylim([-0.005, 0.005]);
 hold on;
 grid on;
