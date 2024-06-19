@@ -64,7 +64,7 @@ class Simulation:
         self.l3 = 0.096
         self.l4 = 0.07318
 
-        self.interval = 0.05
+        self.interval = 0.005
         self.last_time = 0.0
         
     # シミュレーションに反映する関数
@@ -76,7 +76,7 @@ class Simulation:
         #sim.setStepping(True)
         sim.startSimulation()
 
-        while sim.getSimulationTime() < 100:
+        while sim.getSimulationTime() < 20:
 
             theta6 = sim.getJointPosition(self.j6)
             z_new_theta = self.calc_j6(sim, theta6)
@@ -113,7 +113,7 @@ class Simulation:
     def calc_j6(self, sim, theta):
 
         theta = np.rad2deg(theta)
-        theta = theta + 0.5
+        theta = theta + 0.05
         #print(f'theta : {theta}')
         theta = np.deg2rad(theta)
 
@@ -173,6 +173,9 @@ class Simulation:
 
             self.old_cog6 = cog6_pos_edit
             self.last_time = time
+        
+        #print(f'time : {time}')
+        #print(f'old_time : {self.last_time}')
 
 
     def get_cog_information(self, sim):

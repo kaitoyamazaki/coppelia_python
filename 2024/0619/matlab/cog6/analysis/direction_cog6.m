@@ -9,7 +9,7 @@ addpath('..', '-end');
 addpath('res', '-end');
 
 % ファイルの読み込み
-filepath = '../cog6_pos2.csv';
+filepath = '../cog6_pos4.csv';
 cog6_direction = readmatrix(filepath);
 
 row = size(cog6_direction, 1);
@@ -18,8 +18,8 @@ figure;
 hold on;
 grid on;
 
-xlim([-0.005, 0.005]);
-ylim([-0.005, 0.005]);
+xlim([-0.001, 0.001]);
+ylim([-0.001, 0.001]);
 
 for i = 1:row
     if(i > 1 && cog6_direction(i-1) == cog6_direction(i))
