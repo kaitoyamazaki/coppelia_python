@@ -63,6 +63,9 @@ class Simulation:
         self.l2 = 0.1104
         self.l3 = 0.096
         self.l4 = 0.07318
+
+        self.interval = 0.05
+        self.last_time = 0.0
         
     # シミュレーションに反映する関数
     def simulation(self):
@@ -105,7 +108,7 @@ class Simulation:
 
         # cog6の重心データを出力
         #print(f'cog6 : {reshape_friction_dp_cog6}')
-        #np.savetxt("data/test/cog6_pos.csv", reshape_friction_dp_cog6, delimiter=",", fmt="%f")
+        np.savetxt("data/test/cog6_pos.csv", reshape_friction_dp_cog6, delimiter=",", fmt="%f")
 
     def calc_j6(self, sim, theta):
 
@@ -143,24 +146,33 @@ class Simulation:
     def get_cog6_information(self, sim):
 
         time = sim.getSimulationTime()
-        cog6_pos = sim.getObjectPosition(self.cog6, sim.handle_world)
 
         if(self.friction_cog6_flg == 1):
             self.friction_cog6_flg = 0
+            cog6_pos = sim.getObjectPosition(self.cog6, sim.handle_world)
             self.old_cog6 = [cog6_pos[0], cog6_pos[1]]
             self.old_cog6 = np.array(self.old_cog6)
 
-        cog6_pos_edit = [cog6_pos[0], cog6_pos[1]]
-        cog6_pos_edit = np.array(cog6_pos_edit)
+        if (time - self.last_time > self.interval):
+            cog6_pos = sim.getObjectPosition(self.cog6, sim.handle_world)
 
-        dp = cog6_pos_edit - self.old_cog6
+            #if(self.friction_cog6_flg == 1):
+                #self.friction_cog6_flg = 0
+                #self.old_cog6 = [cog6_pos[0], cog6_pos[1]]
+                #self.old_cog6 = np.array(self.old_cog6)
 
-        dp = np.insert(dp, 0, time)
+            cog6_pos_edit = [cog6_pos[0], cog6_pos[1]]
+            cog6_pos_edit = np.array(cog6_pos_edit)
 
-        #print(f'dp : {dp}')
-        self.friction_dp_cog6 = np.append(self.friction_dp_cog6, dp)
+            dp = cog6_pos_edit - self.old_cog6
 
-        self.old_cog6 = cog6_pos_edit
+            dp = np.insert(dp, 0, time)
+
+            #print(f'dp : {dp}')
+            self.friction_dp_cog6 = np.append(self.friction_dp_cog6, dp)
+
+            self.old_cog6 = cog6_pos_edit
+            self.last_time = time
 
 
     def get_cog_information(self, sim):
