@@ -105,7 +105,7 @@ class Simulation:
 
         # cog6の重心データを出力
         #print(f'cog6 : {reshape_friction_dp_cog6}')
-        np.savetxt("data/test/cog6_pos.csv", reshape_friction_dp_cog6, delimiter=",", fmt="%f")
+        #np.savetxt("data/test/cog6_pos.csv", reshape_friction_dp_cog6, delimiter=",", fmt="%f")
 
     def calc_j6(self, sim, theta):
 
@@ -157,7 +157,7 @@ class Simulation:
 
         dp = np.insert(dp, 0, time)
 
-        print(f'dp : {dp}')
+        #print(f'dp : {dp}')
         self.friction_dp_cog6 = np.append(self.friction_dp_cog6, dp)
 
         self.old_cog6 = cog6_pos_edit

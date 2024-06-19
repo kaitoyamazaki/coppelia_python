@@ -18,8 +18,10 @@ figure;
 hold on;
 grid on;
 
-xlim([-0.001, 0.001]);
-ylim([-0.001, 0.001]);
+%xlim([-0.001, 0.001]);
+%ylim([-0.001, 0.001]);
+xlim([-0.0025, 0.0025]);
+ylim([-0.0025, 0.0025]);
 
 for i = 1:row
     if(i > 1 && cog1_direction(i-1) == cog1_direction(i))
@@ -31,7 +33,8 @@ for i = 1:row
     vector = [vector_x vector_y];
 
     h1 = quiver(0.0, 0.0, vector(1), vector(2), 'Color', 'k', 'LineWidth', 2.0, 'AutoScale', 'off');
-    pause(0.025);
+    %pause(0.025);
+    pause(0.0025);
     delete(h1);
 end
 

@@ -31,7 +31,8 @@ for i = 1:row
     vector = [vector_x vector_y];
 
     h1 = quiver(0.0, 0.0, vector(1), vector(2), 'Color', 'k', 'LineWidth', 2.0, 'AutoScale', 'off');
-    pause(0.01);
+    %pause(0.01);
+    pause(0.0025);
     delete(h1);
 end
 
