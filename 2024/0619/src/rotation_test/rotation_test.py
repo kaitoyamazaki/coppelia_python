@@ -48,10 +48,16 @@ class Simulation:
         self.friction_flg = 1
 
         # cog1のデータを格納する行列(cog1)
-        self.cog1_pos = np.empty(0)
-        self.old_cog1 = np.empty(0)
-        self.friction_dp_cog1 = np.empty(0)
-        self.friction_cog1_flg = 1
+        #self.cog1_pos = np.empty(0)
+        #self.old_cog1 = np.empty(0)
+        #self.friction_dp_cog1 = np.empty(0)
+        #self.friction_cog1_flg = 1
+
+        # cog6のデータを格納する行列(cog1)
+        self.cog6_pos = np.empty(0)
+        self.old_cog6 = np.empty(0)
+        self.friction_dp_cog6 = np.empty(0)
+        self.friction_cog6_flg = 1
 
         self.l1 = 0.13156
         self.l2 = 0.1104
@@ -74,7 +80,8 @@ class Simulation:
 
             sim.setJointPosition(self.j6, z_new_theta)
             #self.get_cog_information(sim)
-            self.get_cog1_information(sim)
+            #self.get_cog1_information(sim)
+            self.get_cog6_information(sim)
 
         #sleep(5)
 
@@ -84,14 +91,21 @@ class Simulation:
         #reshape_friction_dp = self.friction_dp.reshape(-1, 17)
 
         # cog1の重心の場合
-        reshape_friction_dp_cog1 = self.friction_dp_cog1.reshape(-1, 3)
+        #reshape_friction_dp_cog1 = self.friction_dp_cog1.reshape(-1, 3)
+
+        # cog6の重心の場合
+        reshape_friction_dp_cog6 = self.friction_dp_cog6.reshape(-1, 3)
 
         # 全ての重心データをcsv形式で保存
         #np.savetxt("data/test/partially_friction_points.csv", reshape_friction_dp, delimiter=",", fmt="%f")
 
         # cog1の重心データを出力
         #print(f'cog1 : {reshape_friction_dp_cog1}')
-        np.savetxt("data/test/cog1_pos.csv", reshape_friction_dp_cog1, delimiter=",", fmt="%f")
+        #np.savetxt("data/test/cog1_pos.csv", reshape_friction_dp_cog1, delimiter=",", fmt="%f")
+
+        # cog6の重心データを出力
+        #print(f'cog6 : {reshape_friction_dp_cog6}')
+        np.savetxt("data/test/cog6_pos.csv", reshape_friction_dp_cog6, delimiter=",", fmt="%f")
 
     def calc_j6(self, sim, theta):
 
@@ -126,6 +140,29 @@ class Simulation:
         self.old_cog1 = cog1_pos_edit
 
     
+    def get_cog6_information(self, sim):
+
+        time = sim.getSimulationTime()
+        cog6_pos = sim.getObjectPosition(self.cog6, sim.handle_world)
+
+        if(self.friction_cog6_flg == 1):
+            self.friction_cog6_flg = 0
+            self.old_cog6 = [cog6_pos[0], cog6_pos[1]]
+            self.old_cog6 = np.array(self.old_cog6)
+
+        cog6_pos_edit = [cog6_pos[0], cog6_pos[1]]
+        cog6_pos_edit = np.array(cog6_pos_edit)
+
+        dp = cog6_pos_edit - self.old_cog6
+
+        dp = np.insert(dp, 0, time)
+
+        print(f'dp : {dp}')
+        self.friction_dp_cog6 = np.append(self.friction_dp_cog6, dp)
+
+        self.old_cog6 = cog6_pos_edit
+
+
     def get_cog_information(self, sim):
 
         time = sim.getSimulationTime()
