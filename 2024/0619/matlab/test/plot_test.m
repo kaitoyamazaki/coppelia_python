@@ -1,30 +1,29 @@
-% Number of random points
-numPoints = 100;
+% パラメータの設定
+r_inner = 0.1; % 内側の円の半径
+r_outer = 0.3; % 外側の円の半径
+N = 50; % 生成する点の数
 
-% Initial point
-initialPoint = [0.0, 0.0, 0.0];
+% 極座標でランダムな点を生成
+theta = 2 * pi * rand(N, 1); % ランダムな角度
+r = sqrt((r_outer^2 - r_inner^2) * rand(N, 1) + r_inner^2); % 均一分布を保証するランダムな半径
 
-% Generate random points within specified ranges
-x = -0.5 + rand(numPoints, 1) * (0.5 - (-0.5));
-y = rand(numPoints, 1) * (1.0 - 0);
-z = -180 + rand(numPoints, 1) * (180 - (-180));
+% デカルト座標に変換
+x = r .* cos(theta);
+y = r .* sin(theta);
 
-% Add the initial point
-x = [initialPoint(1); x];
-y = [initialPoint(2); y];
-z = [initialPoint(3); z];
+% y > 0 の条件を満たす点のみを選択
+idx = y > 0;
+x = x(idx);
+y = y(idx);
+z = -180 + 360 * rand(sum(idx), 1);
 
-% Define colors: red for the initial point, blue for others
-colors = [1, 0, 0; repmat([0, 0, 1], numPoints, 1)];
-
-% Plot the points
+% 3次元プロット
 figure;
-scatter3(x, y, z, 36, colors, 'filled');
-xlabel('x [m]');
-ylabel('y [m]');
-zlabel('\theta [°]');
-zlim([-180, 180]);
-title('test');
+scatter3(x, y, z, 'filled');
+xlabel('X軸');
+ylabel('Y軸');
+zlabel('Z軸');
+title('内側と外側の円の間の領域にランダムな3次元点をプロット');
 grid on;
-
-view(45, 50);
+xlim([-r_outer, r_outer]); % x軸の範囲を設定
+ylim([0, r_outer]); % y軸の範囲を設定

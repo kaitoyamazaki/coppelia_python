@@ -54,9 +54,8 @@ class Simulation:
         sim.stopSimulation()
 
         reshape_tcp_pos = self.tcp_pos.reshape(-1, 2)
-
         #print(f'tcp_pos : {reshape_tcp_pos}')
-    
+        np.savetxt('data/tcp_pos_min.csv', reshape_tcp_pos, delimiter=',', fmt='%f')
 
     def calc_j2(self, sim, theta):
 
