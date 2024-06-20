@@ -28,6 +28,9 @@ class Simulation:
         self.l2 = 0.1104
         self.l3 = 0.096
         self.l4 = 0.07318
+
+        # TCPポジションを格納するための配列
+        self.tcp_pos = np.empty(0)
         
     # シミュレーションに反映する関数
     def simulation(self):
@@ -42,12 +45,17 @@ class Simulation:
 
             theta1 = sim.getJointPosition(self.j1)
             z_new_theta = self.calc_j2(sim, theta1)
-
             sim.setJointPosition(self.j1, z_new_theta)
+
+            self.get_tcp_information(sim)
 
         #sleep(5)
 
         sim.stopSimulation()
+
+        reshape_tcp_pos = self.tcp_pos.reshape(-1, 2)
+
+        print(f'tcp_pos : {reshape_tcp_pos}')
     
 
     def calc_j2(self, sim, theta):
@@ -63,6 +71,14 @@ class Simulation:
         theta = np.deg2rad(theta)
 
         return theta
+
+    def get_tcp_information(self, sim):
+
+        tcp_pos = sim.getObjectPosition(self.coe, sim.handle_world)
+        tcp_pos = [tcp_pos[0], tcp_pos[1]]
+
+        tcp_pos = np.array(tcp_pos)
+        self.tcp_pos = np.append(self.tcp_pos, tcp_pos)
 
 
 def main():
