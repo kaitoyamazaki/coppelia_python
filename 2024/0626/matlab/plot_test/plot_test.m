@@ -1,30 +1,44 @@
-% Parameters
-r_inner = 0.1; % Radius of the inner circle
-r_outer = 0.3; % Radius of the outer circle
-N = 100; % Number of points to generate
+% パラメータの設定
+r_inner = 0.1; % 内側の円の半径
+r_outer = 0.3; % 外側の円の半径
+N = 50; % 生成する点の数
 
-% Generate random points in polar coordinates
-theta = 2 * pi * rand(N, 1); % Random angles
-r = sqrt((r_outer^2 - r_inner^2) * rand(N, 1) + r_inner^2); % Random radii ensuring uniform distribution
+% 初期値を設定
+initial_point = [0.06739, 0.15095, 0.0];
 
-% Convert to Cartesian coordinates
+% 極座標でランダムな点を生成
+theta = 2 * pi * rand(N, 1); % ランダムな角度
+r = sqrt((r_outer^2 - r_inner^2) * rand(N, 1) + r_inner^2); % 均一分布を保証するランダムな半径
+
+% デカルト座標に変換
 x = r .* cos(theta);
 y = r .* sin(theta);
 
-% Generate random orientations for z coordinate
-z = -180 + 360 * rand(N, 1);
+% y > 0 の条件を満たす点のみを選択
+idx = y > 0;
+x = x(idx);
+y = y(idx);
+z = -180 + 360 * rand(sum(idx), 1);
 
-% Plotting the generated points
+% 初期値を追加
+x = [initial_point(1); x];
+y = [initial_point(2); y];
+z = [initial_point(3); z];
+
+% 3次元プロット
 figure;
-scatter(x, y, 'b.');
+scatter3(x(2:end), y(2:end), z(2:end), 'filled'); % ランダムな点をプロット
 hold on;
-viscircles([0, 0], r_inner, 'LineWidth', 1, 'Color', 'k');
-viscircles([0, 0], r_outer, 'LineWidth', 1, 'Color', 'k');
-axis equal;
+scatter3(x(1), y(1), z(1), 'filled', 'r'); % 初期値を赤色でプロット
+xlabel('X軸');
+ylabel('Y軸');
+zlabel('Z軸');
+title('内側と外側の円の間の領域にランダムな3次元点をプロット');
 grid on;
-title('Random points in the annular region between two circles');
+%axis equal;
+xlim([-r_outer, r_outer]); % x軸の範囲を設定
+ylim([-r_outer, r_outer]); % y軸の範囲を設定
+%ylim([0, r_outer]); % y軸の範囲を設定
 
-% Displaying a sample of generated 3D points
-sample_points = [x, y, z];
-disp('Sample of generated 3D points:');
-disp(sample_points(1:10, :));
+view(45, 50);
+hold off;
