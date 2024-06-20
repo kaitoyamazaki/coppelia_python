@@ -41,7 +41,7 @@ class Simulation:
         #sim.setStepping(True)
         sim.startSimulation()
 
-        while sim.getSimulationTime() < 100:
+        while sim.getSimulationTime() < 90:
 
             theta1 = sim.getJointPosition(self.j1)
             z_new_theta = self.calc_j2(sim, theta1)
@@ -55,7 +55,7 @@ class Simulation:
 
         reshape_tcp_pos = self.tcp_pos.reshape(-1, 2)
 
-        print(f'tcp_pos : {reshape_tcp_pos}')
+        #print(f'tcp_pos : {reshape_tcp_pos}')
     
 
     def calc_j2(self, sim, theta):
