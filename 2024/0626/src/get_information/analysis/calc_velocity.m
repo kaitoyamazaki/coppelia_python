@@ -7,7 +7,7 @@ addpath('.', '-end');
 addpath('../data', '-end');
 
 
-filepath = '../data/まっすぐ並進運動時のデータ_283.csv';
+filepath = '../data/斜めに並進運動時のデータ2_283.csv';
 data = readmatrix(filepath);
 
 old_data = data(1, :);
