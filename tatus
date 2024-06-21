@@ -1,0 +1,1487 @@
+[33mcommit 5216212feea7fcdd8942c264c20d2d405c9289fb[m[33m ([m[1;36mHEAD -> [m[1;32mdesk[m[33m, [m[1;31morigin/desk[m[33m)[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed May 29 00:42:44 2024 +0900
+
+    色々データを保存
+
+[33mcommit abf08cdcd6f53e145d74ace497ded5dd879191fa[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue May 28 23:58:24 2024 +0900
+
+    平面プロットデータを取得
+
+[33mcommit 0cf9ad9ccabb1c6ea7ca5ad4a2829921bf0074e0[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue May 28 23:49:52 2024 +0900
+
+    めちゃくちゃ計算したデータを取得
+
+[33mcommit 09838305f6295caaceb8da5b5e95e3678bebab24[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue May 28 19:02:38 2024 +0900
+
+    一応slide用の資料を作るためのプログラムを作成
+
+[33mcommit 30bbc86a4fa4a7b51396c970d2e5074447b55d48[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue May 28 13:45:58 2024 +0900
+
+    フォルダ名をrename
+
+[33mcommit b176d2bcf5ce4836b19afcbe59e9e8ac8c95a777[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue May 28 13:18:20 2024 +0900
+
+    2辺での面を描画. 次は全てのエッジで行う
+
+[33mcommit 2b6880f6cfe12850d76c81f2a7f0e8316b7eb94a[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue May 28 12:46:57 2024 +0900
+
+    合レンチベクトルを描画. 次は2辺での面を作成
+
+[33mcommit 7af7c4d2f8614f9255366500f5538e479b917a5a[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue May 28 12:10:59 2024 +0900
+
+    20240527までに実施したこと
+
+[33mcommit b87ec4e5da3d7d0ec29dced0bcd64b4bcf808518[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon May 27 21:07:20 2024 +0900
+
+    slide用のプログラムを作成(f1のみ)
+
+[33mcommit 3445adc9cc027d8ea13bd9cf6ed2fdbc2e9158bd[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sun May 26 21:21:01 2024 +0900
+
+    f1, f2, f3が同時に動くプログラムを作成
+
+[33mcommit 61be55dfc56cd2d1cbc528d28abd75c7d45e92c4[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sun May 26 20:41:19 2024 +0900
+
+    f1, f2, f3が同時に動くプログラムを作成
+
+[33mcommit 9e7813ddfcd763850a11be473562678abf998c85[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sun May 26 20:08:53 2024 +0900
+
+    f2, f3が同時に動くプログラムを作成
+
+[33mcommit 0b9e113ab7c3ea1533b81a80b065f6407d1812c2[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sun May 26 19:15:15 2024 +0900
+
+    f1, f2が同時に動くプログラムを作成
+
+[33mcommit 07778f2f94abdbd22801e8cbf7b0e7f6e7139b70[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sun May 26 19:04:57 2024 +0900
+
+    f1, f2が同時に動くプログラムを作成
+
+[33mcommit 387de169b3638d2936fabd4056a30d7e2bc7fbc8[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sun May 26 18:22:57 2024 +0900
+
+    f2, f3に対して同様に作成
+
+[33mcommit 2ae693119556263176e474f173ed7a29cf94422b[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sun May 26 17:23:57 2024 +0900
+
+    法線ベクトルf1の値を2次元上に表現するプログラムを作成
+
+[33mcommit 5dbb643fba35ee2bbe303842bad00f72d9fd83f3[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sun May 26 15:40:44 2024 +0900
+
+    全てのエッジのプログラムを作成
+
+[33mcommit 4feb41537003b99d08c0c8288dd907fe75d70ba5[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sun May 26 13:10:42 2024 +0900
+
+    f3, f1で平面を行うものは作成
+
+[33mcommit e5e1ef3ba495d72de0f79dde4f2f9bfe879b3ff1[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sun May 26 12:40:00 2024 +0900
+
+    f2, f3で平面を行うものは作成
+
+[33mcommit bb8e2792afb3d42e59f7de8a47810529778a8ca9[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat May 25 21:42:15 2024 +0900
+
+    f1, f2, f3が同時に動くプログラムを作成
+
+[33mcommit 97cf515f226694626a63bdacb2327ad86b7c63f5[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat May 25 18:23:22 2024 +0900
+
+    f1, f2, f3が同時に動くプログラムを作成
+
+[33mcommit 555b9dc06c5c0040353d4f43c431d9a61bad004d[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat May 25 17:56:07 2024 +0900
+
+    f1, f2が同時に変化かつ, 係数が異なる場合のプログラムを作成
+
+[33mcommit fc792a34d3f5695a6b1fdc3bd6e72961c9c15fba[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat May 25 16:59:45 2024 +0900
+
+    f1, f2が同時に変化した際のレンチベクトルを表示
+
+[33mcommit 57f517dba7f30302345ad1123ee6681aebb4f830[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat May 25 15:36:24 2024 +0900
+
+    f1, f2, f3全て単独で動作するプログラムを作成
+
+[33mcommit f6ecb92bbd1ac472023fc9bf35b59f46f0395534[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat May 25 14:30:57 2024 +0900
+
+    f1専用の見せるプログラム作成
+
+[33mcommit 66512c04384768cc2dcb891beec7365a168e1a03[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu May 23 20:32:47 2024 +0900
+
+    0529に向けてのファイル作成と, プログラム作成中
+
+[33mcommit 7e95b6b9e8533a0141d85e18a5f2f6f967681d49[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed May 22 12:59:56 2024 +0900
+
+    午前中の分を一旦保存
+
+[33mcommit 85546fbfa607698ffca746a6eaf7574829aac748[m[33m ([m[1;31morigin/master[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmaster[m[33m)[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed May 22 00:54:22 2024 +0900
+
+    スラド用のデータを作成中
+
+[33mcommit 09adbc9299b21204e94d0b88e95c610b8937eb71[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue May 21 17:22:49 2024 +0900
+
+    スラド用のデータを作成中
+
+[33mcommit 322df5487c3a306d396768f5d0887844adb8f33c[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue May 21 17:22:14 2024 +0900
+
+    スラド用のデータを作成中
+
+[33mcommit 43c6f67c00218e719748b306b9170a7981deb45b[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sun May 12 17:21:58 2024 +0900
+
+    なんちゃってアルゴリズムを作成
+
+[33mcommit e2c31d2045eb32251720dd31ccb25f5d89a7c708[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sun May 12 16:35:47 2024 +0900
+
+    現在アルゴリズムを作成中
+
+[33mcommit 64905ddc4a79d340c2720b9beaaba8165efee343[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat May 11 19:02:38 2024 +0900
+
+    適用点が失敗
+
+[33mcommit 3e697874345cab613231705548c906ba7036d922[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat May 11 17:38:48 2024 +0900
+
+    ランダムに点をプロットするプログラムを作成
+
+[33mcommit 939b97f2b9688a6fa038aa0d08b21e6e5abf52d4[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat May 11 17:37:31 2024 +0900
+
+    ランダムに点をプロットするプログラムを作成
+
+[33mcommit 2b388a64a5a28a3c09be92a9126ca99c2f08b00c[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat May 11 12:48:38 2024 +0900
+
+    部分拘束typeAにおける等式を導出
+
+[33mcommit 01cbdca0f8addbef838da5da33a05074a188410b[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed May 8 13:08:01 2024 +0900
+
+    typeBの方程式で法線ベクトルを解いた
+
+[33mcommit 777c6a1d6dd28840ecd8b98fc5ecf7b1465e95c0[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue May 7 22:11:58 2024 +0900
+
+    20240507までに実施したことを保存
+
+[33mcommit cd675cdff8a2eda4dc75d9b94ece15216b7960b6[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue May 7 18:45:09 2024 +0900
+
+    typeB時の法線ベクトルが変化するものを作成
+
+[33mcommit f6f643780f028a78ae01847260fbc02110f5a11c[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue May 7 17:53:55 2024 +0900
+
+    データを若干整理
+
+[33mcommit fd8c258791847ac031342b4af0880403f2de9e9e[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue May 7 17:19:57 2024 +0900
+
+    ランダムにセットしたwrenchベクトル時の係数を導出するプログラムを作成
+
+[33mcommit 8f1574ce767fd344448c542cb6f8539178520cef[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue May 7 15:08:17 2024 +0900
+
+    最大角度と最小角度を導出 & Wrench空間を描画するプログラムを作成
+
+[33mcommit 59f1cef884fc828562d4031c45a1431adbf6ba6c[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue May 7 13:21:09 2024 +0900
+
+    typeBに関しても同様のことを実施する
+
+[33mcommit 1b16261d3174a2f1bbecbcf990127e59050511b6[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon May 6 15:48:37 2024 +0900
+
+    法線ベクトルが変動するプログラムを作成, 別の部分拘束でも実施する予定
+
+[33mcommit 80caae485dbe22734743e847e8abbc4afd73750f[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu May 2 17:03:21 2024 +0900
+
+    オブジェクトを描画した. この後は事前に取得している係数の行列データを使って, 法線ベクトルの大きさを変更するプログラムを作成する予定
+
+[33mcommit 420af7567df1d174ff528221d09a177bc0f4af71[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu May 2 16:14:19 2024 +0900
+
+    必要なデータをそれぞれmatファイルに保存
+
+[33mcommit dca7ec32625f0dc0a6a4651bf125bf710307c0a8[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu May 2 15:05:26 2024 +0900
+
+    計算した結果をmatファイルに保存
+
+[33mcommit 2b4d08cb552205ddccb0aa82a679b245fa05e424[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu May 2 14:54:47 2024 +0900
+
+    係数を方程式によって導出するプログラムを作成
+
+[33mcommit 110b0fd5b22d66369c8839e8f7b1aca577602124[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu May 2 14:53:52 2024 +0900
+
+    係数を方程式によって導出するプログラムを作成
+
+[33mcommit 6b89632d14adeb2643d2215b0fe6d3b93b28879a[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu May 2 13:36:14 2024 +0900
+
+    最大角度と最小角度を釣り合いの観点から導出
+
+[33mcommit 466e26a6f26cc674275fde5ff708a2d2f26b483d[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu May 2 11:34:54 2024 +0900
+
+    最大角度と最小角度を導出
+
+[33mcommit 2dea29995974ba8165568fc2224bc0513da3b3e2[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed May 1 21:45:40 2024 +0900
+
+    角度を導出することに成功
+
+[33mcommit 3a6ea8817b4510d30e74ffc5d41768c37118d328[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed May 1 21:28:21 2024 +0900
+
+    適用可能なポイントを計算
+
+[33mcommit 0799e2830c448a230e22a500ad9a346e7c7cbb07[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed May 1 18:54:33 2024 +0900
+
+    matlabのプログラムを新たに作成する
+
+[33mcommit a931c14684510b1c1e450aa90a1088bade895b6c[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed May 1 18:40:52 2024 +0900
+
+    シミュレーションファイルを削除
+
+[33mcommit de46f246f867c34f0577b148a911dcbbc04eac7c[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed May 1 18:39:03 2024 +0900
+
+    今までと同様のconeプログラムを完成
+
+[33mcommit ca218722c573e0fd6300330c2ef9d8df0c7d5d15[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed May 1 16:10:23 2024 +0900
+
+    wrenchベクトルを計算するところまで完成
+
+[33mcommit f3ce11e12cf95960fd315b46f9e4e6070d16e656[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed May 1 15:50:38 2024 +0900
+
+    経路testプログラムと距離確認プログラムを作成
+
+[33mcommit 8ac3ccd37c032a2f6cb21294c8445146ef5a02e0[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed May 1 13:41:19 2024 +0900
+
+    20240501までに実施したものを保存
+
+[33mcommit e33da85df4ff03dd6ff58b4711d700ecda711bde[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Apr 29 13:56:41 2024 +0900
+
+    20240429までに実施したデータを保存した
+
+[33mcommit ae7dcdeec2a78d34299e3fc1b66121a6d8bebf6a[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Apr 23 13:34:01 2024 +0900
+
+    シミュレーションの方にも対応
+
+[33mcommit 5d8f5d4804d98836c9ca37891609202af90859af[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Apr 23 13:18:38 2024 +0900
+
+    シミュレーションの方にも対応
+
+[33mcommit 32b4bffd786e8e6cb5e9d18b946b5b59e6324b8c[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Apr 23 12:57:35 2024 +0900
+
+    接触点のプログラムを作成
+
+[33mcommit 17d336e6d8f6cff452d6492dde8fdad5dd143e5d[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Apr 23 11:10:29 2024 +0900
+
+    4/23日用のフォルダを作成
+
+[33mcommit bd9660636ed3d182fdee9d4779ee52d60b8b0811[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sun Apr 21 15:46:53 2024 +0900
+
+    方程式をmatlabで解いた
+
+[33mcommit ed4dab165bc94c9199d7f5f6d0247cc7bd704b49[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Apr 18 17:47:03 2024 +0900
+
+    平面を作成
+
+[33mcommit 3417cd678d52c794f6df67bd232faa15c3b4c1e3[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed Apr 17 13:25:03 2024 +0900
+
+    add file
+
+[33mcommit 6ab11cafe3ac5e2c1cb6fabc83a9cfe77bc188c0[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed Apr 10 20:49:51 2024 +0900
+
+    path_test.py から path_typeA.pyにrename
+
+[33mcommit 0d53a536b5350dd9fa9c3ce0bb73e22d710046fc[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed Apr 10 18:05:13 2024 +0900
+
+    path_test.py から path_typeA.pyにrename
+
+[33mcommit bdc9ade9378b2c5609a67e3a1c482c83139e9160[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed Apr 10 16:37:43 2024 +0900
+
+    全平面を考慮したプログラムを作成
+
+[33mcommit a7b188e3d95d8c26786a040d27a0981ecb861f3d[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed Apr 10 13:25:32 2024 +0900
+
+    平面3の領域の箇所をチェック
+
+[33mcommit 60d1b2b15555f301a98b58ba0c66e4c3786f1a5a[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed Apr 10 13:16:46 2024 +0900
+
+    平面1と平面2の領域の箇所をチェック
+
+[33mcommit bd6f0033f24131bed009043cae179f8bbc5ecf9f[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed Apr 10 11:50:11 2024 +0900
+
+    関数の基本機能をチェック
+
+[33mcommit 132278401241807d4e1ddbb484e72d7c711f7b1c[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed Apr 10 11:10:16 2024 +0900
+
+    平面の上下をチェックするためのプログラムを作成
+
+[33mcommit 6434a4a4d49e85e9e25ccd7ff62b31a49a7bd0a7[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed Apr 10 10:03:47 2024 +0900
+
+    0410用のファイルをセット
+
+[33mcommit 12ddb2a5e4ae609656a353d4865b5b8251a349a9[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat Apr 6 13:52:53 2024 +0900
+
+    matlabで平面の方程式を導出
+
+[33mcommit 3bce08d60dfb4b79236e86696aa3ac0d9be5b4e0[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat Apr 6 11:39:50 2024 +0900
+
+    0405までのデータを保存, typeB用のフォルダを作成
+
+[33mcommit 55ff75a5445db0f4eadfb8c8fb5fc98349c0134a[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Fri Apr 5 19:02:12 2024 +0900
+
+    2treeまでの経路を保存
+
+[33mcommit 719d8f558fb458b65293f1a812b5c6c36b875ca6[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Fri Apr 5 18:55:02 2024 +0900
+
+    2treeまでの経路を保存
+
+[33mcommit fecee131254a659bab9bd1fab0f47353f658db23[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Fri Apr 5 18:16:07 2024 +0900
+
+    Excelにデータを一部保存
+
+[33mcommit 9927cd023eba7815f52b140fec41323c9c661337[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Fri Apr 5 11:36:58 2024 +0900
+
+    2024/04/05用のファイルを作成
+
+[33mcommit 73b26d250f8e83727c9ba6123ca2ffc0ab0d9fe2[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Fri Apr 5 11:35:38 2024 +0900
+
+    2024/04/04までに実施したことを保存
+
+[33mcommit 4cc85c6973d578cb6a3b5358a145dad5394b046d[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Apr 4 13:25:13 2024 +0900
+
+     適用可能なポイントでの経路作成
+
+[33mcommit dd086a33813f427e12d119757a39b8aab72b268b[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Apr 4 11:38:05 2024 +0900
+
+     適用可能なポイントを利用してパスを作成
+
+[33mcommit 65a9c4b3862ca085f3eb7736b6285e397a3d2ede[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Apr 4 11:07:24 2024 +0900
+
+     適用可能でないポイントを削除する機能を追加
+
+[33mcommit 098b8dbeb1e6bcfa6b650d4ecd19595980533966[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Apr 4 11:04:31 2024 +0900
+
+     適用可能でないポイントを削除する機能を追加
+
+[33mcommit 6e84ce64223bc703b27b090f2c5d3eff31353fe2[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Apr 2 13:12:01 2024 +0900
+
+    レンチを配列として定義した
+
+[33mcommit 2d7e32309c7a44045056bf544e602d94302a935d[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Apr 2 12:19:12 2024 +0900
+
+    位置情報を取得出来た
+
+[33mcommit 45d739842b6573734256ab1e521e724f265ea1e4[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Apr 2 11:47:44 2024 +0900
+
+    日付をrename
+
+[33mcommit 0cc48945065968f39e9e3ac03a0e365c5eac0d8c[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Apr 1 14:18:27 2024 +0900
+
+    経路計画を考えるレポジトリを追加
+
+[33mcommit bd0a09aac582c74bd933dbf0ccae35cf9fb80220[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Mar 28 16:24:19 2024 +0900
+
+    アルゴリズムを考える前の状態
+
+[33mcommit e5c292304caabb6447dc227688bb173089289fc8[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Mar 28 16:12:07 2024 +0900
+
+    セッチングをした
+
+[33mcommit 68bab937c029079336eb81becfb98d6da7e55aee[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Mar 28 14:38:38 2024 +0900
+
+    typeAをランダムシート方式で作成する
+
+[33mcommit 660c85ac045e0f8282119d0b5a213689c41fc1d3[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Mar 28 14:35:54 2024 +0900
+
+    失敗時のシミュレーションデータを取得
+
+[33mcommit 8b0b17c8bd82f1a69edc4e9fb172b9f8775c4639[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Mar 28 14:33:15 2024 +0900
+
+    失敗時のシミュレーションデータを取得
+
+[33mcommit e0e0d22e8f88334cb75239ed3deebcf16f99eaa3[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Mar 28 11:13:13 2024 +0900
+
+    フォルダー名の変更
+
+[33mcommit 48cbe08a01f8ee594cee2760fb2c7b3902ec3616[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed Mar 27 18:00:16 2024 +0900
+
+    失敗の経路を作成
+
+[33mcommit 7496490a4677b248b53821b44b88cbb42acb45c3[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Mar 26 21:17:59 2024 +0900
+
+    経路をpythonで作成する手法を発見し, 作成した
+
+[33mcommit dfca2511839ddea81fe7eae989bebbe9a1b04a91[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Mar 26 17:00:37 2024 +0900
+
+    作成したシミュレーションを保存
+
+[33mcommit e5f1de84e36ba262484f85421078ce1635c65381[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Mar 26 16:47:32 2024 +0900
+
+    matlabで位置姿勢をプロット
+
+[33mcommit ce80fb8eeb0c480bf6a2279ab2f3434374f9a748[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Mar 26 16:33:47 2024 +0900
+
+    matlabで位置姿勢をプロット
+
+[33mcommit 7453d9be6eb4da6af05c907ff7f014e33585f8c1[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Mar 26 16:26:22 2024 +0900
+
+    matlabでプロットするプログラムを作成
+
+[33mcommit 164af8e2f1dda350daa15d7e8cbfd191daf9fe91[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Mar 26 16:01:33 2024 +0900
+
+    ファイル名をrename
+
+[33mcommit 81c3148e5637bc028f5f1988ca342f233fe492c5[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Mar 26 15:23:50 2024 +0900
+
+    typeBシミュレーションにおける成功時データを取得
+
+[33mcommit 4d53b4f562d10b983d5a7ba5ef230774f1e4236e[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Mar 26 14:49:06 2024 +0900
+
+    typeBシミュレーションを作成
+
+[33mcommit 9b885ec2d0502abc76079e8d986f90cdd286c38a[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Mar 26 13:56:55 2024 +0900
+
+    pythonで円軌道のための前処理用プログラムを作成
+
+[33mcommit d43b44ff645b29804e45b91442fa52d3fe691554[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Mar 26 11:57:46 2024 +0900
+
+    typeBを検証するために用意したシミュレーションを保存
+
+[33mcommit 5dded57d57097772ba252aab0c85ee6f56da8b57[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Mar 25 20:41:00 2024 +0900
+
+    部分拘束typeAのデータを蓄積
+
+[33mcommit 3511ecb54e7150c35802d7d674bfd9756ecefd40[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Mar 25 20:39:18 2024 +0900
+
+    部分拘束typeAのデータを蓄積
+
+[33mcommit 1caad85cbd72b7789214ba6d4c1b7007cb4dc13d[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Mar 25 20:08:53 2024 +0900
+
+    部分拘束typeAのデータを蓄積
+
+[33mcommit 48ead8889cb42b4f5b0df355e98bdaecf85cb091[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Mar 25 18:39:08 2024 +0900
+
+    部分拘束typeAにおける成功データを取得_5°の傾き
+
+[33mcommit b2c14f967dc3147f429f40fdd1680ce2dc64a959[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Mar 25 18:38:55 2024 +0900
+
+    部分拘束typeAにおける成功データを取得_5°の傾き
+
+[33mcommit efa07b421caa65ea8d3252413a7549fa99d3b6fe[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Mar 25 17:52:02 2024 +0900
+
+    部分拘束typeAにおける成功データを取得
+
+[33mcommit a08d280b0cf989168ad4da465de3b384c7ddf5be[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Mar 25 17:23:43 2024 +0900
+
+    pushシミュレーションに衝突判定機能を追加
+
+[33mcommit d023fae40af418dcfd6c277ce21c37a954f1cb73[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Mar 25 17:22:37 2024 +0900
+
+    pushシミュレーションに衝突判定機能を追加
+
+[33mcommit ee2c3052cc64626ece77a069e698902315f0fcf1[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Mar 25 16:30:46 2024 +0900
+
+    衝突関数の機能を確認
+
+[33mcommit 2c99de4572072bfc396a40400212b07776e57c1c[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Mar 25 16:30:30 2024 +0900
+
+    衝突関数の機能を確認
+
+[33mcommit e96fd8e6c7a7edc87c2948b30f2a39af7e249a13[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Mar 25 16:12:15 2024 +0900
+
+    テストプログラムを作成
+
+[33mcommit 91d6c2c757e584cfd34aa2f1ffa02ede3dd79e6a[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Mar 25 16:09:22 2024 +0900
+
+    テストプログラムを作成
+
+[33mcommit 62ccbc5146cd75d52746bdee6092bba499d5e242[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Mar 25 16:03:51 2024 +0900
+
+    テストプログラムを作成
+
+[33mcommit 955802ba8f9a87885d808febfaeabe9935c2e65c[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Mar 25 15:54:43 2024 +0900
+
+    一旦データを保存
+
+[33mcommit 4cc0faf37c20870cd94500dee7071c27f3dd5732[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat Mar 16 19:12:23 2024 +0900
+
+    動的モデルを同期
+
+[33mcommit 88f162bd97124db1b999d6c5df2544a0df97fed7[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Mar 12 21:16:23 2024 +0900
+
+    モデルを設計
+
+[33mcommit d563d755fde4582a5a7e8be4086c5fffd3957b40[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Mar 11 20:08:01 2024 +0900
+
+    csvファイルを生成
+
+[33mcommit f9ae4a91cf6b755f9c9f24e179ff4d0cefe63198[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Mar 11 16:48:23 2024 +0900
+
+    csvファイルのデータ数を統一した
+
+[33mcommit 3cb36aff9ff3ee92aadbaa61dbd0b1cd9272225e[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Mar 11 16:43:51 2024 +0900
+
+    部分拘束typeAにおいて0°～ 60°までデータを取得
+
+[33mcommit 33554b8bb563138a85cf2a6169778d41a18e8fad[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Mar 11 10:51:52 2024 +0900
+
+    部分拘束typeAのシミュレーションを作成
+
+[33mcommit 55d41e126ae6bbaafb8e3459e2f623c23e708504[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Mar 4 16:48:54 2024 +0900
+
+    物体の動作を変更した
+
+[33mcommit ed760b1fa2266a91a2f45e2dc5402b8ba069edc8[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Feb 29 23:41:23 2024 +0900
+
+    家との同期のために保存
+
+[33mcommit 2afc96a40202ed8fa22d115d0adbc1bdc48833a2[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Feb 29 16:15:30 2024 +0900
+
+    シミュレーションが完成したので保存
+
+[33mcommit 746d98a77b9b35ee2faa23428268f9359ea7941b[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Feb 29 14:58:10 2024 +0900
+
+    利用してないコメントアウトを削除
+
+[33mcommit a34757476809b4a581f0b657522c39f8c9a220b6[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Feb 29 14:54:32 2024 +0900
+
+    一応シミュレータが完成したので保存
+
+[33mcommit 44f988d588710950a1b0d067d58a5569439c26a2[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Feb 29 13:24:03 2024 +0900
+
+    パスの角度によって連動するプログラムを作成するために新たなファイルを作成する
+
+[33mcommit 2e97a0a414c386e6170f2dcfae56a019fd5795c9[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Feb 29 13:12:42 2024 +0900
+
+    coppeliasim内のパスに連動して動作可能なシミュレータを作成
+
+[33mcommit 3b65c548e20cd9b291009475e2f23a327b0a2751[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sun Feb 25 17:00:48 2024 +0900
+
+    パスでマニピュレータを動作するプログラムを作成
+
+[33mcommit def1df6cf33944498ba8e0cd0129bdd8110829ff[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sun Feb 25 16:22:55 2024 +0900
+
+    シミュレーション内でpathを作成
+
+[33mcommit 13bed1f17adffe80e27e59b6fe45e418ea13f187[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sun Feb 25 15:07:50 2024 +0900
+
+    2024/02/25までに実施したところを保存
+
+[33mcommit 7904828d8c2c346b264f7f803178b8a0e88b957f[m[33m ([m[1;31morigin/dev[m[33m, [m[1;32mdev[m[33m)[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed Jan 17 14:57:20 2024 +0900
+
+    円軌道の大きさを変化させ, シミュレータを実行した
+
+[33mcommit 14f6d7ee1ebb46e120b1878834f4b0ca29c5400d[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed Jan 17 14:48:21 2024 +0900
+
+    円軌道の大きさを変化させ, シミュレータを実行した
+
+[33mcommit a2b55a15dacba2ae7935383aa9d8d4971176a7a3[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Jan 15 14:57:04 2024 +0900
+
+    微細時間の値を半分にした
+
+[33mcommit 7b6c2a8f33ffdbd45262cfb756ab1098e9920aaf[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Jan 15 12:50:26 2024 +0900
+
+    coppeliasim内でマニピュレータを制御するための角度情報を取得
+
+[33mcommit b9073efa929d01346bd8479721dde86003d8a2c9[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Jan 15 12:35:01 2024 +0900
+
+    円軌道を台形制御で確認することができました
+
+[33mcommit 51b922787ec7cd4616a156ded9944753e1b31801[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Jan 15 11:59:19 2024 +0900
+
+    新たに角度にフォーカスした台形制御を実施した
+
+[33mcommit c898fdf905943b332d5c3b985da8bbf34cec4d85[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sun Jan 14 17:52:54 2024 +0900
+
+    3次元4自由度の順運動学を解いた
+
+[33mcommit ed17fe287b4c46e6b4505c7017e073c49ac430d1[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sun Jan 14 16:37:21 2024 +0900
+
+    ３次元でのマニピュレーションに成功
+
+[33mcommit 7983c73673948be43f53d633dfaee3a895811b26[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sun Jan 14 11:33:26 2024 +0900
+
+    取得したデータを保存
+
+[33mcommit e39c20cae5edcde6a67a695119eb726cc63d0105[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sun Jan 14 11:29:37 2024 +0900
+
+    台形制御プログラムに組み込むことに成功
+
+[33mcommit 298913e5d50561493b699903ef3bb2ef22f0acb6[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sun Jan 14 10:42:02 2024 +0900
+
+    台形制御のプログラムが完成, このあとに進行方向の要素を導入する
+
+[33mcommit e11d4c09587f856df9fd82b9a20f7cd58c5fac33[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sun Jan 14 10:39:41 2024 +0900
+
+    台形制御のプログラムが完成, このあとに進行方向の要素を導入する
+
+[33mcommit 4d9016b3bb34e90593ebe95af5b5bcb838fd5537[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sun Jan 14 10:30:52 2024 +0900
+
+    3軸用の台形制御用のプログラムのベースを作成
+
+[33mcommit bea5cd170fae7fa9179ed9adf30a860413c2e757[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sun Jan 14 00:07:32 2024 +0900
+
+    円軌道が上手くできない理由がわかり、一安心
+
+[33mcommit df63426132c29e28486ca9fd340459b8cb2fa490[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat Jan 13 23:45:42 2024 +0900
+
+    matlabにてDK法を実行することで順運動学の精度を確認（間違っていた）
+
+[33mcommit 7644e98e07f63feebf8869b4885602a7c9376205[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat Jan 13 18:54:47 2024 +0900
+
+    matlabでダイレクトキネマティクスを実行
+
+[33mcommit 72cd7eb0fa615fc7e578ae836a06489f97b6b701[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat Jan 13 18:54:16 2024 +0900
+
+    matlabでダイレクトキネマティクスを実行
+
+[33mcommit 812f4fde6dfb4f081f596242e800fc949f096444[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat Jan 13 11:01:10 2024 +0900
+
+    往復動作のデータno
+
+[33mcommit ff28da84f8803e0ad284bc0cd05f0821cbaf01d6[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Fri Jan 12 23:13:44 2024 +0900
+
+    そもそもの最初の角度の値が違った(ヤコビ行列を経由した最初の計算結果が違う)
+
+[33mcommit 52aad48829d2a796c062a4ef5a61355665ae77fa[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Fri Jan 12 18:39:22 2024 +0900
+
+    円軌道の実現叶わず, 新たに計算したヤコビ行列でもだめでした, 直線動作の繰り返し運動は実装することはできました.
+
+[33mcommit 687822cd30bc294c104440e9270c74a51d335a10[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Fri Jan 12 18:38:36 2024 +0900
+
+    円軌道の実現叶わず, 新たに計算したヤコビ行列でもだめでした, 直線動作の繰り返し運動は実装することはできました.
+
+[33mcommit 70a28b56558a427aabf87d231943e2549d2b0f5f[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Fri Jan 12 11:02:57 2024 +0900
+
+    取得したデータを元にマニピュレータを動作させる
+
+[33mcommit 90b0acd3fbe90593f8afa59919f21d83e8a430d3[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Jan 11 10:51:01 2024 +0900
+
+    円軌道をワールド座標系ベースで生成
+
+[33mcommit 583d3e69e59cf802e7b8a96104bac4b6d231c531[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed Jan 3 17:17:50 2024 +0900
+
+    円軌道を生成しようと試みようとしているが失敗している
+
+[33mcommit 07ce4f48787f698d4a82e8d329711ca1929274b3[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Jan 2 17:06:51 2024 +0900
+
+    シミュレーションファイルを保存
+
+[33mcommit 5f2bf93592174f5da10ebdc0ad8c016eb1b5d791[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Jan 2 14:42:05 2024 +0900
+
+    基準座標系をBaseRobotにした際の角度情報を取得
+
+[33mcommit bbac44df2f5224baaf578a3132138e9dc79b2d71[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Jan 2 14:16:29 2024 +0900
+
+    基準座標系をBaseRobotにする変更を試みる予定
+
+[33mcommit 5ddf813d31287a5a0306a7e1a164f88b4fcd66f1[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Jan 2 13:35:05 2024 +0900
+
+    正しい角度データをセット
+
+[33mcommit e56db0f2c5d8ad38e92d5957e99ccf22ec3f1d8b[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Jan 2 13:19:55 2024 +0900
+
+    円軌道を元に位置を計算
+
+[33mcommit aa603a6e29e8723af600a983a844c57861ed85bf[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Jan 1 03:23:33 2024 +0900
+
+    昨年までに実施したことをcommitした
+
+[33mcommit 9aaa8c13880424a02a52e1957f19ccd74f72dab3[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sun Dec 31 16:05:18 2023 +0900
+
+    角度に対しての台形制御
+
+[33mcommit 72d64b063e8042ac4bd938c229f17fd348a6aa88[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sun Dec 31 12:06:30 2023 +0900
+
+    直線運動は完了, 次は円弧の運動を生成する
+
+[33mcommit ceb35833579bf46259a486dceb5ff0c49ba291f8[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat Dec 30 14:47:31 2023 +0900
+
+    新たな速度データを作成
+
+[33mcommit b571c62a001e979171d210ca511547f209e628d4[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat Dec 30 14:22:19 2023 +0900
+
+    台形制御を用いたマニピュレータ制御ができることを確認
+
+[33mcommit b19a1ea1c66d006d117c783fb28db1a95909ea97[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat Dec 30 13:43:24 2023 +0900
+
+    台形制御用のデータを更新してシミュレーションの実施
+
+[33mcommit ea6ab66114cb039d336c4029b1e05d6278626675[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat Dec 30 13:26:49 2023 +0900
+
+    20231230のお昼ごろまでに実施したことを一旦保存
+
+[33mcommit 7e5dae14ea57d0ae3a251200d617a364f3bac0a0[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat Dec 30 12:13:16 2023 +0900
+
+    y方向のみに移動する際の台形制御のデータを取得
+
+[33mcommit 6ccf11bf1c5a5add5832fe7ef0dd248457db9f4b[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Fri Dec 29 18:33:49 2023 +0900
+
+    台形制御でヤコビ行列を用いた制御モドキの完成?
+
+[33mcommit 1825ecc80eb23092b83de0908bfec22c1f681a2f[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Fri Dec 29 17:02:36 2023 +0900
+
+    台形制御による位置をcsvファイルとして取得
+
+[33mcommit 14bffa54e07fc49ffcd0082bd61876aea54c0235[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Fri Dec 29 16:27:22 2023 +0900
+
+    台形制御による位置をcsvファイルとして取得
+
+[33mcommit 3f86a7772ff58dbf7b2146d01e985a58a10adf9f[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Fri Dec 29 11:02:38 2023 +0900
+
+    12/29までに実施したことをとりあえず保存
+
+[33mcommit 40db6ec7b8481e4171482474cfea151f02d2fd66[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Dec 28 16:51:26 2023 +0900
+
+    mycobot用のモデルを追加
+
+[33mcommit 160c67a01124b236441df73586e952f7c295805d[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat Dec 23 12:29:18 2023 +0900
+
+    12/23までにやったことをとりあえず保管
+
+[33mcommit 577f8247f7df121bfa8e9e1e787cd3bafd37ecce[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat Dec 16 17:04:11 2023 +0900
+
+    3次元次の内, xy平面の計算を実装
+
+[33mcommit 8a3c5114a51520892a32348c1713ceeeb4af4f1f[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat Dec 16 14:06:04 2023 +0900
+
+    xy平面の処理を着々と実施している
+
+[33mcommit 7690164b296a575700d3ccc05cab719daaa8c7bb[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat Dec 16 12:21:53 2023 +0900
+
+    プログラムを記述し始める準備ができた
+
+[33mcommit 66ae144b9f886ece400ffd015a3173e0f39cab35[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat Dec 16 11:44:46 2023 +0900
+
+    シミュレーションファイルを保存
+
+[33mcommit af32af52fe7d74b0147c816d22c297c604ec1d48[m[33m ([m[1;31morigin/desktop[m[33m)[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat Dec 16 11:08:36 2023 +0900
+
+    xz平面での逆運動学プログラムを作成した
+
+[33mcommit e1a040b875312afd3f71102af358f0ad9b5518d8[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat Dec 16 00:32:56 2023 +0900
+
+    12/15
+
+[33mcommit ac58e8c2f256ee791875a4d995ece90fbdc4f4ce[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Fri Dec 15 15:11:16 2023 +0900
+
+    連続で3リンクマニピュレータを動作させることに成功
+
+[33mcommit 43b304a3463d6f49a6e37d595e5a7807d80e3d31[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Fri Dec 15 14:08:47 2023 +0900
+
+    1度のみの速度制御を実施
+
+[33mcommit 59eef6ff8569d7ec94758deda7dcb2587b93d5e0[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Fri Dec 15 11:45:37 2023 +0900
+
+    位置・姿勢を格納する
+
+[33mcommit 9877e266c0f71554b63106dfce9e3642ee43337a[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Fri Dec 15 10:53:30 2023 +0900
+
+    2次元平面(XY)での3軸用のテスト:
+
+[33mcommit 797a4c808b97403b9df20000b6bf2897f573b5e7[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Dec 14 22:14:22 2023 +0900
+
+    1回の計算を行うための処理を実装
+
+[33mcommit 6bc59b9eba425a54636cd1107fe94de482cbb554[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Dec 14 22:03:34 2023 +0900
+
+    12/14までに実施したこと
+
+[33mcommit 69384b8981ca587e9de1dc33c01ee3e17eef22f8[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Dec 14 14:41:53 2023 +0900
+
+    間違いの確認というよりも、基準座標系を変更することにした. 一旦終了する
+
+[33mcommit 96d1d1b276f7738fc0862706713418c4b1cb5104[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Dec 14 13:57:21 2023 +0900
+
+    一旦完成形になったが, どこか間違えている様子
+
+[33mcommit 6cd27df08782ec07d4f0548e0161d0db104d638a[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Dec 14 13:43:25 2023 +0900
+
+    逆ヤコビ行列を計算した
+
+[33mcommit 9bf6b058cebff68c19cfb76a162d7e4c44b62f11[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Dec 14 12:46:16 2023 +0900
+
+    ヤコビ行列を計算できるものを作成
+
+[33mcommit ed8dd2f3f1e15ef4da068b6f4f041faef5b9317b[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed Dec 13 21:13:56 2023 +0900
+
+    2023/12/13までに実施したこと
+
+[33mcommit 1639d33ae052370d9f530dd32d7c228513278321[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed Dec 13 13:39:57 2023 +0900
+
+    偏差を計算する関数を実装
+
+[33mcommit 6193283af17d4f3f8bb81cb46bdf8543e5b83b7f[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed Dec 13 13:17:06 2023 +0900
+
+    次の位置を計算する方法を実装
+
+[33mcommit 713e20e870931391b69919bf0b0217fdff6c3cb1[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed Dec 13 13:14:44 2023 +0900
+
+    初期位置と進行方向を決定する関数を実装
+
+[33mcommit fb4b3002923b40d33b68be7dc58c9c9cec92aa99[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed Dec 13 12:46:05 2023 +0900
+
+    一旦開始する前に保存
+
+[33mcommit 81762239ca734bc1841178eb2c66eb1a2925c0b4[m[33m ([m[1;31morigin/note[m[33m)[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Dec 5 13:07:42 2023 +0900
+
+    進行方向の決定や次時間軸での手先の導出アルゴリズムを実装
+
+[33mcommit 593e408483cf69b7b7e75b309ed7f79329925880[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Dec 4 22:49:36 2023 +0900
+
+    電車内で開発したもの, 後で反映する
+
+[33mcommit 447bf7b814335ce5c6bd5305634eb379436b3b4e[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Dec 4 22:39:22 2023 +0900
+
+    ３リンク用のプログラムを作成し始めた
+
+[33mcommit 9d2b3ab84c8557528d01c3826c376b2e80e4194f[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Dec 4 21:45:39 2023 +0900
+
+    方向を決定する処理も変更した
+
+[33mcommit dc5d7cfe1f8089a7afb6cead7e004e828b69d900[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Dec 4 21:40:45 2023 +0900
+
+    方向を決定するもの以外は処理を変更
+
+[33mcommit c762e37db1bfeb54e67dee88ab228a71f0f973ba[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Dec 4 21:40:20 2023 +0900
+
+    方向を決定するもの以外は処理を変更
+
+[33mcommit 648869f78c1bb52b4e068f113e1ed9cb745301ef[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Dec 4 21:13:05 2023 +0900
+
+    2リンクの速度制御シミュレーションを作成, プログラムをより簡潔にするため, 一旦保存する
+
+[33mcommit 3bfb19de17469aeef817498f7aa541cea8c6e981[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Dec 4 20:56:02 2023 +0900
+
+    2リンクのアームの速度制御を実施したシミュレーションを作成した
+
+[33mcommit 69c6a8fd250d0ef7e2c1c7aee588cc5a6cfd7ae7[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Dec 4 20:35:07 2023 +0900
+
+    ヤコビ行列と逆ヤコビ行列を連続的に描画可能
+
+[33mcommit 2b74a196c7349351749a2dd0ff87ead88e90661f[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Dec 4 19:04:07 2023 +0900
+
+    dpを導出する機能を実装, 次はヤコビ行列を実装する
+
+[33mcommit 4cee0663c48a3527ab08000a9802a6cbd61032a5[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Dec 4 18:15:56 2023 +0900
+
+    連続的に目標値が変化する機能を追加
+
+[33mcommit 3036984188eae3c1494a136171a578895f4eff9e[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Dec 4 17:14:44 2023 +0900
+
+    追加の変更
+
+[33mcommit ee1f40f8aa6a222d1311ac6696973c4b3d781513[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Dec 4 15:48:42 2023 +0900
+
+    進行方向を判定するロジックを導入
+
+[33mcommit b4eaf451f91d0a1405bfa9add914df3d2754da5c[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Dec 4 15:34:17 2023 +0900
+
+    TAまでに作成したもの
+
+[33mcommit 6c5e5f4e378a718e4532ad20512443ecd7d6c339[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Dec 4 11:39:38 2023 +0900
+
+    TA前までに作成したもの
+
+[33mcommit 789a3d0172029ee0084fa5434638bf78385a670c[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Dec 4 10:29:44 2023 +0900
+
+    2リンクで連続的にする
+
+[33mcommit 9d929ad86c9c39df406c64f5a553b2f69c0b2444[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Dec 4 10:17:03 2023 +0900
+
+    ヤコビ行列が間違えている可能性がある
+
+[33mcommit 214bc37a52af8b76f907d85f808b4310672545d2[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Wed Nov 29 18:56:02 2023 +0900
+
+    ゼミした際のデータ
+
+[33mcommit 89c7f820468aa724ab3f50c9ed6c76ea63e16d64[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Nov 28 18:12:13 2023 +0900
+
+    逆ヤコビアンを利用した制御を試みたが失敗した
+
+[33mcommit 20696506b3f7eef4f4869dafca50257d0620cf23[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Nov 28 13:26:24 2023 +0900
+
+    一旦2023/11/29に行うデモは完成
+
+[33mcommit 1fe8fd3c810b686b13635b68a09893554de2e4ae[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Nov 28 12:14:12 2023 +0900
+
+    J1の角度のみ表示した
+
+[33mcommit 84907ef7123e2492114d983eaae2955b91661d94[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Nov 28 08:35:48 2023 +0900
+
+    3リンクの逆運動学に関するプログラムを書き始めた
+
+[33mcommit c9879902a88c1a05898739cb2280b73463e5c88c[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Tue Nov 28 05:02:14 2023 +0900
+
+    3リンク用のシミュレーションの用意
+
+[33mcommit b5f2e3a464d04c55af4587168e2f282f88bcbd66[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Nov 27 21:39:46 2023 +0900
+
+    とりあえず一旦2リンクでの逆ヤコビを用いたマニピュレーションは完成
+
+[33mcommit 1c273c47f77de18913897fc452e26aedfe13ac74[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Nov 27 21:02:28 2023 +0900
+
+    2次元でのヤコビ行列を用いたマニピュレーションの作成
+
+[33mcommit 339bcaff7aab1d972d9eb54230bf737a6b15e2dc[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Nov 27 20:34:41 2023 +0900
+
+    偏差を導出するまで実装
+
+[33mcommit 78f3435cf8cc3d68212495408d80bb144c097934[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Nov 27 17:26:22 2023 +0900
+
+    シミュレーションファイルが2つ存在したため削除した
+
+[33mcommit 472318ca1e32e24f6abbd367d0b74cd375e4473e[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Nov 27 11:40:17 2023 +0900
+
+    シミュレーションファイルを保存
+
+[33mcommit da9d701efd4ae8364ab08c4b62d167af58fccd1f[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Nov 27 11:36:25 2023 +0900
+
+    シミュレーション用のpythonファイルを作成
+
+[33mcommit b2857c02b28cbf46b08f748ecfc9a1801359be70[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Nov 27 11:25:16 2023 +0900
+
+    平面での2リンクマニピュレーション用のシミュレーションを作成
+
+[33mcommit 241151da1dc46e845013e28fe73b948d3d29cc1e[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Nov 27 11:06:47 2023 +0900
+
+    IKに関するファイルを作成
+
+[33mcommit 037d04817f29e1f34f8187f3e5e8df439758a2e0[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Mon Nov 27 10:26:43 2023 +0900
+
+    ゲイン調整の実施
+
+[33mcommit 6f23ffcf5e8837d5e0236ee68cfc4e495970b838[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Fri Nov 24 19:10:43 2023 +0900
+
+    windowsでのinstall方法を示した
+
+[33mcommit d0c733e40e81f62b46668967b13d012b36d43a51[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Fri Nov 24 19:08:46 2023 +0900
+
+    windowsでのinstall方法を示した
+
+[33mcommit f1d3e93c4ad2847fa6c146dcdcbad9fe1dd0b290[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Fri Nov 24 19:06:17 2023 +0900
+
+    windowsでのinstall方法を示した
+
+[33mcommit 58ba4951f10582c97c305c423aead34724de0f02[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Fri Nov 24 19:05:34 2023 +0900
+
+    windowsでのinstall方法を示した
+
+[33mcommit c1e5775771121565dd09664c65f6ed6276fff443[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Fri Nov 24 19:02:32 2023 +0900
+
+    windowsでのinstall方法を示した
+
+[33mcommit df56ea177925d4e59087e884f9aa336d7c6c5fe5[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Fri Nov 24 18:42:35 2023 +0900
+
+    READMEの作成を開始
+
+[33mcommit d83f9f67a8d3d13d50972c3f53c40581d896ffdd[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Nov 23 21:54:32 2023 +0900
+
+    トレースシミュレーションを作成
+
+[33mcommit 461f022307330b583df0238c062f12e840873fc6[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Nov 23 20:43:55 2023 +0900
+
+    センサデータの取得に関して整備
+
+[33mcommit 75aaa73465ac5df7d1dd6c9b95b5206e07f28732[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Nov 23 19:56:23 2023 +0900
+
+    ライントレース用のテストプログラムを作成中
+
+[33mcommit e009302a79380ea39a15001a693a704b4267e273[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Thu Nov 23 19:55:02 2023 +0900
+
+    ライントレース用のテストプログラムを作成中
+
+[33mcommit 7509b1660625727607e03dd1616ebff582d55eea[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sun Nov 19 17:26:33 2023 +0900
+
+    sim.setJointTargetPosition()に関する調査を実行, 弧度法で角度を指定することがわかった
+
+[33mcommit bb2345017908309656389a4ab64ca1ed631eab0a[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat Nov 18 14:40:59 2023 +0900
+
+    実際のプログラムを作成してみた
+
+[33mcommit b2878d09e7cbf6c75074f62f39fc6898a5a0c37a[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat Nov 18 14:40:13 2023 +0900
+
+    実際のプログラムを作成してみた
+
+[33mcommit f28f2538282385aa199f036a1a89b7435ea9bd9c[m
+Author: kaitoyamazaki <reflect018@yahoo.co.jp>
+Date:   Sat Nov 18 13:14:56 2023 +0900
+
+    make dev branch
+
+[33mcommit 3de8a96cbd1cba9e36c6d34885ef82f4c9b3bc61[m
+Author: kaitoyamazaki <54259033+kaitoyamazaki@users.noreply.github.com>
+Date:   Sat Nov 18 13:11:23 2023 +0900
+
+    Initial commit
