@@ -5,7 +5,7 @@ clear;
 addpath('.', '-end');
 addpath('use_data', '-end');
 
-filepath = 'use_data/object_moment_ハンド中心.mat';
+filepath = 'use_data/object_moment_理想値.mat';
 
 data = load(filepath);
 data = data.object_moment;
