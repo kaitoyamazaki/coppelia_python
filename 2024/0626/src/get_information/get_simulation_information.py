@@ -110,7 +110,7 @@ class Simulation:
 
         print(f'{reshape_information_moment}')
         #np.savetxt('moment_data/まっすぐ並進運動時のデータ_位置ベクトルと位置偏差_ハンド中心.csv', reshape_information_moment, delimiter=',', fmt='%f')
-        np.savetxt('moment_data/まっすぐ並進運動時のデータ_位置ベクトルと位置偏差_理想値.csv', reshape_information_moment, delimiter=',', fmt='%f')
+        #np.savetxt('moment_data/まっすぐ並進運動時のデータ_位置ベクトルと位置偏差_理想値.csv', reshape_information_moment, delimiter=',', fmt='%f')
 
     # ヤコビ行列を計算する関数
     def calc_yakobi_row(self, j1, j2, j3, j4):
