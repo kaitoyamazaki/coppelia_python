@@ -5,7 +5,7 @@ clear;
 addpath('.', '-end');
 addpath('use_data', '-end');
 
-filepath = 'use_data/velocity_data_並進運動時_283.mat';
+filepath = 'use_data/velocity_data_target_並進運動時_283.mat';
 
 data = load(filepath);
 data = data.velocity_row;
@@ -13,7 +13,7 @@ data = data.velocity_row;
 figure;
 hold on;
 grid on;
-title('ハンド中心の時間当たりの速度')
+title('追従のベースと成る点の時間当たりの速度')
 
 xlim([-0.005, 0.005]);
 ylim([-0.005, 0.005]);

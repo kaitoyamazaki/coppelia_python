@@ -13,7 +13,7 @@ data = data.velocity_row;
 figure;
 hold on;
 grid on;
-title('ハンド中心の時間当たりの速度')
+title('物体重心の時間当たりの速度')
 
 xlim([-0.005, 0.005]);
 ylim([-0.005, 0.005]);
@@ -23,7 +23,7 @@ ylabel('y [m / s]');
 pause(5);
 
 for i = 1:size(data, 1)
-    h1 = quiver(0.0, 0.0, data(i, 1), data(i, 2), 'Color', 'k', 'LineWidth', 2.0, 'AutoScale', 'off');
+    h1 = quiver(0.0, 0.0, data(i, 3), data(i, 4), 'Color', 'k', 'LineWidth', 2.0, 'AutoScale', 'off');
     pause(0.05);
     delete(h1);
 end
