@@ -99,7 +99,8 @@ class Simulation:
         #np.savetxt('data/斜めに並進運動時のデータ.csv', reshape_information, delimiter=',', fmt='%f')
         #np.savetxt('data/斜めに並進運動時のデータ_反対方向.csv', reshape_information, delimiter=',', fmt='%f')
         #np.savetxt('data/斜めに並進運動_回転運動時のデータ.csv', reshape_information, delimiter=',', fmt='%f')
-        np.savetxt('data/斜めに並進運動時のデータ2.csv', reshape_information, delimiter=',', fmt='%f')
+        #np.savetxt('data/斜めに並進運動時のデータ2.csv', reshape_information, delimiter=',', fmt='%f')
+        np.savetxt('data/斜めに並進運動時のデータ_target追加.csv', reshape_information, delimiter=',', fmt='%f')
 
     # ヤコビ行列を計算する関数
     def calc_yakobi_row(self, j1, j2, j3, j4):
@@ -193,7 +194,7 @@ class Simulation:
         time = sim.getSimulationTime()
 
         #if(time - self.last_time >= self.interval):
-        cop_pos = sim.getObjectPosition(self.coe, sim.handle_world)
+        cop_pos = sim.getObjectPosition(self.tip, sim.handle_world)
         cog_pos = sim.getObjectPosition(self.object_cog, sim.handle_world)
 
         want_information = [time, cop_pos[0], cop_pos[1], cog_pos[0], cog_pos[1]]
