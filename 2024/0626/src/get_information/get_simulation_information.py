@@ -30,6 +30,7 @@ class Simulation:
         self.left_hand = sim.getObject("/BaseRobot/left_hand")
 
         self.information = np.empty(0)
+        self.information_moment = np.empty(0)
         self.last_time = 0
         self.interval = 0.05
 
@@ -85,11 +86,16 @@ class Simulation:
             sim.setJointPosition(self.j4, new_theta[3][0])
             sim.setJointPosition(self.j6, z_new_theta)
 
-            self.get_information(sim)
+            # ハンドの中心点(またはベース点)と物体重心の偏差を取得する関数
+            #self.get_information(sim)
+
+            # ハンドの中心点の偏差とモーメントを計算するための位置ベクトルを取得する関数
+            self.get_information_moment(sim)
         
         sim.stopSimulation()
 
-        reshape_information = self.information.reshape(-1, 5)
+        #reshape_information = self.information.reshape(-1, 5)
+        reshape_information_moment = self.information_moment.reshape(-1, 5)
 
         #print(f'{reshape_information}')
         #np.savetxt('data/まっすぐ並進運動時のデータ.csv', reshape_information, delimiter=',', fmt='%f')
@@ -100,7 +106,11 @@ class Simulation:
         #np.savetxt('data/斜めに並進運動時のデータ_反対方向.csv', reshape_information, delimiter=',', fmt='%f')
         #np.savetxt('data/斜めに並進運動_回転運動時のデータ.csv', reshape_information, delimiter=',', fmt='%f')
         #np.savetxt('data/斜めに並進運動時のデータ2.csv', reshape_information, delimiter=',', fmt='%f')
-        np.savetxt('data/斜めに並進運動時のデータ_target追加.csv', reshape_information, delimiter=',', fmt='%f')
+        #np.savetxt('data/斜めに並進運動時のデータ_target追加.csv', reshape_information, delimiter=',', fmt='%f')
+
+        print(f'{reshape_information_moment}')
+        #np.savetxt('moment_data/まっすぐ並進運動時のデータ_位置ベクトルと位置偏差_ハンド中心.csv', reshape_information_moment, delimiter=',', fmt='%f')
+        np.savetxt('moment_data/まっすぐ並進運動時のデータ_位置ベクトルと位置偏差_理想値.csv', reshape_information_moment, delimiter=',', fmt='%f')
 
     # ヤコビ行列を計算する関数
     def calc_yakobi_row(self, j1, j2, j3, j4):
@@ -203,6 +213,19 @@ class Simulation:
         self.information = np.append(self.information, want_information)
 
         #self.last_time = time
+
+    
+    def get_information_moment(self, sim):
+
+        time = sim.getSimulationTime()
+
+        cop_dpos = sim.getObjectPosition(self.tip, sim.handle_world)
+        cop_pos_base_object = sim.getObjectPosition(self.tip, self.object_cog)
+
+        want_information = [time, cop_dpos[0], cop_dpos[1], cop_pos_base_object[0], cop_pos_base_object[1]]
+        want_information = np.array(want_information)
+
+        self.information_moment = np.append(self.information_moment, want_information)
 
     
 
