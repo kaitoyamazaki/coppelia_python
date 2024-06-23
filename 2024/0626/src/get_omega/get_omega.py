@@ -98,7 +98,7 @@ class Simulation:
         #np.savetxt('data/まっすぐ並進運動時のデータ_土台を変更後.csv', reshape_information, delimiter=',', fmt='%f')
         #np.savetxt('data/30度方向に並進運動時のデータ.csv', reshape_information, delimiter=',', fmt='%f')
         #np.savetxt('data/30度方向に並進運動時のデータ_反対方向.csv', reshape_information, delimiter=',', fmt='%f')
-        np.savetxt('data/斜めに並進運動時のデータ.csv', reshape_information, delimiter=',', fmt='%f')
+        #np.savetxt('data/斜めに並進運動時のデータ.csv', reshape_information, delimiter=',', fmt='%f')
         #np.savetxt('data/斜めに並進運動時のデータ_反対方向.csv', reshape_information, delimiter=',', fmt='%f')
         #np.savetxt('data/斜めに並進運動_回転運動時のデータ.csv', reshape_information, delimiter=',', fmt='%f')
         #np.savetxt('data/斜めに並進運動時のデータ2.csv', reshape_information, delimiter=',', fmt='%f')
