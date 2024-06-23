@@ -87,28 +87,28 @@ class Simulation:
             sim.setJointPosition(self.j6, z_new_theta)
 
             # ハンドの中心点(またはベース点)と物体重心の偏差を取得する関数
-            #self.get_information(sim)
+            self.get_information(sim)
 
             # ハンドの中心点の偏差とモーメントを計算するための位置ベクトルを取得する関数
-            self.get_information_moment(sim)
+            #self.get_information_moment(sim)
         
         sim.stopSimulation()
 
-        #reshape_information = self.information.reshape(-1, 5)
-        reshape_information_moment = self.information_moment.reshape(-1, 5)
+        reshape_information = self.information.reshape(-1, 5)
+        #reshape_information_moment = self.information_moment.reshape(-1, 5)
 
-        #print(f'{reshape_information}')
+        print(f'{reshape_information}')
         #np.savetxt('data/まっすぐ並進運動時のデータ.csv', reshape_information, delimiter=',', fmt='%f')
         #np.savetxt('data/まっすぐ並進運動時のデータ_土台を変更後.csv', reshape_information, delimiter=',', fmt='%f')
         #np.savetxt('data/30度方向に並進運動時のデータ.csv', reshape_information, delimiter=',', fmt='%f')
         #np.savetxt('data/30度方向に並進運動時のデータ_反対方向.csv', reshape_information, delimiter=',', fmt='%f')
-        #np.savetxt('data/斜めに並進運動時のデータ.csv', reshape_information, delimiter=',', fmt='%f')
+        np.savetxt('data/斜めに並進運動時のデータ.csv', reshape_information, delimiter=',', fmt='%f')
         #np.savetxt('data/斜めに並進運動時のデータ_反対方向.csv', reshape_information, delimiter=',', fmt='%f')
         #np.savetxt('data/斜めに並進運動_回転運動時のデータ.csv', reshape_information, delimiter=',', fmt='%f')
         #np.savetxt('data/斜めに並進運動時のデータ2.csv', reshape_information, delimiter=',', fmt='%f')
         #np.savetxt('data/斜めに並進運動時のデータ_target追加.csv', reshape_information, delimiter=',', fmt='%f')
 
-        print(f'{reshape_information_moment}')
+        #print(f'{reshape_information_moment}')
         #np.savetxt('moment_data/まっすぐ並進運動時のデータ_位置ベクトルと位置偏差_ハンド中心.csv', reshape_information_moment, delimiter=',', fmt='%f')
         #np.savetxt('moment_data/まっすぐ並進運動時のデータ_位置ベクトルと位置偏差_理想値.csv', reshape_information_moment, delimiter=',', fmt='%f')
 
@@ -205,6 +205,7 @@ class Simulation:
 
         #if(time - self.last_time >= self.interval):
         cop_pos = sim.getObjectPosition(self.tip, sim.handle_world)
+        #cop_pos = sim.getObjectPosition(self.tip, self.object_cog)
         cog_pos = sim.getObjectPosition(self.object_cog, sim.handle_world)
 
         want_information = [time, cop_pos[0], cop_pos[1], cog_pos[0], cog_pos[1]]

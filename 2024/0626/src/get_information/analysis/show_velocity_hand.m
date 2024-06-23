@@ -6,6 +6,7 @@ addpath('.', '-end');
 addpath('use_data', '-end');
 
 filepath = 'use_data/velocity_data_並進運動時_283.mat';
+%filepath = 'use_data/velocity_data_並進運動時_ハンド中心_ベース_重心_283.mat';
 
 data = load(filepath);
 data = data.velocity_row;

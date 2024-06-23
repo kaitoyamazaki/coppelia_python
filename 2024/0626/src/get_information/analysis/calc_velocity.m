@@ -9,6 +9,7 @@ addpath('../data', '-end');
 
 %filepath = '../data/斜めに並進運動時のデータ2_283.csv';
 filepath = '../data/斜めに並進運動時のデータ_target追加_283.csv';
+filepath = '../data/斜めに並%進運動時のデータ_ハンド中心_ベース_重心_283.csv';
 
 data = readmatrix(filepath);
 
