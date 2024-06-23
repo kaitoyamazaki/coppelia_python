@@ -56,3 +56,6 @@ for i = 1:size(direction_row,1)
     object_wrench = [object_wrench; want_data];
     %object_moment = [object_moment; want_data];
 end
+
+save_filepath = 'use_data/object_wrench.mat';
+save(save_filepath, 'object_wrench');
