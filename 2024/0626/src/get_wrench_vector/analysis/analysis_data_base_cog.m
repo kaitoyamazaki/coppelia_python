@@ -6,7 +6,8 @@ clear;
 addpath('.', '-end');
 addpath('../data', '-end');
 
-filepath = '../data/斜めに並進運動時のデータ_0_物体座標系_283.csv';
+%filepath = '../data/斜めに並進運動時のデータ_0_物体座標系_283.csv';
+filepath = '../data/斜めに並進運動時のデータ_1680_物体座標系_283.csv';
 data = readmatrix(filepath);
 
 old_data = data(1, :);
@@ -44,7 +45,8 @@ m = 0.01484;
 g = 9.81;
 
 friction = mu * m * g;
-object_moment = [];
+%object_moment = [];
+object_wrench = [];
 
 for i = 1:size(direction_row,1)
     friction_x = friction * cos(direction_row(i, 2));
@@ -52,6 +54,13 @@ for i = 1:size(direction_row,1)
     friction_vector = [friction_x friction_y 0];
     pos_vector = [data(i,4) data(i,5) 0];
     moment = cross(pos_vector, friction_vector);
-    want_data = [direction_row(i,1) moment(3)];
-    object_moment = [object_moment; want_data];
+    %want_data = [direction_row(i,1) moment(3)];
+    want_data = [direction_row(i,1) friction_vector(1) friction_vector(2) moment(3)];
+    object_wrench = [object_wrench; want_data];
+    %object_moment = [object_moment; want_data];
 end
+
+%save_filepath = 'use_data/object_wrench_base_cog.mat';
+%save_filepath = 'use_data/object_wrench_base_cog_1680.mat';
+save_filepath = 'use_data/object_wrench_base_cog_2680.mat';
+save(save_filepath, 'object_wrench');
