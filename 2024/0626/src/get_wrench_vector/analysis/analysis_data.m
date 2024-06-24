@@ -8,7 +8,9 @@ addpath('../data', '-end');
 
 %filepath = '../data/斜めに並進運動時のデータ_0_283.csv';
 %filepath = '../data/斜めに並進運動時のデータ_1680_283.csv';
-filepath = '../data/斜めに並進運動時のデータ_2680_283.csv';
+%filepath = '../data/斜めに並進運動時のデータ_2680_283.csv';
+%filepath = '../data/斜めに並進運動時のデータ_3080_283.csv';
+%filepath = '../data/斜めに並進運動時のデータ_5080_283.csv';
 data = readmatrix(filepath);
 
 old_data = data(1, :);
@@ -63,5 +65,5 @@ end
 %save_filepath = 'use_data/object_wrench_1680.mat';
 %save_filepath = 'use_data/object_wrench_2680.mat';
 %save_filepath = 'use_data/object_wrench_3080.mat';
-%save_filepath = 'use_data/object_wrench_5080.mat';
+save_filepath = 'use_data/object_wrench_5080.mat';
 save(save_filepath, 'object_wrench');
