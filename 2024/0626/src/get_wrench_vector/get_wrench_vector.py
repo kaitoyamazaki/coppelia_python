@@ -44,7 +44,7 @@ class Simulation:
         sim = self.sim
         sim.startSimulation()
 
-        while sim.getSimulationTime() < 70:
+        while sim.getSimulationTime() < 100000:
 
             theta1 = sim.getJointPosition(self.j1)
             theta2 = sim.getJointPosition(self.j2)

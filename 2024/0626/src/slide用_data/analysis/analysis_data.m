@@ -12,10 +12,10 @@ addpath('../data', '-end');
 %filepath = '../data/120度方向_並進.csv';
 %filepath = '../data/130度方向_並進.csv';
 %filepath = '../data/140度方向_並進.csv';
-%filepath = '../data/150度方向_並進.csv';
+filepath = '../data/150度方向_並進.csv';
 %filepath = '../data/160度方向_並進.csv';
 %filepath = '../data/170度方向_並進.csv';
-filepath = '../data/180度方向_並進.csv';
+%filepath = '../data/180度方向_並進.csv';
 data = readmatrix(filepath);
 
 old_data = data(1, :);
@@ -75,5 +75,5 @@ end
 %save_filepath = 'use_data/object_wrench_150.mat';
 %save_filepath = 'use_data/object_wrench_160.mat';
 %save_filepath = 'use_data/object_wrench_170.mat';
-save_filepath = 'use_data/object_wrench_180.mat';
-save(save_filepath, 'object_wrench');
+%save_filepath = 'use_data/object_wrench_180.mat';
+%save(save_filepath, 'object_wrench');
