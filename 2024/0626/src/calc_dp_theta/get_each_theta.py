@@ -90,7 +90,7 @@ class Simulation:
         
         sim.stopSimulation()
 
-        reshape_information = self.information.reshape(-1, 3)
+        reshape_information = self.information.reshape(-1, 2)
         #reshape_information_moment = self.information_moment.reshape(-1, 5)
 
         #print(f'{reshape_information}')
@@ -98,7 +98,7 @@ class Simulation:
         #np.savetxt('data/まっすぐ並進運動時のデータ_土台を変更後.csv', reshape_information, delimiter=',', fmt='%f')
         #np.savetxt('data/30度方向に並進運動時のデータ.csv', reshape_information, delimiter=',', fmt='%f')
         #np.savetxt('data/30度方向に並進運動時のデータ_反対方向.csv', reshape_information, delimiter=',', fmt='%f')
-        #np.savetxt('data/斜めに並進運動時のデータ.csv', reshape_information, delimiter=',', fmt='%f')
+        np.savetxt('data/斜めに並進運動時のデータ.csv', reshape_information, delimiter=',', fmt='%f')
         #np.savetxt('data/斜めに並進運動時のデータ_反対方向.csv', reshape_information, delimiter=',', fmt='%f')
         #np.savetxt('data/斜めに並進運動_回転運動時のデータ.csv', reshape_information, delimiter=',', fmt='%f')
         #np.savetxt('data/斜めに並進運動時のデータ2.csv', reshape_information, delimiter=',', fmt='%f')
@@ -201,7 +201,7 @@ class Simulation:
         tip_ori = sim.getObjectOrientation(self.tip, sim.handle_world)
         cog_ori = sim.getObjectOrientation(self.object_cog, sim.handle_world) 
 
-        want_time =[time, tip_ori[2], cog_ori[2]]
+        want_time =[time, cog_ori[2]-tip_ori[2]]
 
         self.information = np.append(self.information, want_time)
 
