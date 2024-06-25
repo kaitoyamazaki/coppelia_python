@@ -65,5 +65,5 @@ end
 %save_filepath = 'use_data/object_wrench_1680.mat';
 %save_filepath = 'use_data/object_wrench_2680.mat';
 %save_filepath = 'use_data/object_wrench_3080.mat';
-save_filepath = 'use_data/object_wrench_5080.mat';
-save(save_filepath, 'object_wrench');
+%save_filepath = 'use_data/object_wrench_5080.mat';
+%save(save_filepath, 'object_wrench');

@@ -11,11 +11,11 @@ addpath('figure', '-end');
 
 % グラフデータの取得と出力
 openfig('figure/wrench_typeA3.fig');
-data = load('use_data/object_wrench.mat');
+%data = load('use_data/object_wrench.mat');
 %data = load('use_data/object_wrench_1680.mat');
 %data = load('use_data/object_wrench_2680.mat');
 %data = load('use_data/object_wrench_3080.mat');
-%data = load('use_data/object_wrench_5080.mat');
+data = load('use_data/object_wrench_5080.mat');
 
 %data = load('use_data/object_wrench_base_cog.mat');
 %data = load('use_data/object_wrench_base_cog_1680.mat');
@@ -24,24 +24,24 @@ data = data.object_wrench;
 
 
 % 移動平均フィルタの実装
-size  = 5;
-fx = movmean(data(:,2), size);
-fy = movmean(data(:,3), size);
-m = movmean(data(:,4), size);
+%size  = 5;
+%fx = movmean(data(:,2), size);
+%fy = movmean(data(:,3), size);
+%m = movmean(data(:,4), size);
 
-after_data = [data(:,1) fx fy m];
+%data = [data(:,1) fx fy m];
 
-after_data(isnan(after_data)) = 0;
+%data(isnan(data)) = 0;
 
 % 行列の行数を取得
 numRows = 1000;
 
 hold on;
 
-%pause(5);
+pause(5);
 
 for i = 1:numRows
-    p = plot3([0, after_data(i,2)*10], [0, after_data(i,3)*10], [0,after_data(i,4)*10], 'Color', [1.0, 0.33, 0.65], 'LineWidth', 4.0);
+    p = plot3([0, data(i,2)*10], [0, data(i,3)*10], [0,data(i,4)*10], 'Color', [1.0, 0.33, 0.65], 'LineWidth', 4.0);
 
     pause(0.05);
     delete(p);

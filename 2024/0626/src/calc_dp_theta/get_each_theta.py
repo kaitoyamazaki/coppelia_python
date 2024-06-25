@@ -90,7 +90,7 @@ class Simulation:
         
         sim.stopSimulation()
 
-        reshape_information = self.information.reshape(-1, 5)
+        reshape_information = self.information.reshape(-1, 3)
         #reshape_information_moment = self.information_moment.reshape(-1, 5)
 
         #print(f'{reshape_information}')
@@ -198,18 +198,12 @@ class Simulation:
     def get_information(self, sim):
 
         time = sim.getSimulationTime()
-        # 全てワールド座標系であるとき
-        hand_pos = sim.getObjectPosition(self.coe, sim.handle_world)
-        cog_pos = sim.getObjectPosition(self.object_cog, sim.handle_world)
-        hand_pos = np.array(hand_pos)
-        cog_pos = np.array(cog_pos)
-        pos_vector = hand_pos - cog_pos
+        tip_ori = sim.getObjectOrientation(self.tip, sim.handle_world)
+        cog_ori = sim.getObjectOrientation(self.object_cog, sim.handle_world) 
 
-        # 物体座標系でやるとき
-        #hand_pos = sim.getObjectPosition(self.coe, self.object_cog)
-        #pos_vector = [hand_pos[0], hand_pos[1]]
-        want_data = [time, hand_pos[0], hand_pos[1], pos_vector[0], pos_vector[1]]
-        self.information = np.append(self.information, want_data)
+        want_time =[time, tip_ori[2], cog_ori[2]]
+
+        self.information = np.append(self.information, want_time)
 
 
 def main():

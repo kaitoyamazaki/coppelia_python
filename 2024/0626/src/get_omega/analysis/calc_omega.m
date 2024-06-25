@@ -5,10 +5,10 @@ clear;
 addpath('.', '-end');
 addpath('../data');
 
-%filepath = '../data/斜めに並進運動時のデータ_0_283.csv';
+filepath = '../data/斜めに並進運動時のデータ_0_283.csv';
 %filepath = '../data/斜めに並進運動時のデータ_1680_283.csv';
 %filepath = '../data/斜めに並進運動時のデータ_2680_283.csv';
-filepath = '../data/斜めに並進運動時のデータ_3000_283.csv';
+%filepath = '../data/斜めに並進運動時のデータ_3000_283.csv';
 %filepath = '../data/斜めに並進運動時のデータ_5080_283.csv';
 
 data = readmatrix(filepath);
@@ -49,14 +49,14 @@ end
 %filepath_omega = 'use_data/omega_0_283.mat';
 %filepath_omega = 'use_data/omega_1680_283.mat';
 %filepath_omega = 'use_data/omega_2680_283.mat';
-filepath_omega = 'use_data/omega_3000_283.mat';
+%filepath_omega = 'use_data/omega_3000_283.mat';
 %filepath_omega = 'use_data/omega_5080_283.mat';
 
 %filepath_moment = 'use_data/object_moment_0_283.mat';
 %filepath_moment = 'use_data/object_moment_1680_283.mat';
 %filepath_moment = 'use_data/object_moment_2680_283.mat';
-filepath_moment = 'use_data/object_moment_3000_283.mat';
+%filepath_moment = 'use_data/object_moment_3000_283.mat';
 %filepath_moment = 'use_data/object_moment_5080_283.mat';
 
-save(filepath_omega, 'omega_row');
-save(filepath_moment, 'object_moment');
+%save(filepath_omega, 'omega_row');
+%save(filepath_moment, 'object_moment');
