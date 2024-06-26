@@ -12,7 +12,7 @@ addpath('figure', '-end');
 % グラフデータの取得と出力
 openfig('figure/wrench_typeA3.fig');
 
-data = load('use_data/object_wrench_150.mat');
+data = load('use_data/object_wrench_110.mat');
 data = data.object_wrench;
 
 
@@ -29,7 +29,7 @@ data(isnan(data)) = 0;
 % 行列の行数を取得
 numRows = 1000;
 %view(210, 20);
-view(325, 40);
+view(310, 44);
 
 hold on;
 
