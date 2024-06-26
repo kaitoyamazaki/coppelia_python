@@ -12,7 +12,11 @@ addpath('figure', '-end');
 % グラフデータの取得と出力
 openfig('figure/wrench_typeA3.fig');
 
+<<<<<<< HEAD
 data = load('use_data/object_wrench_110.mat');
+=======
+data = load('use_data/object_wrench_160.mat');
+>>>>>>> 63511d8622d4d4edcbfcdc59cc936c9629402165
 data = data.object_wrench;
 
 
