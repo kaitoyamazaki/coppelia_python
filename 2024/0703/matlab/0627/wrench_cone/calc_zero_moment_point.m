@@ -22,25 +22,25 @@ data3_zero = [];
 data4_zero = [];
 
 for i = 1:size(data, 1)
-    if(data(i, 3) == 0)
+    if(data(i, 3) <  1e-5 && data(i, 3) >  -1e-5)
         data_zero = [data_zero; data(i, :)];
     end
 end
 
 for i = 1:size(data2, 1)
-    if(data2(i, 3) == 0)
+    if(data2(i, 3) <  1e-5 && data2(i, 3) >  -1e-5)
         data2_zero = [data2_zero; data2(i, :)];
     end
 end
 
 for i = 1:size(data3, 1)
-    if(data3(i, 3) == 0)
+    if(data3(i, 3) <  1e-5 && data3(i, 3) >  -1e-5)
         data3_zero = [data3_zero; data3(i, :)];
     end
 end
 
 for i = 1:size(data4, 1)
-    if(data4(i, 3) == 0)
+    if(data4(i, 3) <  1e-5 && data4(i, 3) >  -1e-5)
         data4_zero = [data4_zero; data4(i, :)];
     end
 end

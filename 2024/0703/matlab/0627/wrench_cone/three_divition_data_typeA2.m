@@ -18,12 +18,12 @@ A = [0 1 0;
      1 0 1;
      l1(1) -l2(2) l3(1)];
 
-wrench_point = zeros(1030301,3);
+wrench_point = zeros(8120601, 3);
 count = 1;
 
-for i = 0:0.01:1.0
-    for j = 0:0.01:1.0
-        for k = 0:0.01:1.0
+for i = 0:0.005:1.0
+    for j = 0:0.005:1.0
+        for k = 0:0.005:1.0
             edit_f1 = i*f1;
             edit_f2 = j*f2;
             edit_f3 = k*f3;
