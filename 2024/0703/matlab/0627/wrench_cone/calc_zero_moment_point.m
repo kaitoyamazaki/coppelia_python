@@ -34,13 +34,13 @@ for i = 1:size(data2, 1)
 end
 
 for i = 1:size(data3, 1)
-    if(data3(i, 3) <  1e-5 && data3(i, 3) >  -1e-5)
+    if(data3(i, 3) <  1e-7 && data3(i, 3) >  -1e-7)
         data3_zero = [data3_zero; data3(i, :)];
     end
 end
 
 for i = 1:size(data4, 1)
-    if(data4(i, 3) <  1e-5 && data4(i, 3) >  -1e-5)
+    if(data4(i, 3) <  1e-7 && data4(i, 3) >  -1e-7)
         data4_zero = [data4_zero; data4(i, :)];
     end
 end

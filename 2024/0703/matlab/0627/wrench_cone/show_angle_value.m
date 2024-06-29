@@ -31,3 +31,9 @@ min1 = min(theta1);
 min2 = min(theta2);
 min3 = min(theta3);
 min4 = min(theta4);
+
+% 小さい順にソート
+theta1 = sort(theta1);
+theta2 = sort(theta2);
+theta3 = sort(theta3);
+theta4 = sort(theta4);
