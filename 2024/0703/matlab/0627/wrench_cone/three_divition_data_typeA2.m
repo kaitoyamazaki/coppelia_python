@@ -18,11 +18,12 @@ A = [0 1 0;
      1 0 1;
      l1(1) -l2(2) l3(1)];
 
-wrench_point = [];
+wrench_point = zeros(1030301,3);
+count = 1;
 
-for i = 0:0.025:1.0
-    for j = 0:0.025:1.0
-        for k = 0:0.025:1.0
+for i = 0:0.01:1.0
+    for j = 0:0.01:1.0
+        for k = 0:0.01:1.0
             edit_f1 = i*f1;
             edit_f2 = j*f2;
             edit_f3 = k*f3;
@@ -40,7 +41,9 @@ for i = 0:0.025:1.0
             wrench3 = [ans_f3(1) ans_f3(2) ans_f3(3)];
             wrench = wrench1 + wrench2 + wrench3;
 
-            wrench_point = [wrench_point; wrench];
+            wrench_point(count, :) = wrench;
+            count = count + 1;
+            %wrench_point = [wrench_point; wrench];
         end
     end
 end
