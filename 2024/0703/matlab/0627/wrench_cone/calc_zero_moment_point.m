@@ -24,7 +24,7 @@ data4_zero = zeros(rows, 3);
 count = 1;
 
 for i = 1:size(data, 1)
-    if(data(i, 3) <  1e-10 && data(i, 3) >  -1e-10)
+    if(data(i, 3) == 0)
         data_zero(count, :) = data(i, :);
         count = count + 1;
     end
@@ -33,7 +33,7 @@ end
 count = 1;
 
 for i = 1:size(data2, 1)
-    if(data2(i, 3) <  1e-10 && data2(i, 3) >  -1e-10)
+    if(data2(i, 3) == 0)
         data2_zero(count, :) = data2(i, :);
         count = count + 1;
     end
