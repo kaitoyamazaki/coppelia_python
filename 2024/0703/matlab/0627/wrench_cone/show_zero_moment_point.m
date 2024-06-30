@@ -2,6 +2,9 @@
 
 clear;
 
+addpath('.', '-end');
+addpath('function', '-end');
+
 data = load('data/typeA1_モーメントゼロ点.mat');
 data2 = load('data/typeA2_モーメントゼロ点.mat');
 data3 = load('data/typeB1_モーメントゼロ点.mat');

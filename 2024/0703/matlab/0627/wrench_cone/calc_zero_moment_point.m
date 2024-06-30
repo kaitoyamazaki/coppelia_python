@@ -15,32 +15,49 @@ data2 = data2.wrench_point;
 data3 = data3.wrench_point;
 data4 = data4.wrench_point;
 
+rows = size(data,1);
+data_zero = zeros(rows, 3);
+data2_zero = zeros(rows, 3);
+data3_zero = zeros(rows, 3);
+data4_zero = zeros(rows, 3);
 
-data_zero = [];
-data2_zero = [];
-data3_zero = [];
-data4_zero = [];
+count = 1;
 
 for i = 1:size(data, 1)
     if(data(i, 3) <  1e-10 && data(i, 3) >  -1e-10)
-        data_zero = [data_zero; data(i, :)];
+        data_zero(count, :) = data(i, :);
+        count = count + 1;
     end
 end
+
+count = 1;
 
 for i = 1:size(data2, 1)
     if(data2(i, 3) <  1e-10 && data2(i, 3) >  -1e-10)
-        data2_zero = [data2_zero; data2(i, :)];
+        data2_zero(count, :) = data2(i, :);
+        count = count + 1;
     end
 end
+
+count = 1;
 
 for i = 1:size(data3, 1)
-    if(data3(i, 3) <  1e-7 && data3(i, 3) >  -1e-7)
-        data3_zero = [data3_zero; data3(i, :)];
+    if(data3(i, 3) <  0)
+        data3_zero(count, :) = data3(i, :);
+        count = count + 1;
     end
 end
 
+count = 1;
+
 for i = 1:size(data4, 1)
-    if(data4(i, 3) <  1e-7 && data4(i, 3) >  -1e-7)
-        data4_zero = [data4_zero; data4(i, :)];
+    if(data4(i, 3) >  0)
+        data4_zero(count, :) = data4(i, :);
+        count = count + 1;
     end
 end
+
+data_zero(all(data_zero == 0, 2), :) = [];
+data2_zero(all(data2_zero == 0, 2), :) = [];
+data3_zero(all(data3_zero == 0, 2), :) = [];
+data4_zero(all(data4_zero == 0, 2), :) = [];
